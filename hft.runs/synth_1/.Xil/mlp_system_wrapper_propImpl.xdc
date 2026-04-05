@@ -1,0 +1,7 @@
+set_property SRC_FILE_INFO {cfile:{D:/vivado projects/hft/hft.srcs/constrs_1/new/zedboard_mlp.xdc} rfile:../../../hft.srcs/constrs_1/new/zedboard_mlp.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:14 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN T22  [get_ports {o_led_0[0]}]
+set_property src_info {type:XDC file:1 line:18 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN T21  [get_ports {o_led_0[1]}]
+set_property src_info {type:XDC file:1 line:22 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN U22  [get_ports {o_led_0[2]}]
