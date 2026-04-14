@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-| Date         : Mon Mar 16 20:54:28 2026
+| Date         : Sun Apr  5 22:03:09 2026
 | Host         : Batu running 64-bit major release  (build 9200)
 | Command      : report_utilization -file mlp_system_wrapper_utilization_synth.rpt -pb mlp_system_wrapper_utilization_synth.pb
 | Design       : mlp_system_wrapper
@@ -158,14 +158,17 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 8. Black Boxes
 --------------
 
-+-----------------------------------+------+
-|              Ref Name             | Used |
-+-----------------------------------+------+
-| mlp_system_rst_ps7_0_100M_0       |    1 |
-| mlp_system_processing_system7_0_0 |    1 |
-| mlp_system_mlp_axi_wrapper_0_0    |    1 |
-| mlp_system_axi_smc_0              |    1 |
-+-----------------------------------+------+
++-------------------------------------------+------+
+|                  Ref Name                 | Used |
++-------------------------------------------+------+
+| mlp_system_rst_ps7_0_100M_0               |    1 |
+| mlp_system_processing_system7_0_0         |    1 |
+| mlp_system_mlp_axi_wrapper_0_1            |    1 |
+| mlp_system_axi_smc_0                      |    1 |
+| mlp_system_axi_mem_intercon_imp_auto_us_0 |    1 |
+| mlp_system_axi_mem_intercon_imp_auto_pc_0 |    1 |
+| mlp_system_axi_dma_0_0                    |    1 |
++-------------------------------------------+------+
 
 
 9. Instantiated Netlists

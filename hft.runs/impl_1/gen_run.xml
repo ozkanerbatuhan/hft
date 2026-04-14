@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1773683540">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1775415915">
   <File Type="PA-TCL" Name="mlp_system_wrapper.tcl"/>
   <File Type="REPORTS-TCL" Name="mlp_system_wrapper_reports.tcl"/>
   <File Type="INIT-TIMING" Name="mlp_system_wrapper_timing_summary_init.rpt"/>
@@ -262,7 +262,11 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="mlp_system_mlp_axi_wrapper_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="mlp_system_processing_system7_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="mlp_system_rst_ps7_0_100M_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="mlp_system_axi_dma_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="mlp_system_axi_smc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="mlp_system_axi_mem_intercon_imp_auto_us_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="mlp_system_mlp_axi_wrapper_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="mlp_system_axi_mem_intercon_imp_auto_pc_0"/>
 </GenRun>

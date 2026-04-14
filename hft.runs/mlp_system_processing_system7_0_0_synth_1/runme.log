@@ -8,12 +8,13 @@
   **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
   **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
   **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-  **** Start of session at: Mon Mar 16 20:52:22 2026
+  **** Start of session at: Sun Apr  5 22:00:03 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
+ERROR: [Common 17-1257] Failed to create directory 'C'.
 source mlp_system_processing_system7_0_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 661.816 ; gain = 220.305
+create_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:11 . Memory (MB): peak = 663.430 ; gain = 220.797
 Command: synth_design -top mlp_system_processing_system7_0_0 -part xc7z020clg484-1 -incremental_mode off -mode out_of_context
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
@@ -21,9 +22,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 8728
+INFO: [Synth 8-7075] Helper process launched with PID 9680
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1458.527 ; gain = 540.184
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1457.051 ; gain = 538.898
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'mlp_system_processing_system7_0_0' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'processing_system7_v5_5_processing_system7' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:152]
@@ -34,20 +35,20 @@ INFO: [Synth 8-6155] done synthesizing module 'BIBUF' (0#1) [D:/AMDDesignTools/2
 INFO: [Synth 8-6157] synthesizing module 'PS7' [D:/AMDDesignTools/2025.2/Vivado/scripts/rt/data/unisim_comp.v:140294]
 INFO: [Synth 8-6155] done synthesizing module 'PS7' (0#1) [D:/AMDDesignTools/2025.2/Vivado/scripts/rt/data/unisim_comp.v:140294]
 INFO: [Synth 8-6155] done synthesizing module 'processing_system7_v5_5_processing_system7' (0#1) [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/hdl/verilog/processing_system7_v5_5_processing_system7.v:152]
-INFO: [Synth 8-7071] port 'M_AXI_GP0_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
-INFO: [Synth 8-7071] port 'M_AXI_GP1_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
-INFO: [Synth 8-7071] port 'S_AXI_GP0_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
-INFO: [Synth 8-7071] port 'S_AXI_GP1_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
-INFO: [Synth 8-7071] port 'S_AXI_ACP_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
-INFO: [Synth 8-7071] port 'S_AXI_HP0_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
-INFO: [Synth 8-7071] port 'S_AXI_HP1_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
-INFO: [Synth 8-7071] port 'S_AXI_HP2_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
-INFO: [Synth 8-7071] port 'S_AXI_HP3_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
-INFO: [Synth 8-7071] port 'DMA0_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
-INFO: [Synth 8-7071] port 'DMA1_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
-INFO: [Synth 8-7071] port 'DMA2_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
-INFO: [Synth 8-7071] port 'DMA3_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
-INFO: [Synth 8-7023] instance 'inst' of module 'processing_system7_v5_5_processing_system7' has 685 connections declared, but only 672 given [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:336]
+INFO: [Synth 8-7071] port 'M_AXI_GP0_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
+INFO: [Synth 8-7071] port 'M_AXI_GP1_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
+INFO: [Synth 8-7071] port 'S_AXI_GP0_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
+INFO: [Synth 8-7071] port 'S_AXI_GP1_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
+INFO: [Synth 8-7071] port 'S_AXI_ACP_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
+INFO: [Synth 8-7071] port 'S_AXI_HP0_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
+INFO: [Synth 8-7071] port 'S_AXI_HP1_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
+INFO: [Synth 8-7071] port 'S_AXI_HP2_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
+INFO: [Synth 8-7071] port 'S_AXI_HP3_ARESETN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
+INFO: [Synth 8-7071] port 'DMA0_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
+INFO: [Synth 8-7071] port 'DMA1_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
+INFO: [Synth 8-7071] port 'DMA2_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
+INFO: [Synth 8-7071] port 'DMA3_RSTN' of module 'processing_system7_v5_5_processing_system7' is unconnected for instance 'inst' [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
+INFO: [Synth 8-7023] instance 'inst' of module 'processing_system7_v5_5_processing_system7' has 685 connections declared, but only 672 given [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:477]
 INFO: [Synth 8-6155] done synthesizing module 'mlp_system_processing_system7_0_0' (0#1) [d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/synth/mlp_system_processing_system7_0_0.v:53]
 INFO: [Synth 8-7129] Port ENET0_GMII_COL in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
 INFO: [Synth 8-7129] Port ENET0_GMII_CRS in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
@@ -129,18 +130,18 @@ INFO: [Synth 8-7129] Port FTMD_TRACEIN_ATID[2] in module processing_system7_v5_5
 INFO: [Synth 8-7129] Port FTMD_TRACEIN_ATID[1] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
 INFO: [Synth 8-7129] Port FTMD_TRACEIN_ATID[0] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1590.320 ; gain = 671.977
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1589.922 ; gain = 671.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1590.320 ; gain = 671.977
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1589.922 ; gain = 671.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1590.320 ; gain = 671.977
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1589.922 ; gain = 671.770
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1590.320 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1589.922 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -153,30 +154,30 @@ Parsing XDC File [D:/vivado projects/hft/hft.runs/mlp_system_processing_system7_
 Finished Parsing XDC File [D:/vivado projects/hft/hft.runs/mlp_system_processing_system7_0_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1590.320 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1589.922 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.065 . Memory (MB): peak = 1590.320 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 1589.922 ; gain = 0.000
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1590.320 ; gain = 671.977
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1589.922 ; gain = 671.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1590.320 ; gain = 671.977
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1589.922 ; gain = 671.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 1590.320 ; gain = 671.977
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1589.922 ; gain = 671.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1590.320 ; gain = 671.977
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 1589.922 ; gain = 671.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -220,25 +221,25 @@ INFO: [Synth 8-7129] Port ENET1_GMII_RXD[4] in module processing_system7_v5_5_pr
 INFO: [Synth 8-7129] Port ENET1_GMII_RXD[3] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1595.234 ; gain = 676.891
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1591.453 ; gain = 673.301
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1911.961 ; gain = 993.617
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1905.277 ; gain = 987.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1932.418 ; gain = 1014.074
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1925.820 ; gain = 1007.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1935.363 ; gain = 1017.020
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 1928.691 ; gain = 1010.539
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -256,37 +257,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 2184.141 ; gain = 1265.797
+Finished IO Insertion : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 2177.449 ; gain = 1259.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 2184.141 ; gain = 1265.797
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 2177.449 ; gain = 1259.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 2184.141 ; gain = 1265.797
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 2177.449 ; gain = 1259.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 2184.141 ; gain = 1265.797
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 2177.449 ; gain = 1259.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 2184.141 ; gain = 1265.797
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 2177.449 ; gain = 1259.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 2184.141 ; gain = 1265.797
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 2177.449 ; gain = 1259.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -308,25 +309,25 @@ Report Cell Usage:
 |4     |PS7   |     1|
 +------+------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 2184.141 ; gain = 1265.797
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 2177.449 ; gain = 1259.297
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:34 . Memory (MB): peak = 2184.141 ; gain = 1265.797
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:38 . Memory (MB): peak = 2184.141 ; gain = 1265.797
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:39 . Memory (MB): peak = 2177.449 ; gain = 1259.297
+Synthesis Optimization Complete : Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 2177.449 ; gain = 1259.297
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 2184.141 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 2177.449 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2196.918 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2190.195 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 79123f98
+Synth Design complete | Checksum: 42ff00f2
 INFO: [Common 17-83] Releasing license: Synthesis
 139 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:44 . Memory (MB): peak = 2196.918 ; gain = 1510.141
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 2196.918 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:51 . Memory (MB): peak = 2190.195 ; gain = 1503.555
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2190.195 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/vivado projects/hft/hft.runs/mlp_system_processing_system7_0_0_synth_1/mlp_system_processing_system7_0_0.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file mlp_system_processing_system7_0_0_utilization_synth.rpt -pb mlp_system_processing_system7_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Mar 16 20:53:22 2026...
+INFO: [Common 17-206] Exiting Vivado at Sun Apr  5 22:01:17 2026...
