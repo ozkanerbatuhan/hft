@@ -64,3 +64,6 @@ Thumbs.db
 # ─── Python temp (convert script etc.) ─────────────────────
 *.pyc
 __pycache__/
+
+# ─── Documentation & Reports ──────────────────────────────
+
