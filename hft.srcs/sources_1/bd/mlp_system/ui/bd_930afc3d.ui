@@ -16,25 +16,25 @@ preplace port DDR -pg 1 -lvl 6 -x 1850 -y 330 -defaultsOSRD
 preplace port FIXED_IO -pg 1 -lvl 6 -x 1850 -y 350 -defaultsOSRD
 preplace portBus o_led_0 -pg 1 -lvl 6 -x 1850 -y 110 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 5 -x 1590 -y 410 -defaultsOSRD
-preplace inst axi_smc -pg 1 -lvl 2 -x 510 -y 350 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 2 -x 520 -y 350 -defaultsOSRD
 preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -x 190 -y 390 -defaultsOSRD
-preplace inst axi_dma_0 -pg 1 -lvl 3 -x 850 -y 170 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 3 -x 860 -y 170 -defaultsOSRD
 preplace inst axi_mem_intercon -pg 1 -lvl 4 -x 1200 -y 400 -defaultsOSRD
 preplace inst mlp_axi_wrapper_0 -pg 1 -lvl 5 -x 1590 -y 110 -defaultsOSRD
 preplace netloc mlp_axi_wrapper_0_o_led 1 5 1 NJ 110
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 20 290 360 260 670 260 1040 250 1350 550 1830
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 20 560 NJ 560 NJ 560 NJ 560 NJ 560 1820
-preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 4 370 430 680 430 1050 260 1360
-preplace netloc axi_dma_0_M_AXIS_MM2S 1 3 2 1020 60 NJ
-preplace netloc axi_dma_0_M_AXI_MM2S 1 3 1 1030 140n
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 20 290 370 430 680 360 1030 520 1350 270 1820
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 20 550 NJ 550 NJ 550 NJ 550 NJ 550 1820
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 4 360 260 690 260 1050 160 1360
+preplace netloc axi_dma_0_M_AXIS_MM2S 1 3 2 1030 60 NJ
+preplace netloc axi_dma_0_M_AXI_MM2S 1 3 1 1040 140n
 preplace netloc axi_mem_intercon_M00_AXI 1 4 1 N 400
-preplace netloc axi_smc_M00_AXI 1 2 3 650 80 NJ 80 NJ
-preplace netloc axi_smc_M01_AXI 1 2 1 660 140n
+preplace netloc axi_smc_M00_AXI 1 2 3 660 80 NJ 80 NJ
+preplace netloc axi_smc_M01_AXI 1 2 1 670 140n
 preplace netloc processing_system7_0_DDR 1 5 1 NJ 330
 preplace netloc processing_system7_0_FIXED_IO 1 5 1 NJ 350
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 5 370 270 NJ 270 NJ 270 NJ 270 1820
-levelinfo -pg 1 0 190 510 850 1200 1590 1850
-pagesize -pg 1 -db -bbox -sgen 0 0 1980 570
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 5 380 560 NJ 560 NJ 560 NJ 560 1830
+levelinfo -pg 1 0 190 520 860 1200 1590 1850
+pagesize -pg 1 -db -bbox -sgen 0 0 1990 570
 "
 }
 {

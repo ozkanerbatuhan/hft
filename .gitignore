@@ -1,0 +1,66 @@
+# ============================================================
+# Vivado / Vitis .gitignore — HFT-MLP Project
+# ============================================================
+
+# ─── Vivado Project Build Artifacts ─────────────────────────
+*.jou
+*.log
+*.str
+*.xpe
+
+# Runs (synthesis, implementation, simulation outputs)
+hft.runs/
+hft.cache/
+hft.hw/
+hft.ip_user_files/
+hft.sim/
+hft.gen/
+
+# Vivado temp & backup
+.Xil/
+*.backup.jou
+*.backup.log
+webtalk/
+usage_statistics_webtalk.*
+__pycache__/
+
+# ─── Hardware Handoff (regenerable) ─────────────────────────
+*.hdf
+*.xsa
+
+# ─── Vitis / SDK Build Artifacts ───────────────────────────
+vitis_workspace/
+.metadata/
+Debug/
+Release/
+RemoteSystemsTempFiles/
+*.elf
+*.elf.size
+*.elf.unused
+*.o
+*.d
+
+# ─── Block Design Generated Files ──────────────────────────
+# BD wrapper is auto-generated, keep the .bd itself
+hft.srcs/sources_1/bd/*/hdl/
+hft.srcs/sources_1/bd/*/ip/*/sim/
+hft.srcs/sources_1/bd/*/ip/*/synth/
+hft.srcs/sources_1/bd/*/hw_handoff/
+hft.srcs/sources_1/bd/*/ipshared/
+
+# ─── Simulation Outputs ───────────────────────────────────
+*.wdb
+*.wcfg
+xsim.dir/
+*.pb
+*.vcd
+
+# ─── OS / Editor Junk ─────────────────────────────────────
+Thumbs.db
+.DS_Store
+*.swp
+*~
+
+# ─── Python temp (convert script etc.) ─────────────────────
+*.pyc
+__pycache__/

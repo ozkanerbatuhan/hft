@@ -79,3 +79,36 @@ set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[2]}]
 ## BTNU (Up)
 # set_property PACKAGE_PIN T18  [get_ports btn_up]
 # set_property IOSTANDARD LVCMOS33 [get_ports btn_up]
+
+## ─────────────────────────────────────────────
+## PMOD JA — Osiloskop Debug Pinleri
+## ZedBoard PMOD JA Header (3.3V)
+##
+## Sinyal Açıklamaları:
+##   JA1 (dbg_stream_active) : DMA veri akışı aktif (HIGH = veri alınıyor)
+##   JA2 (dbg_mlp_busy)      : MLP hesaplama çekirdeği meşgul
+##   JA3 (dbg_mlp_done)      : MLP hesaplama bitti (tek clock pulse)
+##   JA4 (dbg_tlast_seen)    : TLAST alındı (tek clock pulse)
+##
+## Osiloskop Kullanımı:
+##   CH1 → JA1 (dbg_stream_active)  : Yükselen kenar = veri gelmeye başladı
+##   CH2 → JA2 (dbg_mlp_busy)       : Yükselen kenar = hesaplama başladı
+##                                     Düşen kenar  = hesaplama bitti
+##   CH1-CH2 arası süre = toplam PL gecikme
+## ─────────────────────────────────────────────
+
+## JA1 — DMA Stream Active
+set_property PACKAGE_PIN Y11  [get_ports {dbg_stream_active_0}]
+set_property IOSTANDARD LVCMOS33 [get_ports {dbg_stream_active_0}]
+
+## JA2 — MLP Busy
+set_property PACKAGE_PIN AA11 [get_ports {dbg_mlp_busy_0}]
+set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_busy_0}]
+
+## JA3 — MLP Done (pulse)
+set_property PACKAGE_PIN Y10  [get_ports {dbg_mlp_done_0}]
+set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_done_0}]
+
+## JA4 — TLAST Seen (pulse)
+set_property PACKAGE_PIN AA9  [get_ports {dbg_tlast_seen_0}]
+set_property IOSTANDARD LVCMOS33 [get_ports {dbg_tlast_seen_0}]

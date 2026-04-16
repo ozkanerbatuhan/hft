@@ -57,7 +57,6 @@ if {$::dispatch::connected} {
 
 OPTRACE "mlp_system_mlp_axi_wrapper_0_1_synth_1" START { ROLLUP_AUTO }
 set_param general.usePosixSpawnForFork 1
-set_param bd.open.in_stealth_mode 1
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 set_param ips.modRefOverrideMrefDirPath {{d:/vivado projects/hft/hft.gen/sources_1/bd/mref}}

@@ -79,7 +79,14 @@ entity mlp_axi_wrapper is
         S_AXIS_TLAST    : in  std_logic;
 
         -- LED outputs (directly from MLP)
-        o_led           : out std_logic_vector(2 downto 0)
+        o_led           : out std_logic_vector(2 downto 0);
+
+        -- ★ Debug outputs for oscilloscope probing
+        -- PMOD JA pinlerine bağlanacak
+        dbg_stream_active : out std_logic;  -- JA1: DMA'dan veri akışı var
+        dbg_mlp_busy      : out std_logic;  -- JA2: MLP hesaplama devam ediyor
+        dbg_mlp_done      : out std_logic;  -- JA3: MLP hesaplama bitti (pulse)
+        dbg_tlast_seen    : out std_logic   -- JA4: TLAST geldi (pulse)
     );
 end entity mlp_axi_wrapper;
 
@@ -170,6 +177,9 @@ architecture Behavioral of mlp_axi_wrapper is
     signal soft_reset_r     : std_logic := '0';
     signal soft_reset_pulse : std_logic := '0';
 
+    -- Debug signals
+    signal dbg_tlast_pulse  : std_logic := '0';
+
 begin
 
     -- ──────────────────────────────────────────
@@ -188,6 +198,12 @@ begin
     S_AXIS_TREADY <= s_axis_tready_i;
 
     o_led <= mlp_led;
+
+    -- Debug pin assignments
+    dbg_stream_active <= '1' when (stream_state = ST_RECEIVING or stream_state = ST_ODD_LAST) else '0';
+    dbg_mlp_busy      <= mlp_busy;
+    dbg_mlp_done      <= mlp_done;
+    dbg_tlast_seen    <= dbg_tlast_pulse;
 
     -- Active-high reset for MLP (AXI uses active-low)
     mlp_reset <= (not S_AXI_ARESETN) or soft_reset_pulse;
@@ -515,6 +531,22 @@ begin
                     odd_wr_data    <= signed(S_AXIS_TDATA(31 downto 16));
                 else
                     odd_wr_pending <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    -- TLAST pulse capture (1-clock pulse when TLAST detected)
+    process(S_AXI_ACLK)
+    begin
+        if rising_edge(S_AXI_ACLK) then
+            if S_AXI_ARESETN = '0' then
+                dbg_tlast_pulse <= '0';
+            else
+                if S_AXIS_TVALID = '1' and s_axis_tready_i = '1' and S_AXIS_TLAST = '1' then
+                    dbg_tlast_pulse <= '1';
+                else
+                    dbg_tlast_pulse <= '0';
                 end if;
             end if;
         end if;

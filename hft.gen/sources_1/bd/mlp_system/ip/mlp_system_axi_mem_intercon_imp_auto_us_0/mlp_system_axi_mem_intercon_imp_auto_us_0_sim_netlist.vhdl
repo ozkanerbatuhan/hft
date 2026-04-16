@@ -4,8 +4,8 @@
 -- Tool Version: Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
 -- Date        : Sun Apr  5 22:01:25 2026
 -- Host        : Batu running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim {d:/vivado
---               projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_axi_mem_intercon_imp_auto_us_0/mlp_system_axi_mem_intercon_imp_auto_us_0_sim_netlist.vhdl}
+-- Command     : write_vhdl -force -mode funcsim -rename_top mlp_system_axi_mem_intercon_imp_auto_us_0 -prefix
+--               mlp_system_axi_mem_intercon_imp_auto_us_0_ mlp_system_axi_mem_intercon_imp_auto_us_0_sim_netlist.vhdl
 -- Design      : mlp_system_axi_mem_intercon_imp_auto_us_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -48,8 +48,6 @@ entity mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_r_
     D : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \current_word_1_reg[2]_2\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_r_upsizer : entity is "axi_dwidth_converter_v2_1_37_r_upsizer";
 end mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_r_upsizer;
 
 architecture STRUCTURE of mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_r_upsizer is
@@ -4792,8 +4790,6 @@ entity mlp_system_axi_mem_intercon_imp_auto_us_0_generic_baseblocks_v2_1_2_comma
     s_ready_i_reg_2 : in STD_LOGIC;
     \in\ : in STD_LOGIC_VECTOR ( 23 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of mlp_system_axi_mem_intercon_imp_auto_us_0_generic_baseblocks_v2_1_2_command_fifo : entity is "generic_baseblocks_v2_1_2_command_fifo";
 end mlp_system_axi_mem_intercon_imp_auto_us_0_generic_baseblocks_v2_1_2_command_fifo;
 
 architecture STRUCTURE of mlp_system_axi_mem_intercon_imp_auto_us_0_generic_baseblocks_v2_1_2_command_fifo is
@@ -6029,8 +6025,6 @@ entity mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_a_
     s_ready_i_reg_2 : in STD_LOGIC;
     \in\ : in STD_LOGIC_VECTOR ( 23 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_a_upsizer : entity is "axi_dwidth_converter_v2_1_37_a_upsizer";
 end mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_a_upsizer;
 
 architecture STRUCTURE of mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_a_upsizer is
@@ -6113,8 +6107,6 @@ entity mlp_system_axi_mem_intercon_imp_auto_us_0_axi_register_slice_v2_1_36_axi_
     m_valid_i_reg_0 : in STD_LOGIC;
     E : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of mlp_system_axi_mem_intercon_imp_auto_us_0_axi_register_slice_v2_1_36_axi_register_slice : entity is "axi_register_slice_v2_1_36_axi_register_slice";
 end mlp_system_axi_mem_intercon_imp_auto_us_0_axi_register_slice_v2_1_36_axi_register_slice;
 
 architecture STRUCTURE of mlp_system_axi_mem_intercon_imp_auto_us_0_axi_register_slice_v2_1_36_axi_register_slice is
@@ -6213,8 +6205,6 @@ entity mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_ax
     m_axi_arready : in STD_LOGIC;
     m_axi_rvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_axi_upsizer : entity is "axi_dwidth_converter_v2_1_37_axi_upsizer";
 end mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_axi_upsizer;
 
 architecture STRUCTURE of mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_axi_upsizer is
@@ -6753,8 +6743,6 @@ entity mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_to
   attribute C_S_AXI_ID_WIDTH of mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_top : entity is 1;
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_top : entity is "yes";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_top : entity is "axi_dwidth_converter_v2_1_37_top";
   attribute P_AXI3 : integer;
   attribute P_AXI3 of mlp_system_axi_mem_intercon_imp_auto_us_0_axi_dwidth_converter_v2_1_37_top : entity is 1;
   attribute P_AXI4 : integer;

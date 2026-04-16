@@ -273,8 +273,5 @@ constant biases_l4 : b4_array := (
     to_signed(19, DATA_WIDTH),
     to_signed(37, DATA_WIDTH)
 );
-    -- Output registers
-    signal weight_reg : data_t := (others => '0');
-    signal bias_reg   : data_t := (others => '0');
 
 end package weights_pkg;
