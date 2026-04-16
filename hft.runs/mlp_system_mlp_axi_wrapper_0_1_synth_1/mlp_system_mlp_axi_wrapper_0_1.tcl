@@ -57,6 +57,7 @@ if {$::dispatch::connected} {
 
 OPTRACE "mlp_system_mlp_axi_wrapper_0_1_synth_1" START { ROLLUP_AUTO }
 set_param general.usePosixSpawnForFork 1
+set_param bd.open.in_stealth_mode 1
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 set_param ips.modRefOverrideMrefDirPath {{d:/vivado projects/hft/hft.gen/sources_1/bd/mref}}
@@ -79,14 +80,11 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  {D:/vivado projects/hft/hft.srcs/sources_1/new/Controller_FSM.vhd}
-  {D:/vivado projects/hft/hft.srcs/sources_1/new/MAC_Unit.vhd}
-  {D:/vivado projects/hft/hft.srcs/sources_1/new/PingPong_RAM.vhd}
+  {D:/vivado projects/hft/hft.srcs/sources_1/new/weights_pkg.vhd}
   {D:/vivado projects/hft/hft.srcs/sources_1/new/mlp.vhd}
-  {D:/vivado projects/hft/hft.srcs/sources_1/new/weight_rom.vhd}
   {D:/vivado projects/hft/hft.srcs/sources_1/new/mlp_axi_wrapper.vhd}
 }
-read_ip -quiet {{d:/vivado projects/hft/hft.srcs/sources_1/bd/mlp_system/ip/mlp_system_mlp_axi_wrapper_0_1/mlp_system_mlp_axi_wrapper_0_1.xci}}
+read_ip -quiet {{D:/vivado projects/hft/hft.srcs/sources_1/bd/mlp_system/ip/mlp_system_mlp_axi_wrapper_0_1/mlp_system_mlp_axi_wrapper_0_1.xci}}
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

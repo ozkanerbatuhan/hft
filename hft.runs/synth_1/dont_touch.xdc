@@ -17,19 +17,19 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_
 # IP: bd/mlp_system/ip/mlp_system_rst_ps7_0_100M_0/mlp_system_rst_ps7_0_100M_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_rst_ps7_0_100M_0 || ORIG_REF_NAME==mlp_system_rst_ps7_0_100M_0} -quiet] -quiet
 
-# IP: bd/mlp_system/ip/mlp_system_mlp_axi_wrapper_0_1/mlp_system_mlp_axi_wrapper_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_mlp_axi_wrapper_0_1 || ORIG_REF_NAME==mlp_system_mlp_axi_wrapper_0_1} -quiet] -quiet
-
 # IP: bd/mlp_system/ip/mlp_system_axi_dma_0_0/mlp_system_axi_dma_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_axi_dma_0_0 || ORIG_REF_NAME==mlp_system_axi_dma_0_0} -quiet] -quiet
-
-# IP: bd/mlp_system/ip/mlp_system_axi_mem_intercon_1/mlp_system_axi_mem_intercon_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_axi_mem_intercon_1 || ORIG_REF_NAME==mlp_system_axi_mem_intercon_1} -quiet] -quiet
 
 # IP: bd/mlp_system/ip/mlp_system_axi_mem_intercon_imp_auto_pc_0/mlp_system_axi_mem_intercon_imp_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_axi_mem_intercon_imp_auto_pc_0 || ORIG_REF_NAME==mlp_system_axi_mem_intercon_imp_auto_pc_0} -quiet] -quiet
 
 # IP: bd/mlp_system/ip/mlp_system_axi_mem_intercon_imp_auto_us_0/mlp_system_axi_mem_intercon_imp_auto_us_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_axi_mem_intercon_imp_auto_us_0 || ORIG_REF_NAME==mlp_system_axi_mem_intercon_imp_auto_us_0} -quiet] -quiet
+
+# IP: bd/mlp_system/ip/mlp_system_axi_mem_intercon_1/mlp_system_axi_mem_intercon_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_axi_mem_intercon_1 || ORIG_REF_NAME==mlp_system_axi_mem_intercon_1} -quiet] -quiet
+
+# IP: bd/mlp_system/ip/mlp_system_mlp_axi_wrapper_0_1/mlp_system_mlp_axi_wrapper_0_1.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_mlp_axi_wrapper_0_1 || ORIG_REF_NAME==mlp_system_mlp_axi_wrapper_0_1} -quiet] -quiet
 
 # XDC: d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/mlp_system_ooc.xdc

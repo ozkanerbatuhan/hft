@@ -107,6 +107,7 @@ set rc [catch {
   create_msg_db write_bitstream.pb
   set_param general.usePosixSpawnForFork 1
   set_param chipscope.maxJobs 3
+  set_param bd.open.in_stealth_mode 1
   set_param runs.launchOptions { -jobs 6  }
   open_checkpoint mlp_system_wrapper_routed.dcp
   set_property webtalk.parent_dir {D:/vivado projects/hft/hft.cache/wt} [current_project]
