@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri May  1 14:50:56 2026" VIVADOVERSION="2025.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri May  1 19:02:28 2026" VIVADOVERSION="2025.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="avnet.com:zedboard:part0:1.4" DEVICE="7z020" NAME="bd_90d9" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -1531,7 +1531,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -1575,7 +1575,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -1632,7 +1632,7 @@
             <CONNECTION INSTANCE="m00_sc2axi" PORT="s_sc_ar_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="140" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_ar_node_m_sc_payld">
+        <PORT DIR="O" LEFT="144" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_ar_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="m00_sc2axi" PORT="s_sc_ar_payld"/>
           </CONNECTIONS>
@@ -1667,7 +1667,7 @@
             <CONNECTION INSTANCE="switchboards_ar_la_out_swbd" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="140" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_ar_node_s_sc_payld">
+        <PORT DIR="I" LEFT="144" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_ar_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_ar_la_out_swbd" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -1734,7 +1734,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -1778,7 +1778,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -1835,7 +1835,7 @@
             <CONNECTION INSTANCE="m00_sc2axi" PORT="s_sc_aw_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="140" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_aw_node_m_sc_payld">
+        <PORT DIR="O" LEFT="144" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_aw_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="m00_sc2axi" PORT="s_sc_aw_payld"/>
           </CONNECTIONS>
@@ -1870,7 +1870,7 @@
             <CONNECTION INSTANCE="switchboards_aw_la_out_swbd" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="140" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_aw_node_s_sc_payld">
+        <PORT DIR="I" LEFT="144" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_aw_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_aw_la_out_swbd" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -1937,7 +1937,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="7"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="9"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="3"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -1981,7 +1981,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="7"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="9"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -2038,7 +2038,7 @@
             <CONNECTION INSTANCE="switchboards_b_la_out_swbd" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="6" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_b_node_m_sc_payld">
+        <PORT DIR="O" LEFT="8" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_b_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_b_la_out_swbd" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -2073,7 +2073,7 @@
             <CONNECTION INSTANCE="m00_sc2axi" PORT="m_sc_b_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="6" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_b_node_s_sc_payld">
+        <PORT DIR="I" LEFT="8" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_b_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="m00_sc2axi" PORT="m_sc_b_payld"/>
           </CONNECTIONS>
@@ -2140,7 +2140,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="53"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="55"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="3"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -2184,7 +2184,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="53"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="55"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -2241,7 +2241,7 @@
             <CONNECTION INSTANCE="switchboards_r_la_out_swbd" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="52" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_r_node_m_sc_payld">
+        <PORT DIR="O" LEFT="54" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_r_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_r_la_out_swbd" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -2276,7 +2276,7 @@
             <CONNECTION INSTANCE="m00_sc2axi" PORT="m_sc_r_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="52" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_r_node_s_sc_payld">
+        <PORT DIR="I" LEFT="54" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m00_nodes_m00_r_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="m00_sc2axi" PORT="m_sc_r_payld"/>
           </CONNECTIONS>
@@ -3788,7 +3788,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -3832,7 +3832,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -3889,7 +3889,7 @@
             <CONNECTION INSTANCE="m01_sc2axi" PORT="s_sc_ar_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="140" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_ar_node_m_sc_payld">
+        <PORT DIR="O" LEFT="144" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_ar_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="m01_sc2axi" PORT="s_sc_ar_payld"/>
           </CONNECTIONS>
@@ -3924,7 +3924,7 @@
             <CONNECTION INSTANCE="switchboards_ar_la_out_swbd" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="140" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_ar_node_s_sc_payld">
+        <PORT DIR="I" LEFT="144" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_ar_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_ar_la_out_swbd" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -3991,7 +3991,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -4035,7 +4035,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -4092,7 +4092,7 @@
             <CONNECTION INSTANCE="m01_sc2axi" PORT="s_sc_aw_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="140" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_aw_node_m_sc_payld">
+        <PORT DIR="O" LEFT="144" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_aw_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="m01_sc2axi" PORT="s_sc_aw_payld"/>
           </CONNECTIONS>
@@ -4127,7 +4127,7 @@
             <CONNECTION INSTANCE="switchboards_aw_la_out_swbd" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="140" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_aw_node_s_sc_payld">
+        <PORT DIR="I" LEFT="144" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_aw_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_aw_la_out_swbd" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -4194,7 +4194,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="7"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="9"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="3"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -4238,7 +4238,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="7"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="9"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -4295,7 +4295,7 @@
             <CONNECTION INSTANCE="switchboards_b_la_out_swbd" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="6" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_b_node_m_sc_payld">
+        <PORT DIR="O" LEFT="8" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_b_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_b_la_out_swbd" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -4330,7 +4330,7 @@
             <CONNECTION INSTANCE="m01_sc2axi" PORT="m_sc_b_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="6" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_b_node_s_sc_payld">
+        <PORT DIR="I" LEFT="8" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_b_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="m01_sc2axi" PORT="m_sc_b_payld"/>
           </CONNECTIONS>
@@ -4397,7 +4397,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="53"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="55"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="3"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -4441,7 +4441,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="53"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="55"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -4498,7 +4498,7 @@
             <CONNECTION INSTANCE="switchboards_r_la_out_swbd" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="52" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_r_node_m_sc_payld">
+        <PORT DIR="O" LEFT="54" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_r_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_r_la_out_swbd" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -4533,7 +4533,7 @@
             <CONNECTION INSTANCE="m01_sc2axi" PORT="m_sc_r_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="52" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_r_node_s_sc_payld">
+        <PORT DIR="I" LEFT="54" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_r_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="m01_sc2axi" PORT="m_sc_r_payld"/>
           </CONNECTIONS>
@@ -5766,17 +5766,17 @@
         <PARAMETER NAME="C_MSC_ROUTE_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_NUM_MSC" VALUE="2"/>
         <PARAMETER NAME="C_NUM_READ_OUTSTANDING" VALUE="8"/>
-        <PARAMETER NAME="C_NUM_SEG" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_SEG" VALUE="2"/>
         <PARAMETER NAME="C_NUM_WRITE_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_RDATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_READ_ACCEPTANCE" VALUE="32"/>
-        <PARAMETER NAME="C_SEG_BASE_ADDR_ARRAY" VALUE="0x0000000040400000"/>
-        <PARAMETER NAME="C_SEG_SECURE_READ_ARRAY" VALUE="0b0"/>
-        <PARAMETER NAME="C_SEG_SECURE_WRITE_ARRAY" VALUE="0b0"/>
-        <PARAMETER NAME="C_SEG_SEP_ROUTE_ARRAY" VALUE="0x0000000000000001"/>
-        <PARAMETER NAME="C_SEG_SIZE_ARRAY" VALUE="0x00000010"/>
-        <PARAMETER NAME="C_SEG_SUPPORTS_READ_ARRAY" VALUE="0b1"/>
-        <PARAMETER NAME="C_SEG_SUPPORTS_WRITE_ARRAY" VALUE="0b1"/>
+        <PARAMETER NAME="C_SEG_BASE_ADDR_ARRAY" VALUE="0x00000000404000000000000040000000"/>
+        <PARAMETER NAME="C_SEG_SECURE_READ_ARRAY" VALUE="0b00"/>
+        <PARAMETER NAME="C_SEG_SECURE_WRITE_ARRAY" VALUE="0b00"/>
+        <PARAMETER NAME="C_SEG_SEP_ROUTE_ARRAY" VALUE="0x00000000000000010000000000000000"/>
+        <PARAMETER NAME="C_SEG_SIZE_ARRAY" VALUE="0x000000100000000c"/>
+        <PARAMETER NAME="C_SEG_SUPPORTS_READ_ARRAY" VALUE="0b11"/>
+        <PARAMETER NAME="C_SEG_SUPPORTS_WRITE_ARRAY" VALUE="0b11"/>
         <PARAMETER NAME="C_SINGLE_ISSUING" VALUE="1"/>
         <PARAMETER NAME="C_SUPPORTS_NARROW" VALUE="0"/>
         <PARAMETER NAME="C_SUPPORTS_READ_DECERR" VALUE="1"/>
@@ -6055,23 +6055,23 @@
         <PARAMETER NAME="MSC_ROUTE_WIDTH" VALUE="4"/>
         <PARAMETER NAME="NUM_MSC" VALUE="2"/>
         <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="8"/>
-        <PARAMETER NAME="NUM_SEG" VALUE="1"/>
+        <PARAMETER NAME="NUM_SEG" VALUE="2"/>
         <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="RDATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="READ_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
-        <PARAMETER NAME="SEG000_BASE_ADDR" VALUE="0x0000000040400000"/>
+        <PARAMETER NAME="SEG000_BASE_ADDR" VALUE="0x0000000040000000"/>
         <PARAMETER NAME="SEG000_SECURE_READ" VALUE="0"/>
         <PARAMETER NAME="SEG000_SECURE_WRITE" VALUE="0"/>
-        <PARAMETER NAME="SEG000_SEP_ROUTE" VALUE="0b0000000000000000000000000000000000000000000000000000000000000001"/>
-        <PARAMETER NAME="SEG000_SIZE" VALUE="16"/>
+        <PARAMETER NAME="SEG000_SEP_ROUTE" VALUE="0b0000000000000000000000000000000000000000000000000000000000000000"/>
+        <PARAMETER NAME="SEG000_SIZE" VALUE="12"/>
         <PARAMETER NAME="SEG000_SUPPORTS_READ" VALUE="1"/>
         <PARAMETER NAME="SEG000_SUPPORTS_WRITE" VALUE="1"/>
-        <PARAMETER NAME="SEG001_BASE_ADDR" VALUE="0x0000000000100000"/>
+        <PARAMETER NAME="SEG001_BASE_ADDR" VALUE="0x0000000040400000"/>
         <PARAMETER NAME="SEG001_SECURE_READ" VALUE="0"/>
         <PARAMETER NAME="SEG001_SECURE_WRITE" VALUE="0"/>
-        <PARAMETER NAME="SEG001_SEP_ROUTE" VALUE="0x0000000000000000"/>
-        <PARAMETER NAME="SEG001_SIZE" VALUE="12"/>
+        <PARAMETER NAME="SEG001_SEP_ROUTE" VALUE="0b0000000000000000000000000000000000000000000000000000000000000001"/>
+        <PARAMETER NAME="SEG001_SIZE" VALUE="16"/>
         <PARAMETER NAME="SEG001_SUPPORTS_READ" VALUE="1"/>
         <PARAMETER NAME="SEG001_SUPPORTS_WRITE" VALUE="1"/>
         <PARAMETER NAME="SEG002_BASE_ADDR" VALUE="0x0000000000200000"/>
@@ -8453,15 +8453,15 @@
         <PARAMETER NAME="C_NUM_MSC" VALUE="2"/>
         <PARAMETER NAME="C_NUM_READ_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_READ_THREADS" VALUE="1"/>
-        <PARAMETER NAME="C_NUM_SEG" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_SEG" VALUE="2"/>
         <PARAMETER NAME="C_NUM_WRITE_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_WRITE_THREADS" VALUE="1"/>
         <PARAMETER NAME="C_RDATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_READ_ACCEPTANCE" VALUE="32"/>
         <PARAMETER NAME="C_READ_WATERMARK" VALUE="0"/>
-        <PARAMETER NAME="C_SEP_PROTOCOL_ARRAY" VALUE="0x00000002"/>
-        <PARAMETER NAME="C_SEP_RDATA_WIDTH_ARRAY" VALUE="0x00000020"/>
-        <PARAMETER NAME="C_SEP_WDATA_WIDTH_ARRAY" VALUE="0x00000020"/>
+        <PARAMETER NAME="C_SEP_PROTOCOL_ARRAY" VALUE="0x0000000200000002"/>
+        <PARAMETER NAME="C_SEP_RDATA_WIDTH_ARRAY" VALUE="0x0000002000000020"/>
+        <PARAMETER NAME="C_SEP_WDATA_WIDTH_ARRAY" VALUE="0x0000002000000020"/>
         <PARAMETER NAME="C_SINGLE_ISSUING" VALUE="1"/>
         <PARAMETER NAME="C_SPLIT_WRAP_NARROW" VALUE="0"/>
         <PARAMETER NAME="C_SUPPORTS_NARROW" VALUE="0"/>
@@ -8998,7 +8998,7 @@
         <PARAMETER NAME="NUM_MSC" VALUE="2"/>
         <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
-        <PARAMETER NAME="NUM_SEG" VALUE="1"/>
+        <PARAMETER NAME="NUM_SEG" VALUE="2"/>
         <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
         <PARAMETER NAME="RDATA_WIDTH" VALUE="32"/>
@@ -9008,7 +9008,7 @@
         <PARAMETER NAME="SEP000_PROTOCOL" VALUE="AXI4LITE"/>
         <PARAMETER NAME="SEP000_RDATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="SEP000_WDATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="SEP001_PROTOCOL" VALUE="AXI4"/>
+        <PARAMETER NAME="SEP001_PROTOCOL" VALUE="AXI4LITE"/>
         <PARAMETER NAME="SEP001_RDATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="SEP001_WDATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="SEP002_PROTOCOL" VALUE="AXI4"/>
@@ -11013,7 +11013,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -11057,7 +11057,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -11114,7 +11114,7 @@
             <CONNECTION INSTANCE="switchboards_ar_la_in_swbd" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="140" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_ar_node_m_sc_payld">
+        <PORT DIR="O" LEFT="144" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_ar_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_ar_la_in_swbd" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -11149,7 +11149,7 @@
             <CONNECTION INSTANCE="s00_axi2sc" PORT="m_sc_ar_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="140" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_axi2sc_m_sc_ar_payld">
+        <PORT DIR="I" LEFT="144" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_axi2sc_m_sc_ar_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s00_axi2sc" PORT="m_sc_ar_payld"/>
           </CONNECTIONS>
@@ -11216,7 +11216,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -11260,7 +11260,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -11317,7 +11317,7 @@
             <CONNECTION INSTANCE="switchboards_aw_la_in_swbd" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="140" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_aw_node_m_sc_payld">
+        <PORT DIR="O" LEFT="144" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_aw_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_aw_la_in_swbd" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -11352,7 +11352,7 @@
             <CONNECTION INSTANCE="s00_axi2sc" PORT="m_sc_aw_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="140" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_axi2sc_m_sc_aw_payld">
+        <PORT DIR="I" LEFT="144" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_axi2sc_m_sc_aw_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s00_axi2sc" PORT="m_sc_aw_payld"/>
           </CONNECTIONS>
@@ -11419,7 +11419,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="7"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="9"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="3"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -11463,7 +11463,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="7"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="9"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -11520,7 +11520,7 @@
             <CONNECTION INSTANCE="s00_axi2sc" PORT="s_sc_b_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="6" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_axi2sc_s_sc_b_payld">
+        <PORT DIR="O" LEFT="8" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_axi2sc_s_sc_b_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s00_axi2sc" PORT="s_sc_b_payld"/>
           </CONNECTIONS>
@@ -11555,7 +11555,7 @@
             <CONNECTION INSTANCE="switchboards_b_la_in_swbd" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="6" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_b_node_s_sc_payld">
+        <PORT DIR="I" LEFT="8" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_b_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_b_la_in_swbd" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -11622,7 +11622,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="53"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="55"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="3"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -11666,7 +11666,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="53"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="55"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -11723,7 +11723,7 @@
             <CONNECTION INSTANCE="s00_axi2sc" PORT="s_sc_r_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="52" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_axi2sc_s_sc_r_payld">
+        <PORT DIR="O" LEFT="54" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_axi2sc_s_sc_r_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s00_axi2sc" PORT="s_sc_r_payld"/>
           </CONNECTIONS>
@@ -11758,7 +11758,7 @@
             <CONNECTION INSTANCE="switchboards_r_la_in_swbd" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="52" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_r_node_s_sc_payld">
+        <PORT DIR="I" LEFT="54" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_r_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_r_la_in_swbd" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -12012,7 +12012,7 @@
         <PARAMETER NAME="C_M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="C_S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="C_S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_TESTING_MODE" VALUE="0"/>
@@ -12277,7 +12277,7 @@
         <PARAMETER NAME="M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="TESTING_MODE" VALUE="0"/>
@@ -12295,7 +12295,7 @@
             <CONNECTION INSTANCE="switchboards_i_nodes_i_ar_node" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="140" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_ar_la_in_swbd_m_sc_payld">
+        <PORT DIR="O" LEFT="144" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_ar_la_in_swbd_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_i_nodes_i_ar_node" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -12320,7 +12320,7 @@
             <CONNECTION INSTANCE="s00_nodes_s00_ar_node" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="140" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_ar_node_m_sc_payld">
+        <PORT DIR="I" LEFT="144" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_ar_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s00_nodes_s00_ar_node" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -12372,7 +12372,7 @@
         <PARAMETER NAME="C_M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MI" VALUE="2"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="C_S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="C_S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_TESTING_MODE" VALUE="0"/>
@@ -12637,7 +12637,7 @@
         <PARAMETER NAME="M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="NUM_MI" VALUE="2"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="TESTING_MODE" VALUE="0"/>
@@ -12658,7 +12658,7 @@
             <CONNECTION INSTANCE="m01_nodes_m01_ar_node" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="281" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_ar_node_s_sc_payld">
+        <PORT DIR="O" LEFT="289" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_ar_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="m00_nodes_m00_ar_node" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -12695,7 +12695,7 @@
             <CONNECTION INSTANCE="switchboards_i_nodes_i_ar_node" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="140" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_ar_la_out_swbd_s_sc_payld">
+        <PORT DIR="I" LEFT="144" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_ar_la_out_swbd_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_i_nodes_i_ar_node" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -12756,7 +12756,7 @@
         <PARAMETER NAME="C_M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="C_S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="C_S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_TESTING_MODE" VALUE="0"/>
@@ -13021,7 +13021,7 @@
         <PARAMETER NAME="M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="TESTING_MODE" VALUE="0"/>
@@ -13039,7 +13039,7 @@
             <CONNECTION INSTANCE="switchboards_i_nodes_i_aw_node" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="140" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_aw_la_in_swbd_m_sc_payld">
+        <PORT DIR="O" LEFT="144" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_aw_la_in_swbd_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_i_nodes_i_aw_node" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -13064,7 +13064,7 @@
             <CONNECTION INSTANCE="s00_nodes_s00_aw_node" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="140" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_aw_node_m_sc_payld">
+        <PORT DIR="I" LEFT="144" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_aw_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s00_nodes_s00_aw_node" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -13116,7 +13116,7 @@
         <PARAMETER NAME="C_M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MI" VALUE="2"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="C_S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="C_S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_TESTING_MODE" VALUE="0"/>
@@ -13381,7 +13381,7 @@
         <PARAMETER NAME="M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="NUM_MI" VALUE="2"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="TESTING_MODE" VALUE="0"/>
@@ -13402,7 +13402,7 @@
             <CONNECTION INSTANCE="m01_nodes_m01_aw_node" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="281" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_aw_node_s_sc_payld">
+        <PORT DIR="O" LEFT="289" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_aw_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="m00_nodes_m00_aw_node" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -13439,7 +13439,7 @@
             <CONNECTION INSTANCE="switchboards_i_nodes_i_aw_node" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="140" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_aw_la_out_swbd_s_sc_payld">
+        <PORT DIR="I" LEFT="144" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_aw_la_out_swbd_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_i_nodes_i_aw_node" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -13500,7 +13500,7 @@
         <PARAMETER NAME="C_M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="7"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="9"/>
         <PARAMETER NAME="C_S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="C_S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_TESTING_MODE" VALUE="0"/>
@@ -13765,7 +13765,7 @@
         <PARAMETER NAME="M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="7"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="9"/>
         <PARAMETER NAME="S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="TESTING_MODE" VALUE="0"/>
@@ -13783,7 +13783,7 @@
             <CONNECTION INSTANCE="s00_nodes_s00_b_node" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="6" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_b_node_s_sc_payld">
+        <PORT DIR="O" LEFT="8" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_b_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s00_nodes_s00_b_node" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -13808,7 +13808,7 @@
             <CONNECTION INSTANCE="switchboards_i_nodes_i_b_node" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="6" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_b_la_in_swbd_s_sc_payld">
+        <PORT DIR="I" LEFT="8" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_b_la_in_swbd_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_i_nodes_i_b_node" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -13860,7 +13860,7 @@
         <PARAMETER NAME="C_M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="2"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="7"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="9"/>
         <PARAMETER NAME="C_S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="C_S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_TESTING_MODE" VALUE="0"/>
@@ -14125,7 +14125,7 @@
         <PARAMETER NAME="M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_SI" VALUE="2"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="7"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="9"/>
         <PARAMETER NAME="S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="TESTING_MODE" VALUE="0"/>
@@ -14143,7 +14143,7 @@
             <CONNECTION INSTANCE="switchboards_i_nodes_i_b_node" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="6" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_b_la_out_swbd_m_sc_payld">
+        <PORT DIR="O" LEFT="8" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_b_la_out_swbd_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_i_nodes_i_b_node" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -14171,7 +14171,7 @@
             <CONNECTION INSTANCE="m01_nodes_m01_b_node" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="13" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_b_node_m_sc_payld">
+        <PORT DIR="I" LEFT="17" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_b_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="m00_nodes_m00_b_node" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -14261,7 +14261,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="2"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -14305,7 +14305,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="2"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -14362,7 +14362,7 @@
             <CONNECTION INSTANCE="switchboards_ar_la_out_swbd" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="140" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_ar_la_out_swbd_s_sc_payld">
+        <PORT DIR="O" LEFT="144" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_ar_la_out_swbd_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_ar_la_out_swbd" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -14397,7 +14397,7 @@
             <CONNECTION INSTANCE="switchboards_ar_la_in_swbd" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="140" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_ar_la_in_swbd_m_sc_payld">
+        <PORT DIR="I" LEFT="144" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_ar_la_in_swbd_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_ar_la_in_swbd" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -14464,7 +14464,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="2"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b0"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -14508,7 +14508,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="2"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="141"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="145"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -14565,7 +14565,7 @@
             <CONNECTION INSTANCE="switchboards_aw_la_out_swbd" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="140" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_aw_la_out_swbd_s_sc_payld">
+        <PORT DIR="O" LEFT="144" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_aw_la_out_swbd_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_aw_la_out_swbd" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -14600,7 +14600,7 @@
             <CONNECTION INSTANCE="switchboards_aw_la_in_swbd" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="140" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_aw_la_in_swbd_m_sc_payld">
+        <PORT DIR="I" LEFT="144" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_aw_la_in_swbd_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_aw_la_in_swbd" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -14667,7 +14667,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="2"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="7"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="9"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b00"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="3"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -14711,7 +14711,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="2"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="7"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="9"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -14768,7 +14768,7 @@
             <CONNECTION INSTANCE="switchboards_b_la_in_swbd" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="6" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_b_la_in_swbd_s_sc_payld">
+        <PORT DIR="O" LEFT="8" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_b_la_in_swbd_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_b_la_in_swbd" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -14803,7 +14803,7 @@
             <CONNECTION INSTANCE="switchboards_b_la_out_swbd" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="6" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_b_la_out_swbd_m_sc_payld">
+        <PORT DIR="I" LEFT="8" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_b_la_out_swbd_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_b_la_out_swbd" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -14870,7 +14870,7 @@
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="2"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="53"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="55"/>
         <PARAMETER NAME="C_PRIORITY_ARB_ARRAY" VALUE="0b00"/>
         <PARAMETER NAME="C_SC_ROUTE_WIDTH" VALUE="3"/>
         <PARAMETER NAME="C_SYNCHRONIZATION_STAGES" VALUE="3"/>
@@ -14914,7 +14914,7 @@
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_OUTSTANDING" VALUE="8"/>
         <PARAMETER NAME="NUM_SI" VALUE="2"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="53"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="55"/>
         <PARAMETER NAME="S00_NUM_BYTES" VALUE="4"/>
         <PARAMETER NAME="S00_PRIORITY_ARB" VALUE="0"/>
         <PARAMETER NAME="S01_NUM_BYTES" VALUE="4"/>
@@ -14971,7 +14971,7 @@
             <CONNECTION INSTANCE="switchboards_r_la_in_swbd" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="52" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_i_nodes_i_r_node_m_sc_payld">
+        <PORT DIR="O" LEFT="54" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_i_nodes_i_r_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_r_la_in_swbd" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -15006,7 +15006,7 @@
             <CONNECTION INSTANCE="switchboards_r_la_out_swbd" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="52" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_i_nodes_i_r_node_s_sc_payld">
+        <PORT DIR="I" LEFT="54" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_i_nodes_i_r_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_r_la_out_swbd" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -15260,7 +15260,7 @@
         <PARAMETER NAME="C_M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="53"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="55"/>
         <PARAMETER NAME="C_S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="C_S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_TESTING_MODE" VALUE="0"/>
@@ -15525,7 +15525,7 @@
         <PARAMETER NAME="M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="53"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="55"/>
         <PARAMETER NAME="S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="TESTING_MODE" VALUE="0"/>
@@ -15543,7 +15543,7 @@
             <CONNECTION INSTANCE="s00_nodes_s00_r_node" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="52" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_r_node_s_sc_payld">
+        <PORT DIR="O" LEFT="54" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="s00_nodes_s00_r_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="s00_nodes_s00_r_node" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -15568,7 +15568,7 @@
             <CONNECTION INSTANCE="switchboards_i_nodes_i_r_node" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="52" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_i_nodes_i_r_node_m_sc_payld">
+        <PORT DIR="I" LEFT="54" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_i_nodes_i_r_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_i_nodes_i_r_node" PORT="m_sc_payld"/>
           </CONNECTIONS>
@@ -15620,7 +15620,7 @@
         <PARAMETER NAME="C_M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_NUM_MI" VALUE="1"/>
         <PARAMETER NAME="C_NUM_SI" VALUE="2"/>
-        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="53"/>
+        <PARAMETER NAME="C_PAYLD_WIDTH" VALUE="55"/>
         <PARAMETER NAME="C_S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="C_S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="C_TESTING_MODE" VALUE="0"/>
@@ -15885,7 +15885,7 @@
         <PARAMETER NAME="M_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_SI" VALUE="2"/>
-        <PARAMETER NAME="PAYLD_WIDTH" VALUE="53"/>
+        <PARAMETER NAME="PAYLD_WIDTH" VALUE="55"/>
         <PARAMETER NAME="S_LATENCY" VALUE="0"/>
         <PARAMETER NAME="S_PIPELINES" VALUE="0"/>
         <PARAMETER NAME="TESTING_MODE" VALUE="0"/>
@@ -15903,7 +15903,7 @@
             <CONNECTION INSTANCE="switchboards_i_nodes_i_r_node" PORT="s_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="52" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_i_nodes_i_r_node_s_sc_payld">
+        <PORT DIR="O" LEFT="54" NAME="m_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="switchboards_i_nodes_i_r_node_s_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="switchboards_i_nodes_i_r_node" PORT="s_sc_payld"/>
           </CONNECTIONS>
@@ -15931,7 +15931,7 @@
             <CONNECTION INSTANCE="m01_nodes_m01_r_node" PORT="m_sc_info"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="105" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_r_node_m_sc_payld">
+        <PORT DIR="I" LEFT="109" NAME="s_sc_payld" RIGHT="0" SIGIS="undef" SIGNAME="m01_nodes_m01_r_node_m_sc_payld">
           <CONNECTIONS>
             <CONNECTION INSTANCE="m00_nodes_m00_r_node" PORT="m_sc_payld"/>
           </CONNECTIONS>

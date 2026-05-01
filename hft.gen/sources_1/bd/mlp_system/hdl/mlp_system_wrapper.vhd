@@ -2,7 +2,7 @@
 --Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
---Date        : Fri May  1 14:50:53 2026
+--Date        : Fri May  1 19:02:24 2026
 --Host        : Batu running 64-bit major release  (build 9200)
 --Command     : generate_target mlp_system_wrapper.bd
 --Design      : mlp_system_wrapper
@@ -51,7 +51,7 @@ entity mlp_system_wrapper is
     dbg_tlast_seen_jb_0 : out STD_LOGIC;
     dbg_tlast_seen_jc_0 : out STD_LOGIC;
     dbg_tlast_seen_jd_0 : out STD_LOGIC;
-    o_led_0 : out STD_LOGIC_VECTOR ( 2 downto 0 )
+    o_led_0 : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
 end mlp_system_wrapper;
 
@@ -79,7 +79,6 @@ architecture STRUCTURE of mlp_system_wrapper is
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    o_led_0 : out STD_LOGIC_VECTOR ( 2 downto 0 );
     dbg_stream_active_0 : out STD_LOGIC;
     dbg_mlp_busy_0 : out STD_LOGIC;
     dbg_mlp_done_0 : out STD_LOGIC;
@@ -95,7 +94,8 @@ architecture STRUCTURE of mlp_system_wrapper is
     dbg_stream_active_jd_0 : out STD_LOGIC;
     dbg_mlp_busy_jd_0 : out STD_LOGIC;
     dbg_mlp_done_jd_0 : out STD_LOGIC;
-    dbg_tlast_seen_jd_0 : out STD_LOGIC
+    dbg_tlast_seen_jd_0 : out STD_LOGIC;
+    o_led_0 : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   end component mlp_system;
 begin
@@ -138,6 +138,6 @@ mlp_system_i: component mlp_system
       dbg_tlast_seen_jb_0 => dbg_tlast_seen_jb_0,
       dbg_tlast_seen_jc_0 => dbg_tlast_seen_jc_0,
       dbg_tlast_seen_jd_0 => dbg_tlast_seen_jd_0,
-      o_led_0(2 downto 0) => o_led_0(2 downto 0)
+      o_led_0(7 downto 0) => o_led_0(7 downto 0)
     );
 end STRUCTURE;

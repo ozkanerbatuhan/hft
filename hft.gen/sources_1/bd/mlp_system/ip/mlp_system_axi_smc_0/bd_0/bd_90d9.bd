@@ -845,7 +845,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "141"
+                "value": "145"
               }
             },
             "interface_ports": {
@@ -891,7 +891,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "53"
+                "value": "55"
               }
             },
             "interface_ports": {
@@ -937,7 +937,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "141"
+                "value": "145"
               }
             },
             "interface_ports": {
@@ -1029,7 +1029,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "7"
+                "value": "9"
               }
             },
             "interface_ports": {
@@ -1075,7 +1075,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "141"
+                "value": "145"
               }
             },
             "interface_ports": {
@@ -1130,7 +1130,7 @@
                 "value": "2"
               },
               "PAYLD_WIDTH": {
-                "value": "53"
+                "value": "55"
               }
             },
             "interface_ports": {
@@ -1193,7 +1193,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "141"
+                "value": "145"
               }
             },
             "interface_ports": {
@@ -1303,7 +1303,7 @@
                 "value": "2"
               },
               "PAYLD_WIDTH": {
-                "value": "7"
+                "value": "9"
               }
             },
             "interface_ports": {
@@ -1576,7 +1576,7 @@
                     "value": "1"
                   },
                   "PAYLD_WIDTH": {
-                    "value": "141"
+                    "value": "145"
                   },
                   "S00_NUM_BYTES": {
                     "value": "4"
@@ -1754,7 +1754,7 @@
                     "value": "2"
                   },
                   "PAYLD_WIDTH": {
-                    "value": "53"
+                    "value": "55"
                   },
                   "S00_NUM_BYTES": {
                     "value": "4"
@@ -1932,7 +1932,7 @@
                     "value": "1"
                   },
                   "PAYLD_WIDTH": {
-                    "value": "141"
+                    "value": "145"
                   },
                   "S00_NUM_BYTES": {
                     "value": "4"
@@ -2288,7 +2288,7 @@
                     "value": "2"
                   },
                   "PAYLD_WIDTH": {
-                    "value": "7"
+                    "value": "9"
                   },
                   "S00_NUM_BYTES": {
                     "value": "4"
@@ -2741,7 +2741,7 @@
                 "value": "8"
               },
               "NUM_SEG": {
-                "value": "1"
+                "value": "2"
               },
               "NUM_WRITE_OUTSTANDING": {
                 "value": "8"
@@ -2753,7 +2753,7 @@
                 "value": "READ_WRITE"
               },
               "SEG000_BASE_ADDR": {
-                "value": "0x0000000040400000"
+                "value": "0x0000000040000000"
               },
               "SEG000_SECURE_READ": {
                 "value": "0"
@@ -2762,15 +2762,36 @@
                 "value": "0"
               },
               "SEG000_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000001"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000000"
               },
               "SEG000_SIZE": {
-                "value": "16"
+                "value": "12"
               },
               "SEG000_SUPPORTS_READ": {
                 "value": "1"
               },
               "SEG000_SUPPORTS_WRITE": {
+                "value": "1"
+              },
+              "SEG001_BASE_ADDR": {
+                "value": "0x0000000040400000"
+              },
+              "SEG001_SECURE_READ": {
+                "value": "0"
+              },
+              "SEG001_SECURE_WRITE": {
+                "value": "0"
+              },
+              "SEG001_SEP_ROUTE": {
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000001"
+              },
+              "SEG001_SIZE": {
+                "value": "16"
+              },
+              "SEG001_SUPPORTS_READ": {
+                "value": "1"
+              },
+              "SEG001_SUPPORTS_WRITE": {
                 "value": "1"
               },
               "SINGLE_ISSUING": {
@@ -2974,7 +2995,7 @@
                 "value": "1"
               },
               "NUM_SEG": {
-                "value": "1"
+                "value": "2"
               },
               "NUM_WRITE_OUTSTANDING": {
                 "value": "8"
@@ -2998,6 +3019,15 @@
                 "value": "32"
               },
               "SEP000_WDATA_WIDTH": {
+                "value": "32"
+              },
+              "SEP001_PROTOCOL": {
+                "value": "AXI4LITE"
+              },
+              "SEP001_RDATA_WIDTH": {
+                "value": "32"
+              },
+              "SEP001_WDATA_WIDTH": {
                 "value": "32"
               },
               "SINGLE_ISSUING": {
@@ -3430,7 +3460,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "141"
+                "value": "145"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -3605,7 +3635,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "53"
+                "value": "55"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -3777,7 +3807,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "141"
+                "value": "145"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -4124,7 +4154,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "7"
+                "value": "9"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -4651,7 +4681,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "141"
+                "value": "145"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -4820,7 +4850,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "53"
+                "value": "55"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -4995,7 +5025,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "141"
+                "value": "145"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -5339,7 +5369,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "7"
+                "value": "9"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -6023,7 +6053,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "141"
+                "value": "145"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -6192,7 +6222,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "53"
+                "value": "55"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -6367,7 +6397,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "141"
+                "value": "145"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -6711,7 +6741,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "7"
+                "value": "9"
               },
               "S00_NUM_BYTES": {
                 "value": "4"

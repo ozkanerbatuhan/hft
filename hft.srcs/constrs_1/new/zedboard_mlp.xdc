@@ -22,6 +22,26 @@ set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[1]}]
 set_property PACKAGE_PIN U22  [get_ports {o_led_0[2]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[2]}]
 
+## LD3
+set_property PACKAGE_PIN U21  [get_ports {o_led_0[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[3]}]
+
+## LD4
+set_property PACKAGE_PIN V22  [get_ports {o_led_0[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[4]}]
+
+## LD5
+set_property PACKAGE_PIN W22  [get_ports {o_led_0[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[5]}]
+
+## LD6
+set_property PACKAGE_PIN U19  [get_ports {o_led_0[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[6]}]
+
+## LD7
+set_property PACKAGE_PIN U14  [get_ports {o_led_0[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[7]}]
+
 ## ─────────────────────────────────────────────
 ## Switches (isteğe bağlı — debug/test amaçlı)
 ## ─────────────────────────────────────────────

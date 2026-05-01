@@ -2,7 +2,7 @@
 --Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
---Date        : Fri May  1 14:50:53 2026
+--Date        : Fri May  1 19:02:24 2026
 --Host        : Batu running 64-bit major release  (build 9200)
 --Command     : generate_target mlp_system.bd
 --Design      : mlp_system
@@ -335,7 +335,7 @@ entity mlp_system is
     dbg_tlast_seen_jb_0 : out STD_LOGIC;
     dbg_tlast_seen_jc_0 : out STD_LOGIC;
     dbg_tlast_seen_jd_0 : out STD_LOGIC;
-    o_led_0 : out STD_LOGIC_VECTOR ( 2 downto 0 )
+    o_led_0 : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
   attribute CORE_GENERATION_INFO of mlp_system : entity is "mlp_system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=mlp_system,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=9,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=6,da_clkrst_cnt=1,da_ps7_cnt=1,synth_mode=Hierarchical}";
@@ -600,7 +600,7 @@ architecture STRUCTURE of mlp_system is
     mm2s_introut : out STD_LOGIC
   );
   end component mlp_system_axi_dma_0_0;
-  component mlp_system_mlp_axi_wrapper_0_3 is
+  component mlp_system_mlp_axi_wrapper_0_7 is
   port (
     S_AXI_ACLK : in STD_LOGIC;
     S_AXI_ARESETN : in STD_LOGIC;
@@ -629,7 +629,7 @@ architecture STRUCTURE of mlp_system is
     S_AXIS_TVALID : in STD_LOGIC;
     S_AXIS_TREADY : out STD_LOGIC;
     S_AXIS_TLAST : in STD_LOGIC;
-    o_led : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    o_led : out STD_LOGIC_VECTOR ( 7 downto 0 );
     dbg_stream_active : out STD_LOGIC;
     dbg_mlp_busy : out STD_LOGIC;
     dbg_mlp_done : out STD_LOGIC;
@@ -647,7 +647,7 @@ architecture STRUCTURE of mlp_system is
     dbg_mlp_done_jd : out STD_LOGIC;
     dbg_tlast_seen_jd : out STD_LOGIC
   );
-  end component mlp_system_mlp_axi_wrapper_0_3;
+  end component mlp_system_mlp_axi_wrapper_0_7;
   signal axi_dma_0_M_AXIS_MM2S_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal axi_dma_0_M_AXIS_MM2S_TLAST : STD_LOGIC;
   signal axi_dma_0_M_AXIS_MM2S_TREADY : STD_LOGIC;
@@ -970,7 +970,7 @@ axi_smc: component mlp_system_axi_smc_0
       aclk => processing_system7_0_FCLK_CLK0,
       aresetn => rst_ps7_0_100M_peripheral_aresetn(0)
     );
-mlp_axi_wrapper_0: component mlp_system_mlp_axi_wrapper_0_3
+mlp_axi_wrapper_0: component mlp_system_mlp_axi_wrapper_0_7
      port map (
       S_AXIS_ACLK => processing_system7_0_FCLK_CLK0,
       S_AXIS_ARESETN => rst_ps7_0_100M_peripheral_aresetn(0),
@@ -1015,7 +1015,7 @@ mlp_axi_wrapper_0: component mlp_system_mlp_axi_wrapper_0_3
       dbg_tlast_seen_jb => dbg_tlast_seen_jb_0,
       dbg_tlast_seen_jc => dbg_tlast_seen_jc_0,
       dbg_tlast_seen_jd => dbg_tlast_seen_jd_0,
-      o_led(2 downto 0) => o_led_0(2 downto 0)
+      o_led(7 downto 0) => o_led_0(7 downto 0)
     );
 processing_system7_0: component mlp_system_processing_system7_0_0
      port map (

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xA1ABE38F2ADAD6A1",
+      "boundary_crc": "0x967513BD1D042693",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../hft.gen/sources_1/bd/mlp_system",
       "name": "mlp_system",
@@ -206,11 +206,6 @@
       }
     },
     "ports": {
-      "o_led_0": {
-        "direction": "O",
-        "left": "2",
-        "right": "0"
-      },
       "dbg_stream_active_0": {
         "direction": "O"
       },
@@ -258,6 +253,11 @@
       },
       "dbg_tlast_seen_jd_0": {
         "direction": "O"
+      },
+      "o_led_0": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
       }
     },
     "components": {
@@ -1675,8 +1675,8 @@
       "mlp_axi_wrapper_0": {
         "vlnv": "xilinx.com:module_ref:mlp_axi_wrapper:1.0",
         "ip_revision": "1",
-        "xci_name": "mlp_system_mlp_axi_wrapper_0_3",
-        "xci_path": "ip\\mlp_system_mlp_axi_wrapper_0_3\\mlp_system_mlp_axi_wrapper_0_3.xci",
+        "xci_name": "mlp_system_mlp_axi_wrapper_0_7",
+        "xci_path": "ip\\mlp_system_mlp_axi_wrapper_0_7\\mlp_system_mlp_axi_wrapper_0_7.xci",
         "inst_hier_path": "mlp_axi_wrapper_0",
         "has_run_ip_tcl": "true",
         "reference_info": {
@@ -2032,7 +2032,7 @@
           },
           "o_led": {
             "direction": "O",
-            "left": "2",
+            "left": "7",
             "right": "0"
           },
           "dbg_stream_active": {
@@ -2233,7 +2233,7 @@
           "dbg_tlast_seen_jd_0"
         ]
       },
-      "mlp_axi_wrapper_0_o_led1": {
+      "mlp_axi_wrapper_0_o_led": {
         "ports": [
           "mlp_axi_wrapper_0/o_led",
           "o_led_0"
@@ -2283,6 +2283,11 @@
                 "address_block": "/axi_dma_0/S_AXI_LITE/Reg",
                 "offset": "0x40400000",
                 "range": "64K"
+              },
+              "SEG_mlp_axi_wrapper_0_reg0": {
+                "address_block": "/mlp_axi_wrapper_0/S_AXI/reg0",
+                "offset": "0x40000000",
+                "range": "4K"
               }
             }
           }

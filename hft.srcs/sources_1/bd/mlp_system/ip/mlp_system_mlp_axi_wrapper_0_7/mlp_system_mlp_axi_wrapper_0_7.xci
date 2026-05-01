@@ -1,16 +1,16 @@
 {
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
-    "xci_name": "mlp_system_mlp_axi_wrapper_0_3",
+    "xci_name": "mlp_system_mlp_axi_wrapper_0_7",
     "cell_name": "mlp_axi_wrapper_0",
     "component_reference": "xilinx.com:module_ref:mlp_axi_wrapper:1.0",
     "ip_revision": "1",
-    "gen_directory": "../../../../../../hft.gen/sources_1/bd/mlp_system/ip/mlp_system_mlp_axi_wrapper_0_3",
+    "gen_directory": "../../../../../../hft.gen/sources_1/bd/mlp_system/ip/mlp_system_mlp_axi_wrapper_0_7",
     "parameters": {
       "component_parameters": {
         "C_S_AXI_DATA_WIDTH": [ { "value": "32", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "C_S_AXI_ADDR_WIDTH": [ { "value": "4", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "Component_Name": [ { "value": "mlp_system_mlp_axi_wrapper_0_3", "resolve_type": "user", "usage": "all" } ]
+        "Component_Name": [ { "value": "mlp_system_mlp_axi_wrapper_0_7", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
         "C_S_AXI_DATA_WIDTH": [ { "value": "32", "resolve_type": "generated", "format": "long", "usage": "all" } ],
@@ -33,7 +33,7 @@
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
         "IPREVISION": [ { "value": "1" } ],
         "MANAGED": [ { "value": "TRUE" } ],
-        "OUTPUTDIR": [ { "value": "../../../../../../hft.gen/sources_1/bd/mlp_system/ip/mlp_system_mlp_axi_wrapper_0_3" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../hft.gen/sources_1/bd/mlp_system/ip/mlp_system_mlp_axi_wrapper_0_7" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "../../ipshared" } ],
         "SWVERSION": [ { "value": "2025.2" } ],
@@ -69,7 +69,7 @@
         "S_AXIS_TVALID": [ { "direction": "in" } ],
         "S_AXIS_TREADY": [ { "direction": "out" } ],
         "S_AXIS_TLAST": [ { "direction": "in", "driver_value": "0" } ],
-        "o_led": [ { "direction": "out", "size_left": "2", "size_right": "0" } ],
+        "o_led": [ { "direction": "out", "size_left": "7", "size_right": "0" } ],
         "dbg_stream_active": [ { "direction": "out" } ],
         "dbg_mlp_busy": [ { "direction": "out" } ],
         "dbg_mlp_done": [ { "direction": "out" } ],
@@ -250,5 +250,5 @@
       }
     }
   },
-  "checksum": "cf1ca810"
+  "checksum": "4178f22e"
 }
