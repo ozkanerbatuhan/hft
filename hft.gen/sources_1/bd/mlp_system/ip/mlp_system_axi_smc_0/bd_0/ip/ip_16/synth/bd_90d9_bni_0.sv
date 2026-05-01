@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "sc_node_v1_0_19_top,Vivado 2025.2" *)
 (* CHECK_LICENSE_TYPE = "bd_90d9_bni_0,sc_node_v1_0_19_top,{}" *)
-(* CORE_GENERATION_INFO = "bd_90d9_bni_0,sc_node_v1_0_19_top,{x_ipProduct=Vivado 2025.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=sc_node,x_ipVersion=1.0,x_ipCoreRevision=19,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_FIFO_IP=0,C_DISABLE_IP=0,C_FIFO_SIZE=0,C_FIFO_TYPE=0,C_FIFO_OUTPUT_REG=1,C_ENABLE_PIPELINING=0x01,C_SYNCHRONIZATION_STAGES=3,C_NUM_SI=2,C_NUM_MI=1,C_CHANNEL=4,C_PAYLD_WIDTH=9,C_S_NUM_BYTES_ARRAY=0x0000000400000004,C_M_NUM_BYTES_ARRAY=0x00000004,C_PRIORITY_ARB_ARRAY=0b00,C_USER_BITS_PER_BYTE=0\
+(* CORE_GENERATION_INFO = "bd_90d9_bni_0,sc_node_v1_0_19_top,{x_ipProduct=Vivado 2025.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=sc_node,x_ipVersion=1.0,x_ipCoreRevision=19,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_FIFO_IP=0,C_DISABLE_IP=0,C_FIFO_SIZE=0,C_FIFO_TYPE=0,C_FIFO_OUTPUT_REG=1,C_ENABLE_PIPELINING=0x01,C_SYNCHRONIZATION_STAGES=3,C_NUM_SI=2,C_NUM_MI=1,C_CHANNEL=4,C_PAYLD_WIDTH=7,C_S_NUM_BYTES_ARRAY=0x0000000400000004,C_M_NUM_BYTES_ARRAY=0x00000004,C_PRIORITY_ARB_ARRAY=0b00,C_USER_BITS_PER_BYTE=0\
 ,C_ARBITER_MODE=1,C_SC_ROUTE_WIDTH=3,C_ID_WIDTH=1,C_ADDR_WIDTH=32,C_USER_WIDTH=0,C_MAX_PAYLD_BYTES=4,C_S_PIPELINE=0,C_M_PIPELINE=0,C_M_SEND_PIPELINE=0,C_S_LATENCY=0,C_NUM_OUTSTANDING=8,C_ACLK_RELATIONSHIP=1,C_ACLKEN_CONVERSION=0}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module bd_90d9_bni_0 (
@@ -90,7 +90,7 @@ input wire [1 : 0] s_sc_send;
 (* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S_SC RECV" *)
 output wire [1 : 0] s_sc_recv;
 (* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S_SC PAYLD" *)
-input wire [8 : 0] s_sc_payld;
+input wire [6 : 0] s_sc_payld;
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 m_sc_aclk CLK" *)
 (* X_INTERFACE_MODE = "slave" *)
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_sc_aclk, ASSOCIATED_BUSIF M_SC, ASSOCIATED_RESET m_sc_aresetn, ASSOCIATED_CLKEN m_sc_aclken, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN mlp_system_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *)
@@ -109,7 +109,7 @@ output wire [0 : 0] m_sc_req;
 (* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 M_SC INFO" *)
 output wire [0 : 0] m_sc_info;
 (* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 M_SC PAYLD" *)
-output wire [8 : 0] m_sc_payld;
+output wire [6 : 0] m_sc_payld;
 
   sc_node_v1_0_19_top #(
     .C_FAMILY("zynq"),
@@ -123,7 +123,7 @@ output wire [8 : 0] m_sc_payld;
     .C_NUM_SI(2),
     .C_NUM_MI(1),
     .C_CHANNEL(4),
-    .C_PAYLD_WIDTH(9),
+    .C_PAYLD_WIDTH(7),
     .C_S_NUM_BYTES_ARRAY(64'H0000000400000004),
     .C_M_NUM_BYTES_ARRAY(32'H00000004),
     .C_PRIORITY_ARB_ARRAY(2'B00),

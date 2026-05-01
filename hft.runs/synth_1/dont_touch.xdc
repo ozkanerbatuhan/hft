@@ -23,8 +23,8 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_
 # IP: bd/mlp_system/ip/mlp_system_axi_mem_intercon_1/mlp_system_axi_mem_intercon_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_axi_mem_intercon_1 || ORIG_REF_NAME==mlp_system_axi_mem_intercon_1} -quiet] -quiet
 
-# IP: bd/mlp_system/ip/mlp_system_mlp_axi_wrapper_0_1/mlp_system_mlp_axi_wrapper_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_mlp_axi_wrapper_0_1 || ORIG_REF_NAME==mlp_system_mlp_axi_wrapper_0_1} -quiet] -quiet
+# IP: bd/mlp_system/ip/mlp_system_mlp_axi_wrapper_0_3/mlp_system_mlp_axi_wrapper_0_3.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_mlp_axi_wrapper_0_3 || ORIG_REF_NAME==mlp_system_mlp_axi_wrapper_0_3} -quiet] -quiet
 
 # IP: bd/mlp_system/ip/mlp_system_axi_mem_intercon_imp_auto_pc_0/mlp_system_axi_mem_intercon_imp_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_axi_mem_intercon_imp_auto_pc_0 || ORIG_REF_NAME==mlp_system_axi_mem_intercon_imp_auto_pc_0} -quiet] -quiet

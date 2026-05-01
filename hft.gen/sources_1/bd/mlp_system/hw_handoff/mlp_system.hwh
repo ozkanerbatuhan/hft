@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Apr 16 20:07:16 2026" VIVADOVERSION="2025.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri May  1 14:50:57 2026" VIVADOVERSION="2025.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="avnet.com:zedboard:part0:1.4" DEVICE="7z020" NAME="mlp_system" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -107,6 +107,86 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_srstb" SIGIS="undef" SIGNAME="processing_system7_0_PS_SRSTB">
       <CONNECTIONS>
         <CONNECTION INSTANCE="processing_system7_0" PORT="PS_SRSTB"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_mlp_busy_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_busy"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_mlp_busy_jb_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy_jb">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_busy_jb"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_mlp_busy_jc_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy_jc">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_busy_jc"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_mlp_busy_jd_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy_jd">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_busy_jd"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_mlp_done_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_done"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_mlp_done_jb_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done_jb">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_done_jb"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_mlp_done_jc_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done_jc">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_done_jc"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_mlp_done_jd_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done_jd">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_done_jd"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_stream_active_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_stream_active"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_stream_active_jb_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active_jb">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_stream_active_jb"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_stream_active_jc_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active_jc">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_stream_active_jc"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_stream_active_jd_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active_jd">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_stream_active_jd"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_tlast_seen_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_tlast_seen"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_tlast_seen_jb_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen_jb">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_tlast_seen_jb"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_tlast_seen_jc_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen_jc">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_tlast_seen_jc"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dbg_tlast_seen_jd_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen_jd">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_tlast_seen_jd"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="2" NAME="o_led_0" RIGHT="0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_o_led">
@@ -2470,16 +2550,11 @@
     </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/mlp_axi_wrapper_0" HWVERSION="1.0" INSTANCE="mlp_axi_wrapper_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mlp_axi_wrapper" VLNV="xilinx.com:module_ref:mlp_axi_wrapper:1.0">
       <DOCUMENTS/>
-      <ADDRESSBLOCKS>
-        <ADDRESSBLOCK ACCESS="" INTERFACE="S_AXI" NAME="reg0" RANGE="4096" USAGE="register"/>
-      </ADDRESSBLOCKS>
       <PARAMETERS>
         <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_S_AXI_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="Component_Name" VALUE="mlp_system_mlp_axi_wrapper_0_1"/>
+        <PARAMETER NAME="Component_Name" VALUE="mlp_system_mlp_axi_wrapper_0_3"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-        <PARAMETER NAME="C_BASEADDR" VALUE="0x40000000"/>
-        <PARAMETER NAME="C_HIGHADDR" VALUE="0x40000FFF"/>
       </PARAMETERS>
       <PORTS>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="S_AXIS_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
@@ -2615,6 +2690,86 @@
         <PORT DIR="I" NAME="S_AXI_WVALID" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_wvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_mlp_busy" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_busy_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_mlp_busy_jb" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy_jb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_busy_jb_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_mlp_busy_jc" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy_jc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_busy_jc_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_mlp_busy_jd" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy_jd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_busy_jd_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_mlp_done" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_done_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_mlp_done_jb" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done_jb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_done_jb_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_mlp_done_jc" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done_jc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_done_jc_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_mlp_done_jd" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done_jd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_done_jd_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_stream_active" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_stream_active_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_stream_active_jb" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active_jb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_stream_active_jb_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_stream_active_jc" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active_jc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_stream_active_jc_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_stream_active_jd" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active_jd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_stream_active_jd_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_tlast_seen" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_tlast_seen_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_tlast_seen_jb" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen_jb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_tlast_seen_jb_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_tlast_seen_jc" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen_jc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_tlast_seen_jc_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dbg_tlast_seen_jd" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen_jd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dbg_tlast_seen_jd_0"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="o_led" RIGHT="0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_o_led">
@@ -4248,11 +4403,9 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
       <MEMORYMAP>
-        <MEMRANGE ADDRESSBLOCK="reg0" BASENAME="C_BASEADDR" BASEVALUE="0x40000000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x40000FFF" INSTANCE="mlp_axi_wrapper_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
         <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x40400000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x4040FFFF" INSTANCE="axi_dma_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI_LITE"/>
       </MEMORYMAP>
       <PERIPHERALS>
-        <PERIPHERAL INSTANCE="mlp_axi_wrapper_0"/>
         <PERIPHERAL INSTANCE="axi_dma_0"/>
       </PERIPHERALS>
     </MODULE>

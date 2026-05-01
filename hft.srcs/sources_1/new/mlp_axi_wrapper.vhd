@@ -86,7 +86,25 @@ entity mlp_axi_wrapper is
         dbg_stream_active : out std_logic;  -- JA1: DMA'dan veri akışı var
         dbg_mlp_busy      : out std_logic;  -- JA2: MLP hesaplama devam ediyor
         dbg_mlp_done      : out std_logic;  -- JA3: MLP hesaplama bitti (pulse)
-        dbg_tlast_seen    : out std_logic   -- JA4: TLAST geldi (pulse)
+        dbg_tlast_seen    : out std_logic;  -- JA4: TLAST geldi (pulse)
+
+        -- =====================================================================
+        -- DEBUG STRETCHERS (SILINEBILIR)
+        -- =====================================================================
+        dbg_stream_active_jb : out std_logic;
+        dbg_mlp_busy_jb      : out std_logic;
+        dbg_mlp_done_jb      : out std_logic;
+        dbg_tlast_seen_jb    : out std_logic;
+
+        dbg_stream_active_jc : out std_logic;
+        dbg_mlp_busy_jc      : out std_logic;
+        dbg_mlp_done_jc      : out std_logic;
+        dbg_tlast_seen_jc    : out std_logic;
+
+        dbg_stream_active_jd : out std_logic;
+        dbg_mlp_busy_jd      : out std_logic;
+        dbg_mlp_done_jd      : out std_logic;
+        dbg_tlast_seen_jd    : out std_logic
     );
 end entity mlp_axi_wrapper;
 
@@ -180,6 +198,29 @@ architecture Behavioral of mlp_axi_wrapper is
     -- Debug signals
     signal dbg_tlast_pulse  : std_logic := '0';
 
+    -- =========================================================================
+    -- DEBUG STRETCHERS SIGNALS (SILINEBILIR)
+    -- =========================================================================
+    signal dbg_stream_active_i : std_logic;
+    signal dbg_mlp_busy_i      : std_logic;
+    signal dbg_mlp_done_i      : std_logic;
+    signal dbg_tlast_seen_i    : std_logic;
+
+    signal cnt_stream_active_jb : integer range 0 to 1000 := 0;
+    signal cnt_mlp_busy_jb      : integer range 0 to 1000 := 0;
+    signal cnt_mlp_done_jb      : integer range 0 to 1000 := 0;
+    signal cnt_tlast_seen_jb    : integer range 0 to 1000 := 0;
+
+    signal cnt_stream_active_jc : integer range 0 to 10000 := 0;
+    signal cnt_mlp_busy_jc      : integer range 0 to 10000 := 0;
+    signal cnt_mlp_done_jc      : integer range 0 to 10000 := 0;
+    signal cnt_tlast_seen_jc    : integer range 0 to 10000 := 0;
+
+    signal cnt_stream_active_jd : integer range 0 to 100000 := 0;
+    signal cnt_mlp_busy_jd      : integer range 0 to 100000 := 0;
+    signal cnt_mlp_done_jd      : integer range 0 to 100000 := 0;
+    signal cnt_tlast_seen_jd    : integer range 0 to 100000 := 0;
+
 begin
 
     -- ──────────────────────────────────────────
@@ -200,10 +241,63 @@ begin
     o_led <= mlp_led;
 
     -- Debug pin assignments
-    dbg_stream_active <= '1' when (stream_state = ST_RECEIVING or stream_state = ST_ODD_LAST) else '0';
-    dbg_mlp_busy      <= mlp_busy;
-    dbg_mlp_done      <= mlp_done;
-    dbg_tlast_seen    <= dbg_tlast_pulse;
+    dbg_stream_active_i <= '1' when (stream_state = ST_RECEIVING or stream_state = ST_ODD_LAST) else '0';
+    dbg_mlp_busy_i      <= mlp_busy;
+    dbg_mlp_done_i      <= mlp_done;
+    dbg_tlast_seen_i    <= dbg_tlast_pulse;
+
+    dbg_stream_active <= dbg_stream_active_i;
+    dbg_mlp_busy      <= dbg_mlp_busy_i;
+    dbg_mlp_done      <= dbg_mlp_done_i;
+    dbg_tlast_seen    <= dbg_tlast_seen_i;
+
+    -- =========================================================================
+    -- DEBUG STRETCHERS PROCESS (SILINEBILIR)
+    -- =========================================================================
+    process(S_AXI_ACLK)
+    begin
+        if rising_edge(S_AXI_ACLK) then
+            if S_AXI_ARESETN = '0' then
+                cnt_stream_active_jb <= 0; cnt_mlp_busy_jb <= 0; cnt_mlp_done_jb <= 0; cnt_tlast_seen_jb <= 0;
+                cnt_stream_active_jc <= 0; cnt_mlp_busy_jc <= 0; cnt_mlp_done_jc <= 0; cnt_tlast_seen_jc <= 0;
+                cnt_stream_active_jd <= 0; cnt_mlp_busy_jd <= 0; cnt_mlp_done_jd <= 0; cnt_tlast_seen_jd <= 0;
+            else
+                -- JB Counters (10us = 1000 clocks)
+                if dbg_stream_active_i = '1' then cnt_stream_active_jb <= 1000; elsif cnt_stream_active_jb > 0 then cnt_stream_active_jb <= cnt_stream_active_jb - 1; end if;
+                if dbg_mlp_busy_i = '1'      then cnt_mlp_busy_jb      <= 1000; elsif cnt_mlp_busy_jb > 0      then cnt_mlp_busy_jb      <= cnt_mlp_busy_jb - 1; end if;
+                if dbg_mlp_done_i = '1'      then cnt_mlp_done_jb      <= 1000; elsif cnt_mlp_done_jb > 0      then cnt_mlp_done_jb      <= cnt_mlp_done_jb - 1; end if;
+                if dbg_tlast_seen_i = '1'    then cnt_tlast_seen_jb    <= 1000; elsif cnt_tlast_seen_jb > 0    then cnt_tlast_seen_jb    <= cnt_tlast_seen_jb - 1; end if;
+
+                -- JC Counters (100us = 10000 clocks)
+                if dbg_stream_active_i = '1' then cnt_stream_active_jc <= 10000; elsif cnt_stream_active_jc > 0 then cnt_stream_active_jc <= cnt_stream_active_jc - 1; end if;
+                if dbg_mlp_busy_i = '1'      then cnt_mlp_busy_jc      <= 10000; elsif cnt_mlp_busy_jc > 0      then cnt_mlp_busy_jc      <= cnt_mlp_busy_jc - 1; end if;
+                if dbg_mlp_done_i = '1'      then cnt_mlp_done_jc      <= 10000; elsif cnt_mlp_done_jc > 0      then cnt_mlp_done_jc      <= cnt_mlp_done_jc - 1; end if;
+                if dbg_tlast_seen_i = '1'    then cnt_tlast_seen_jc    <= 10000; elsif cnt_tlast_seen_jc > 0    then cnt_tlast_seen_jc    <= cnt_tlast_seen_jc - 1; end if;
+
+                -- JD Counters (1ms = 100000 clocks)
+                if dbg_stream_active_i = '1' then cnt_stream_active_jd <= 100000; elsif cnt_stream_active_jd > 0 then cnt_stream_active_jd <= cnt_stream_active_jd - 1; end if;
+                if dbg_mlp_busy_i = '1'      then cnt_mlp_busy_jd      <= 100000; elsif cnt_mlp_busy_jd > 0      then cnt_mlp_busy_jd      <= cnt_mlp_busy_jd - 1; end if;
+                if dbg_mlp_done_i = '1'      then cnt_mlp_done_jd      <= 100000; elsif cnt_mlp_done_jd > 0      then cnt_mlp_done_jd      <= cnt_mlp_done_jd - 1; end if;
+                if dbg_tlast_seen_i = '1'    then cnt_tlast_seen_jd    <= 100000; elsif cnt_tlast_seen_jd > 0    then cnt_tlast_seen_jd    <= cnt_tlast_seen_jd - 1; end if;
+            end if;
+        end if;
+    end process;
+
+    -- Output Assignments
+    dbg_stream_active_jb <= '1' when cnt_stream_active_jb > 0 else '0';
+    dbg_mlp_busy_jb      <= '1' when cnt_mlp_busy_jb > 0      else '0';
+    dbg_mlp_done_jb      <= '1' when cnt_mlp_done_jb > 0      else '0';
+    dbg_tlast_seen_jb    <= '1' when cnt_tlast_seen_jb > 0    else '0';
+
+    dbg_stream_active_jc <= '1' when cnt_stream_active_jc > 0 else '0';
+    dbg_mlp_busy_jc      <= '1' when cnt_mlp_busy_jc > 0      else '0';
+    dbg_mlp_done_jc      <= '1' when cnt_mlp_done_jc > 0      else '0';
+    dbg_tlast_seen_jc    <= '1' when cnt_tlast_seen_jc > 0    else '0';
+
+    dbg_stream_active_jd <= '1' when cnt_stream_active_jd > 0 else '0';
+    dbg_mlp_busy_jd      <= '1' when cnt_mlp_busy_jd > 0      else '0';
+    dbg_mlp_done_jd      <= '1' when cnt_mlp_done_jd > 0      else '0';
+    dbg_tlast_seen_jd    <= '1' when cnt_tlast_seen_jd > 0    else '0';
 
     -- Active-high reset for MLP (AXI uses active-low)
     mlp_reset <= (not S_AXI_ARESETN) or soft_reset_pulse;
