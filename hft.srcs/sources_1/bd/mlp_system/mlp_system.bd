@@ -1675,8 +1675,8 @@
       "mlp_axi_wrapper_0": {
         "vlnv": "xilinx.com:module_ref:mlp_axi_wrapper:1.0",
         "ip_revision": "1",
-        "xci_name": "mlp_system_mlp_axi_wrapper_0_7",
-        "xci_path": "ip\\mlp_system_mlp_axi_wrapper_0_7\\mlp_system_mlp_axi_wrapper_0_7.xci",
+        "xci_name": "mlp_system_mlp_axi_wrapper_0_8",
+        "xci_path": "ip\\mlp_system_mlp_axi_wrapper_0_8\\mlp_system_mlp_axi_wrapper_0_8.xci",
         "inst_hier_path": "mlp_axi_wrapper_0",
         "has_run_ip_tcl": "true",
         "reference_info": {

@@ -29,7 +29,7 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_
 # IP: bd/mlp_system/ip/mlp_system_axi_mem_intercon_imp_auto_us_0/mlp_system_axi_mem_intercon_imp_auto_us_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_axi_mem_intercon_imp_auto_us_0 || ORIG_REF_NAME==mlp_system_axi_mem_intercon_imp_auto_us_0} -quiet] -quiet
 
-# IP: bd/mlp_system/ip/mlp_system_mlp_axi_wrapper_0_7/mlp_system_mlp_axi_wrapper_0_7.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_mlp_axi_wrapper_0_7 || ORIG_REF_NAME==mlp_system_mlp_axi_wrapper_0_7} -quiet] -quiet
+# IP: bd/mlp_system/ip/mlp_system_mlp_axi_wrapper_0_8/mlp_system_mlp_axi_wrapper_0_8.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mlp_system_mlp_axi_wrapper_0_8 || ORIG_REF_NAME==mlp_system_mlp_axi_wrapper_0_8} -quiet] -quiet
 
 # XDC: d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/mlp_system_ooc.xdc

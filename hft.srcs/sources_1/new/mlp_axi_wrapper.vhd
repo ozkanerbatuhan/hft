@@ -209,6 +209,10 @@ architecture Behavioral of mlp_axi_wrapper is
     -- Latch for AXI-Lite Status Register (Clear on Read)
     signal mlp_done_latched    : std_logic := '0';
 
+    -- Pulse Stretchers for Oscilloscope Triggers
+    signal cnt_dbg_done        : integer range 0 to 100 := 0;
+    signal cnt_dbg_tlast       : integer range 0 to 100 := 0;
+
 begin
 
     -- ──────────────────────────────────────────
@@ -242,8 +246,8 @@ begin
     -- Debug pin assignments (Raw signals mapped to internal variables)
     dbg_stream_active_i <= '1' when (stream_state = ST_RECEIVING or stream_state = ST_ODD_LAST) else '0';
     dbg_mlp_busy_i      <= mlp_busy;
-    dbg_mlp_done_i      <= mlp_done;
-    dbg_tlast_seen_i    <= dbg_tlast_pulse;
+    dbg_mlp_done_i      <= '1' when cnt_dbg_done > 0 else '0';
+    dbg_tlast_seen_i    <= '1' when cnt_dbg_tlast > 0 else '0';
 
     -- PMOD JA (Original Raw Output)
     dbg_stream_active <= dbg_stream_active_i;
@@ -513,27 +517,28 @@ begin
                     when ST_RECEIVING =>
                         -- odd_wr_pending aktifse, bu clock odd yazılıyor
                         -- odd bittikten sonra tready tekrar kalkacak
-                        if odd_wr_pending = '0' then
-                            -- Odd bitti, yeni kelime almaya hazır
-                            s_axis_tready_i <= '1';
+                        if odd_wr_pending = '1' then
+                            s_axis_tready_i <= '0';
+                        else
+                            if s_axis_tready_i = '0' then
+                                -- tready 0'di, yeni kelime icin 1 yap
+                                s_axis_tready_i <= '1';
+                            else
+                                if S_AXIS_TVALID = '1' then
+                                    stream_idx <= stream_idx + 1;
 
-                            if S_AXIS_TVALID = '1' then
-                                stream_idx <= stream_idx + 1;
+                                    -- Çift feature yaz
+                                    even_wr_en   <= '1';
+                                    even_wr_addr <= to_unsigned((stream_idx + 1) * 2, 6);
+                                    even_wr_data <= signed(S_AXIS_TDATA(15 downto 0));
+                                    s_axis_tready_i <= '0';  -- odd yazılacak, bekle
 
-                                -- Çift feature yaz
-                                even_wr_en   <= '1';
-                                even_wr_addr <= to_unsigned((stream_idx + 1) * 2, 6);
-                                even_wr_data <= signed(S_AXIS_TDATA(15 downto 0));
-                                s_axis_tready_i <= '0';  -- odd yazılacak, bekle
-
-                                if S_AXIS_TLAST = '1' or stream_idx = 18 then
-                                    -- Son kelime (idx 19 olacak sonraki cycle'da)
-                                    stream_state <= ST_ODD_LAST;
+                                    if S_AXIS_TLAST = '1' or stream_idx = 18 then
+                                        -- Son kelime (idx 19 olacak sonraki cycle'da)
+                                        stream_state <= ST_ODD_LAST;
+                                    end if;
                                 end if;
                             end if;
-                        else
-                            -- Odd yazılıyor, tready düşük tut
-                            s_axis_tready_i <= '0';
                         end if;
 
                     -- ────────────────────────────
@@ -628,6 +633,29 @@ begin
                     mlp_done_latched <= '1';
                 elsif axi_arready = '1' and S_AXI_ARVALID = '1' and araddr_reg = ADDR_STATUS then
                     mlp_done_latched <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    -- 1us Pulse Stretchers for Oscilloscope Triggers
+    process(S_AXI_ACLK)
+    begin
+        if rising_edge(S_AXI_ACLK) then
+            if S_AXI_ARESETN = '0' then
+                cnt_dbg_done  <= 0;
+                cnt_dbg_tlast <= 0;
+            else
+                if mlp_done = '1' then
+                    cnt_dbg_done <= 100;
+                elsif cnt_dbg_done > 0 then
+                    cnt_dbg_done <= cnt_dbg_done - 1;
+                end if;
+
+                if dbg_tlast_pulse = '1' then
+                    cnt_dbg_tlast <= 100;
+                elsif cnt_dbg_tlast > 0 then
+                    cnt_dbg_tlast <= cnt_dbg_tlast - 1;
                 end if;
             end if;
         end if;
