@@ -1,12 +1,12 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x967513BD1D042693",
+      "boundary_crc": "0xCC6CFA53B4580162",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../hft.gen/sources_1/bd/mlp_system",
       "name": "mlp_system",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
-      "synth_flow_mode": "Hierarchical",
+      "synth_flow_mode": "None",
       "tool_version": "2025.2",
       "validated": "true"
     },
@@ -205,61 +205,6 @@
         }
       }
     },
-    "ports": {
-      "dbg_stream_active_0": {
-        "direction": "O"
-      },
-      "dbg_mlp_busy_0": {
-        "direction": "O"
-      },
-      "dbg_mlp_done_0": {
-        "direction": "O"
-      },
-      "dbg_tlast_seen_0": {
-        "direction": "O"
-      },
-      "dbg_stream_active_jb_0": {
-        "direction": "O"
-      },
-      "dbg_mlp_busy_jb_0": {
-        "direction": "O"
-      },
-      "dbg_mlp_done_jb_0": {
-        "direction": "O"
-      },
-      "dbg_tlast_seen_jb_0": {
-        "direction": "O"
-      },
-      "dbg_stream_active_jc_0": {
-        "direction": "O"
-      },
-      "dbg_mlp_busy_jc_0": {
-        "direction": "O"
-      },
-      "dbg_mlp_done_jc_0": {
-        "direction": "O"
-      },
-      "dbg_tlast_seen_jc_0": {
-        "direction": "O"
-      },
-      "dbg_stream_active_jd_0": {
-        "direction": "O"
-      },
-      "dbg_mlp_busy_jd_0": {
-        "direction": "O"
-      },
-      "dbg_mlp_done_jd_0": {
-        "direction": "O"
-      },
-      "dbg_tlast_seen_jd_0": {
-        "direction": "O"
-      },
-      "o_led_0": {
-        "direction": "O",
-        "left": "7",
-        "right": "0"
-      }
-    },
     "components": {
       "processing_system7_0": {
         "vlnv": "xilinx.com:ip:processing_system7:5.5",
@@ -285,7 +230,7 @@
             "value": "10.000000"
           },
           "PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ": {
-            "value": "100.000000"
+            "value": "125.000000"
           },
           "PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ": {
             "value": "10.000000"
@@ -342,7 +287,7 @@
             "value": "666.666667"
           },
           "PCW_CLK0_FREQ": {
-            "value": "100000000"
+            "value": "125000000"
           },
           "PCW_CLK1_FREQ": {
             "value": "10000000"
@@ -408,7 +353,7 @@
             "value": "1"
           },
           "PCW_FPGA0_PERIPHERAL_FREQMHZ": {
-            "value": "100.000000"
+            "value": "130.000000"
           },
           "PCW_FPGA1_PERIPHERAL_FREQMHZ": {
             "value": "150.000000"
@@ -1723,7 +1668,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "100000000",
+                "value": "125000000",
                 "value_src": "user_prop"
               },
               "CLK_DOMAIN": {
@@ -1766,7 +1711,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "100000000",
+                "value": "125000000",
                 "value_src": "user_prop"
               },
               "ID_WIDTH": {
@@ -1774,7 +1719,7 @@
                 "value_src": "constant"
               },
               "ADDR_WIDTH": {
-                "value": "4",
+                "value": "20",
                 "value_src": "auto"
               },
               "AWUSER_WIDTH": {
@@ -1879,7 +1824,7 @@
               "AWADDR": {
                 "physical_name": "S_AXI_AWADDR",
                 "direction": "I",
-                "left": "3",
+                "left": "19",
                 "right": "0"
               },
               "AWPROT": {
@@ -1933,7 +1878,7 @@
               "ARADDR": {
                 "physical_name": "S_AXI_ARADDR",
                 "direction": "I",
-                "left": "3",
+                "left": "19",
                 "right": "0"
               },
               "ARPROT": {
@@ -1983,7 +1928,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "100000000",
+                "value": "125000000",
                 "value_src": "user_prop"
               },
               "CLK_DOMAIN": {
@@ -2011,7 +1956,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "100000000",
+                "value": "125000000",
                 "value_src": "user_prop"
               },
               "CLK_DOMAIN": {
@@ -2029,59 +1974,6 @@
                 "value_src": "constant"
               }
             }
-          },
-          "o_led": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "dbg_stream_active": {
-            "direction": "O"
-          },
-          "dbg_mlp_busy": {
-            "direction": "O"
-          },
-          "dbg_mlp_done": {
-            "direction": "O"
-          },
-          "dbg_tlast_seen": {
-            "direction": "O"
-          },
-          "dbg_stream_active_jb": {
-            "direction": "O"
-          },
-          "dbg_mlp_busy_jb": {
-            "direction": "O"
-          },
-          "dbg_mlp_done_jb": {
-            "direction": "O"
-          },
-          "dbg_tlast_seen_jb": {
-            "direction": "O"
-          },
-          "dbg_stream_active_jc": {
-            "direction": "O"
-          },
-          "dbg_mlp_busy_jc": {
-            "direction": "O"
-          },
-          "dbg_mlp_done_jc": {
-            "direction": "O"
-          },
-          "dbg_tlast_seen_jc": {
-            "direction": "O"
-          },
-          "dbg_stream_active_jd": {
-            "direction": "O"
-          },
-          "dbg_mlp_busy_jd": {
-            "direction": "O"
-          },
-          "dbg_mlp_done_jd": {
-            "direction": "O"
-          },
-          "dbg_tlast_seen_jd": {
-            "direction": "O"
           }
         }
       }
@@ -2137,108 +2029,6 @@
       }
     },
     "nets": {
-      "mlp_axi_wrapper_0_dbg_mlp_busy": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_mlp_busy",
-          "dbg_mlp_busy_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_mlp_busy_jb": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_mlp_busy_jb",
-          "dbg_mlp_busy_jb_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_mlp_busy_jc": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_mlp_busy_jc",
-          "dbg_mlp_busy_jc_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_mlp_busy_jd": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_mlp_busy_jd",
-          "dbg_mlp_busy_jd_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_mlp_done": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_mlp_done",
-          "dbg_mlp_done_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_mlp_done_jb": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_mlp_done_jb",
-          "dbg_mlp_done_jb_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_mlp_done_jc": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_mlp_done_jc",
-          "dbg_mlp_done_jc_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_mlp_done_jd": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_mlp_done_jd",
-          "dbg_mlp_done_jd_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_stream_active": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_stream_active",
-          "dbg_stream_active_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_stream_active_jb": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_stream_active_jb",
-          "dbg_stream_active_jb_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_stream_active_jc": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_stream_active_jc",
-          "dbg_stream_active_jc_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_stream_active_jd": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_stream_active_jd",
-          "dbg_stream_active_jd_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_tlast_seen": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_tlast_seen",
-          "dbg_tlast_seen_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_tlast_seen_jb": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_tlast_seen_jb",
-          "dbg_tlast_seen_jb_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_tlast_seen_jc": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_tlast_seen_jc",
-          "dbg_tlast_seen_jc_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_dbg_tlast_seen_jd": {
-        "ports": [
-          "mlp_axi_wrapper_0/dbg_tlast_seen_jd",
-          "dbg_tlast_seen_jd_0"
-        ]
-      },
-      "mlp_axi_wrapper_0_o_led": {
-        "ports": [
-          "mlp_axi_wrapper_0/o_led",
-          "o_led_0"
-        ]
-      },
       "processing_system7_0_FCLK_CLK0": {
         "ports": [
           "processing_system7_0/FCLK_CLK0",

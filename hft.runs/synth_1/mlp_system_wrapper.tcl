@@ -58,8 +58,6 @@ if {$::dispatch::connected} {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param general.usePosixSpawnForFork 1
 set_param chipscope.maxJobs 3
-set_param bd.open.in_stealth_mode 1
-set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -78,7 +76,13 @@ set_property ip_output_repo {d:/vivado projects/hft/hft.cache/ip} [current_proje
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_vhdl -library xil_defaultlib {{D:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/hdl/mlp_system_wrapper.vhd}}
+read_vhdl -library xil_defaultlib {
+  {D:/vivado projects/hft/hft.srcs/sources_1/new/framework_pkg.vhd}
+  {D:/vivado projects/hft/hft.srcs/sources_1/new/mlp_engine.vhd}
+  {D:/vivado projects/hft/hft.srcs/sources_1/new/weight_bram.vhd}
+  {D:/vivado projects/hft/hft.srcs/sources_1/new/mlp_axi_wrapper.vhd}
+  {D:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/hdl/mlp_system_wrapper.vhd}
+}
 add_files {{D:/vivado projects/hft/hft.srcs/sources_1/bd/mlp_system/mlp_system.bd}}
 set_property used_in_implementation false [get_files -all {{d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_processing_system7_0_0/mlp_system_processing_system7_0_0.xdc}}]
 set_property used_in_implementation false [get_files -all {{d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_axi_smc_0/bd_0/ip/ip_1/bd_90d9_psr_aclk_0_board.xdc}}]
@@ -118,10 +122,8 @@ set_property used_in_implementation false [get_files -all {{d:/vivado projects/h
 set_property used_in_implementation false [get_files -all {{d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_axi_smc_0/ooc.xdc}}]
 set_property used_in_implementation false [get_files -all {{d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_axi_smc_0/smartconnect.xdc}}]
 set_property used_in_implementation false [get_files -all {{d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_rst_ps7_0_100M_0/mlp_system_rst_ps7_0_100M_0_board.xdc}}]
-set_property used_in_implementation false [get_files -all {{d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_rst_ps7_0_100M_0/mlp_system_rst_ps7_0_100M_0_ooc.xdc}}]
 set_property used_in_implementation false [get_files -all {{d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_axi_dma_0_0/mlp_system_axi_dma_0_0.xdc}}]
 set_property used_in_implementation false [get_files -all {{d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_axi_dma_0_0/mlp_system_axi_dma_0_0_clocks.xdc}}]
-set_property used_in_implementation false [get_files -all {{d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_axi_dma_0_0/mlp_system_axi_dma_0_0_ooc.xdc}}]
 set_property used_in_implementation false [get_files -all {{d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_axi_mem_intercon_imp_auto_pc_0/mlp_system_axi_mem_intercon_imp_auto_pc_0_ooc.xdc}}]
 set_property used_in_synthesis false [get_files -all {{d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_axi_mem_intercon_imp_auto_us_0/mlp_system_axi_mem_intercon_imp_auto_us_0_clocks.xdc}}]
 set_property used_in_implementation false [get_files -all {{d:/vivado projects/hft/hft.gen/sources_1/bd/mlp_system/ip/mlp_system_axi_mem_intercon_imp_auto_us_0/mlp_system_axi_mem_intercon_imp_auto_us_0_clocks.xdc}}]
@@ -146,8 +148,6 @@ set_property used_in_implementation false [get_files {{D:/vivado projects/hft/hf
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
-
-read_checkpoint -auto_incremental -incremental {D:/vivado projects/hft/hft.srcs/utils_1/imports/synth_1/mlp_axi_wrapper.dcp}
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

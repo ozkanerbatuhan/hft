@@ -73,24 +73,7 @@ COMPONENT mlp_system
     FIXED_IO_ddr_vrp : INOUT STD_LOGIC;
     FIXED_IO_ps_srstb : INOUT STD_LOGIC;
     FIXED_IO_ps_clk : INOUT STD_LOGIC;
-    FIXED_IO_ps_porb : INOUT STD_LOGIC;
-    dbg_stream_active_0 : OUT STD_LOGIC;
-    dbg_mlp_busy_0 : OUT STD_LOGIC;
-    dbg_mlp_done_0 : OUT STD_LOGIC;
-    dbg_tlast_seen_0 : OUT STD_LOGIC;
-    dbg_stream_active_jb_0 : OUT STD_LOGIC;
-    dbg_mlp_busy_jb_0 : OUT STD_LOGIC;
-    dbg_mlp_done_jb_0 : OUT STD_LOGIC;
-    dbg_tlast_seen_jb_0 : OUT STD_LOGIC;
-    dbg_stream_active_jc_0 : OUT STD_LOGIC;
-    dbg_mlp_busy_jc_0 : OUT STD_LOGIC;
-    dbg_mlp_done_jc_0 : OUT STD_LOGIC;
-    dbg_tlast_seen_jc_0 : OUT STD_LOGIC;
-    dbg_stream_active_jd_0 : OUT STD_LOGIC;
-    dbg_mlp_busy_jd_0 : OUT STD_LOGIC;
-    dbg_mlp_done_jd_0 : OUT STD_LOGIC;
-    dbg_tlast_seen_jd_0 : OUT STD_LOGIC;
-    o_led_0 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    FIXED_IO_ps_porb : INOUT STD_LOGIC
   );
 END COMPONENT;
 -- COMP_TAG_END ------  End cut for COMPONENT Declaration  ------
@@ -121,24 +104,7 @@ your_instance_name : mlp_system
     FIXED_IO_ddr_vrp => FIXED_IO_ddr_vrp,
     FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
     FIXED_IO_ps_clk => FIXED_IO_ps_clk,
-    FIXED_IO_ps_porb => FIXED_IO_ps_porb,
-    dbg_stream_active_0 => dbg_stream_active_0,
-    dbg_mlp_busy_0 => dbg_mlp_busy_0,
-    dbg_mlp_done_0 => dbg_mlp_done_0,
-    dbg_tlast_seen_0 => dbg_tlast_seen_0,
-    dbg_stream_active_jb_0 => dbg_stream_active_jb_0,
-    dbg_mlp_busy_jb_0 => dbg_mlp_busy_jb_0,
-    dbg_mlp_done_jb_0 => dbg_mlp_done_jb_0,
-    dbg_tlast_seen_jb_0 => dbg_tlast_seen_jb_0,
-    dbg_stream_active_jc_0 => dbg_stream_active_jc_0,
-    dbg_mlp_busy_jc_0 => dbg_mlp_busy_jc_0,
-    dbg_mlp_done_jc_0 => dbg_mlp_done_jc_0,
-    dbg_tlast_seen_jc_0 => dbg_tlast_seen_jc_0,
-    dbg_stream_active_jd_0 => dbg_stream_active_jd_0,
-    dbg_mlp_busy_jd_0 => dbg_mlp_busy_jd_0,
-    dbg_mlp_done_jd_0 => dbg_mlp_done_jd_0,
-    dbg_tlast_seen_jd_0 => dbg_tlast_seen_jd_0,
-    o_led_0 => o_led_0
+    FIXED_IO_ps_porb => FIXED_IO_ps_porb
   );
 -- INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

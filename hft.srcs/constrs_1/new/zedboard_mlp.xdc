@@ -11,36 +11,36 @@
 ## LEDs  (Active High, accent LEDs on ZedBoard)
 ## ─────────────────────────────────────────────
 ## LD0 → SELL sinyalı
-set_property PACKAGE_PIN T22  [get_ports {o_led_0[0]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[0]}]
+#set_property PACKAGE_PIN T22  [get_ports {o_led_0[0]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[0]}]
 
 ## LD1 → HOLD sinyalı
-set_property PACKAGE_PIN T21  [get_ports {o_led_0[1]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[1]}]
+#set_property PACKAGE_PIN T21  [get_ports {o_led_0[1]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[1]}]
 
 ## LD2 → BUY sinyalı
-set_property PACKAGE_PIN U22  [get_ports {o_led_0[2]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[2]}]
+#set_property PACKAGE_PIN U22  [get_ports {o_led_0[2]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[2]}]
 
 ## LD3
-set_property PACKAGE_PIN U21  [get_ports {o_led_0[3]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[3]}]
+#set_property PACKAGE_PIN U21  [get_ports {o_led_0[3]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[3]}]
 
 ## LD4
-set_property PACKAGE_PIN V22  [get_ports {o_led_0[4]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[4]}]
+#set_property PACKAGE_PIN V22  [get_ports {o_led_0[4]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[4]}]
 
 ## LD5
-set_property PACKAGE_PIN W22  [get_ports {o_led_0[5]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[5]}]
+#set_property PACKAGE_PIN W22  [get_ports {o_led_0[5]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[5]}]
 
 ## LD6
-set_property PACKAGE_PIN U19  [get_ports {o_led_0[6]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[6]}]
+#set_property PACKAGE_PIN U19  [get_ports {o_led_0[6]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[6]}]
 
 ## LD7
-set_property PACKAGE_PIN U14  [get_ports {o_led_0[7]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[7]}]
+#set_property PACKAGE_PIN U14  [get_ports {o_led_0[7]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[7]}]
 
 ## ─────────────────────────────────────────────
 ## Switches (isteğe bağlı — debug/test amaçlı)
@@ -118,60 +118,60 @@ set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[7]}]
 ## ─────────────────────────────────────────────
 
 ## JA1 — DMA Stream Active
-set_property PACKAGE_PIN Y11  [get_ports {dbg_stream_active_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_stream_active_0}]
+#set_property PACKAGE_PIN Y11  [get_ports {dbg_stream_active_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_stream_active_0}]
 
 ## JA2 — MLP Busy
-set_property PACKAGE_PIN AA11 [get_ports {dbg_mlp_busy_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_busy_0}]
+#set_property PACKAGE_PIN AA11 [get_ports {dbg_mlp_busy_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_busy_0}]
 
 ## JA3 — MLP Done (pulse)
-set_property PACKAGE_PIN Y19  [get_ports {dbg_mlp_done_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_done_0}]
+#set_property PACKAGE_PIN Y19  [get_ports {dbg_mlp_done_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_done_0}]
 
 ## JA4 — TLAST Seen (pulse)
-set_property PACKAGE_PIN AA9  [get_ports {dbg_tlast_seen_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_tlast_seen_0}]
+#set_property PACKAGE_PIN AA9  [get_ports {dbg_tlast_seen_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_tlast_seen_0}]
 
 # =====================================================================
 # DEBUG STRETCHERS (JB = 10us, JC = 100us, JD = 1ms)
 # =====================================================================
 
 ## JB — 10x Stretched (PMOD JB Top Row)
-set_property PACKAGE_PIN W12 [get_ports {dbg_stream_active_jb_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_stream_active_jb_0}]
+#set_property PACKAGE_PIN W12 [get_ports {dbg_stream_active_jb_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_stream_active_jb_0}]
 
-set_property PACKAGE_PIN W11 [get_ports {dbg_mlp_busy_jb_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_busy_jb_0}]
+#set_property PACKAGE_PIN W11 [get_ports {dbg_mlp_busy_jb_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_busy_jb_0}]
 
-set_property PACKAGE_PIN V10 [get_ports {dbg_mlp_done_jb_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_done_jb_0}]
+#set_property PACKAGE_PIN V10 [get_ports {dbg_mlp_done_jb_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_done_jb_0}]
 
-set_property PACKAGE_PIN W8  [get_ports {dbg_tlast_seen_jb_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_tlast_seen_jb_0}]
+#set_property PACKAGE_PIN W8  [get_ports {dbg_tlast_seen_jb_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_tlast_seen_jb_0}]
 
 ## JC — 100x Stretched (PMOD JC Top Row - differential pins used as single-ended)
-set_property PACKAGE_PIN AB6 [get_ports {dbg_stream_active_jc_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_stream_active_jc_0}]
+#set_property PACKAGE_PIN AB6 [get_ports {dbg_stream_active_jc_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_stream_active_jc_0}]
 
-set_property PACKAGE_PIN AB7 [get_ports {dbg_mlp_busy_jc_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_busy_jc_0}]
+#set_property PACKAGE_PIN AB7 [get_ports {dbg_mlp_busy_jc_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_busy_jc_0}]
 
-set_property PACKAGE_PIN AA4 [get_ports {dbg_mlp_done_jc_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_done_jc_0}]
+#set_property PACKAGE_PIN AA4 [get_ports {dbg_mlp_done_jc_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_done_jc_0}]
 
-set_property PACKAGE_PIN Y4  [get_ports {dbg_tlast_seen_jc_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_tlast_seen_jc_0}]
+#set_property PACKAGE_PIN Y4  [get_ports {dbg_tlast_seen_jc_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_tlast_seen_jc_0}]
 
 ## JD — 1000x Stretched (PMOD JD Top Row - differential pins used as single-ended)
-set_property PACKAGE_PIN W7  [get_ports {dbg_stream_active_jd_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_stream_active_jd_0}]
+#set_property PACKAGE_PIN W7  [get_ports {dbg_stream_active_jd_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_stream_active_jd_0}]
 
-set_property PACKAGE_PIN V7  [get_ports {dbg_mlp_busy_jd_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_busy_jd_0}]
+#set_property PACKAGE_PIN V7  [get_ports {dbg_mlp_busy_jd_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_busy_jd_0}]
 
-set_property PACKAGE_PIN V4  [get_ports {dbg_mlp_done_jd_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_done_jd_0}]
+#set_property PACKAGE_PIN V4  [get_ports {dbg_mlp_done_jd_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_mlp_done_jd_0}]
 
-set_property PACKAGE_PIN V5  [get_ports {dbg_tlast_seen_jd_0}]
-set_property IOSTANDARD LVCMOS33 [get_ports {dbg_tlast_seen_jd_0}]
+#set_property PACKAGE_PIN V5  [get_ports {dbg_tlast_seen_jd_0}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {dbg_tlast_seen_jd_0}]

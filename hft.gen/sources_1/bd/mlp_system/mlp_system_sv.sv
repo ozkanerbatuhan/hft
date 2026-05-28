@@ -94,41 +94,7 @@ module mlp_system_sv (
   (* X_INTERFACE_IGNORE = "true" *)
   inout wire FIXED_IO_ps_clk,
   (* X_INTERFACE_IGNORE = "true" *)
-  inout wire FIXED_IO_ps_porb,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_stream_active_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_mlp_busy_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_mlp_done_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_tlast_seen_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_stream_active_jb_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_mlp_busy_jb_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_mlp_done_jb_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_tlast_seen_jb_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_stream_active_jc_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_mlp_busy_jc_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_mlp_done_jc_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_tlast_seen_jc_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_stream_active_jd_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_mlp_busy_jd_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_mlp_done_jd_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire dbg_tlast_seen_jd_0,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire [7:0] o_led_0
+  inout wire FIXED_IO_ps_porb
 );
 
   mlp_system inst (
@@ -152,24 +118,7 @@ module mlp_system_sv (
     .FIXED_IO_ddr_vrp(FIXED_IO_ddr_vrp),
     .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
     .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
-    .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
-    .dbg_stream_active_0(dbg_stream_active_0),
-    .dbg_mlp_busy_0(dbg_mlp_busy_0),
-    .dbg_mlp_done_0(dbg_mlp_done_0),
-    .dbg_tlast_seen_0(dbg_tlast_seen_0),
-    .dbg_stream_active_jb_0(dbg_stream_active_jb_0),
-    .dbg_mlp_busy_jb_0(dbg_mlp_busy_jb_0),
-    .dbg_mlp_done_jb_0(dbg_mlp_done_jb_0),
-    .dbg_tlast_seen_jb_0(dbg_tlast_seen_jb_0),
-    .dbg_stream_active_jc_0(dbg_stream_active_jc_0),
-    .dbg_mlp_busy_jc_0(dbg_mlp_busy_jc_0),
-    .dbg_mlp_done_jc_0(dbg_mlp_done_jc_0),
-    .dbg_tlast_seen_jc_0(dbg_tlast_seen_jc_0),
-    .dbg_stream_active_jd_0(dbg_stream_active_jd_0),
-    .dbg_mlp_busy_jd_0(dbg_mlp_busy_jd_0),
-    .dbg_mlp_done_jd_0(dbg_mlp_done_jd_0),
-    .dbg_tlast_seen_jd_0(dbg_tlast_seen_jd_0),
-    .o_led_0(o_led_0)
+    .FIXED_IO_ps_porb(FIXED_IO_ps_porb)
   );
 
 endmodule

@@ -2,7 +2,7 @@
 --Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
---Date        : Fri May  1 19:41:46 2026
+--Date        : Thu May 28 12:45:48 2026
 --Host        : Batu running 64-bit major release  (build 9200)
 --Command     : generate_target mlp_system.bd
 --Design      : mlp_system
@@ -318,27 +318,10 @@ entity mlp_system is
     FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    FIXED_IO_ps_srstb : inout STD_LOGIC;
-    dbg_mlp_busy_0 : out STD_LOGIC;
-    dbg_mlp_busy_jb_0 : out STD_LOGIC;
-    dbg_mlp_busy_jc_0 : out STD_LOGIC;
-    dbg_mlp_busy_jd_0 : out STD_LOGIC;
-    dbg_mlp_done_0 : out STD_LOGIC;
-    dbg_mlp_done_jb_0 : out STD_LOGIC;
-    dbg_mlp_done_jc_0 : out STD_LOGIC;
-    dbg_mlp_done_jd_0 : out STD_LOGIC;
-    dbg_stream_active_0 : out STD_LOGIC;
-    dbg_stream_active_jb_0 : out STD_LOGIC;
-    dbg_stream_active_jc_0 : out STD_LOGIC;
-    dbg_stream_active_jd_0 : out STD_LOGIC;
-    dbg_tlast_seen_0 : out STD_LOGIC;
-    dbg_tlast_seen_jb_0 : out STD_LOGIC;
-    dbg_tlast_seen_jc_0 : out STD_LOGIC;
-    dbg_tlast_seen_jd_0 : out STD_LOGIC;
-    o_led_0 : out STD_LOGIC_VECTOR ( 7 downto 0 )
+    FIXED_IO_ps_srstb : inout STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of mlp_system : entity is "mlp_system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=mlp_system,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=9,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=6,da_clkrst_cnt=1,da_ps7_cnt=1,synth_mode=Hierarchical}";
+  attribute CORE_GENERATION_INFO of mlp_system : entity is "mlp_system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=mlp_system,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=9,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=6,da_clkrst_cnt=1,da_ps7_cnt=1,synth_mode=None}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of mlp_system : entity is "mlp_system.hwdef";
 end mlp_system;
@@ -503,7 +486,7 @@ architecture STRUCTURE of mlp_system is
     S00_AXI_rlast : out STD_LOGIC;
     S00_AXI_rvalid : out STD_LOGIC;
     S00_AXI_rready : in STD_LOGIC;
-    M00_AXI_awaddr : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    M00_AXI_awaddr : out STD_LOGIC_VECTOR ( 19 downto 0 );
     M00_AXI_awprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
     M00_AXI_awvalid : out STD_LOGIC;
     M00_AXI_awready : in STD_LOGIC;
@@ -514,7 +497,7 @@ architecture STRUCTURE of mlp_system is
     M00_AXI_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     M00_AXI_bvalid : in STD_LOGIC;
     M00_AXI_bready : out STD_LOGIC;
-    M00_AXI_araddr : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    M00_AXI_araddr : out STD_LOGIC_VECTOR ( 19 downto 0 );
     M00_AXI_arprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
     M00_AXI_arvalid : out STD_LOGIC;
     M00_AXI_arready : in STD_LOGIC;
@@ -604,7 +587,7 @@ architecture STRUCTURE of mlp_system is
   port (
     S_AXI_ACLK : in STD_LOGIC;
     S_AXI_ARESETN : in STD_LOGIC;
-    S_AXI_AWADDR : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    S_AXI_AWADDR : in STD_LOGIC_VECTOR ( 19 downto 0 );
     S_AXI_AWPROT : in STD_LOGIC_VECTOR ( 2 downto 0 );
     S_AXI_AWVALID : in STD_LOGIC;
     S_AXI_AWREADY : out STD_LOGIC;
@@ -615,7 +598,7 @@ architecture STRUCTURE of mlp_system is
     S_AXI_BRESP : out STD_LOGIC_VECTOR ( 1 downto 0 );
     S_AXI_BVALID : out STD_LOGIC;
     S_AXI_BREADY : in STD_LOGIC;
-    S_AXI_ARADDR : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    S_AXI_ARADDR : in STD_LOGIC_VECTOR ( 19 downto 0 );
     S_AXI_ARPROT : in STD_LOGIC_VECTOR ( 2 downto 0 );
     S_AXI_ARVALID : in STD_LOGIC;
     S_AXI_ARREADY : out STD_LOGIC;
@@ -628,24 +611,7 @@ architecture STRUCTURE of mlp_system is
     S_AXIS_TDATA : in STD_LOGIC_VECTOR ( 31 downto 0 );
     S_AXIS_TVALID : in STD_LOGIC;
     S_AXIS_TREADY : out STD_LOGIC;
-    S_AXIS_TLAST : in STD_LOGIC;
-    o_led : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    dbg_stream_active : out STD_LOGIC;
-    dbg_mlp_busy : out STD_LOGIC;
-    dbg_mlp_done : out STD_LOGIC;
-    dbg_tlast_seen : out STD_LOGIC;
-    dbg_stream_active_jb : out STD_LOGIC;
-    dbg_mlp_busy_jb : out STD_LOGIC;
-    dbg_mlp_done_jb : out STD_LOGIC;
-    dbg_tlast_seen_jb : out STD_LOGIC;
-    dbg_stream_active_jc : out STD_LOGIC;
-    dbg_mlp_busy_jc : out STD_LOGIC;
-    dbg_mlp_done_jc : out STD_LOGIC;
-    dbg_tlast_seen_jc : out STD_LOGIC;
-    dbg_stream_active_jd : out STD_LOGIC;
-    dbg_mlp_busy_jd : out STD_LOGIC;
-    dbg_mlp_done_jd : out STD_LOGIC;
-    dbg_tlast_seen_jd : out STD_LOGIC
+    S_AXIS_TLAST : in STD_LOGIC
   );
   end component mlp_system_mlp_axi_wrapper_0_8;
   signal axi_dma_0_M_AXIS_MM2S_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -680,11 +646,11 @@ architecture STRUCTURE of mlp_system is
   signal axi_mem_intercon_M00_AXI_RREADY : STD_LOGIC;
   signal axi_mem_intercon_M00_AXI_RRESP : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal axi_mem_intercon_M00_AXI_RVALID : STD_LOGIC;
-  signal axi_smc_M00_AXI_ARADDR : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal axi_smc_M00_AXI_ARADDR : STD_LOGIC_VECTOR ( 19 downto 0 );
   signal axi_smc_M00_AXI_ARPROT : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal axi_smc_M00_AXI_ARREADY : STD_LOGIC;
   signal axi_smc_M00_AXI_ARVALID : STD_LOGIC;
-  signal axi_smc_M00_AXI_AWADDR : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal axi_smc_M00_AXI_AWADDR : STD_LOGIC_VECTOR ( 19 downto 0 );
   signal axi_smc_M00_AXI_AWPROT : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal axi_smc_M00_AXI_AWREADY : STD_LOGIC;
   signal axi_smc_M00_AXI_AWVALID : STD_LOGIC;
@@ -891,11 +857,11 @@ axi_mem_intercon: entity work.mlp_system_axi_mem_intercon_1
     );
 axi_smc: component mlp_system_axi_smc_0
      port map (
-      M00_AXI_araddr(3 downto 0) => axi_smc_M00_AXI_ARADDR(3 downto 0),
+      M00_AXI_araddr(19 downto 0) => axi_smc_M00_AXI_ARADDR(19 downto 0),
       M00_AXI_arprot(2 downto 0) => axi_smc_M00_AXI_ARPROT(2 downto 0),
       M00_AXI_arready => axi_smc_M00_AXI_ARREADY,
       M00_AXI_arvalid => axi_smc_M00_AXI_ARVALID,
-      M00_AXI_awaddr(3 downto 0) => axi_smc_M00_AXI_AWADDR(3 downto 0),
+      M00_AXI_awaddr(19 downto 0) => axi_smc_M00_AXI_AWADDR(19 downto 0),
       M00_AXI_awprot(2 downto 0) => axi_smc_M00_AXI_AWPROT(2 downto 0),
       M00_AXI_awready => axi_smc_M00_AXI_AWREADY,
       M00_AXI_awvalid => axi_smc_M00_AXI_AWVALID,
@@ -979,12 +945,12 @@ mlp_axi_wrapper_0: component mlp_system_mlp_axi_wrapper_0_8
       S_AXIS_TREADY => axi_dma_0_M_AXIS_MM2S_TREADY,
       S_AXIS_TVALID => axi_dma_0_M_AXIS_MM2S_TVALID,
       S_AXI_ACLK => processing_system7_0_FCLK_CLK0,
-      S_AXI_ARADDR(3 downto 0) => axi_smc_M00_AXI_ARADDR(3 downto 0),
+      S_AXI_ARADDR(19 downto 0) => axi_smc_M00_AXI_ARADDR(19 downto 0),
       S_AXI_ARESETN => rst_ps7_0_100M_peripheral_aresetn(0),
       S_AXI_ARPROT(2 downto 0) => axi_smc_M00_AXI_ARPROT(2 downto 0),
       S_AXI_ARREADY => axi_smc_M00_AXI_ARREADY,
       S_AXI_ARVALID => axi_smc_M00_AXI_ARVALID,
-      S_AXI_AWADDR(3 downto 0) => axi_smc_M00_AXI_AWADDR(3 downto 0),
+      S_AXI_AWADDR(19 downto 0) => axi_smc_M00_AXI_AWADDR(19 downto 0),
       S_AXI_AWPROT(2 downto 0) => axi_smc_M00_AXI_AWPROT(2 downto 0),
       S_AXI_AWREADY => axi_smc_M00_AXI_AWREADY,
       S_AXI_AWVALID => axi_smc_M00_AXI_AWVALID,
@@ -998,24 +964,7 @@ mlp_axi_wrapper_0: component mlp_system_mlp_axi_wrapper_0_8
       S_AXI_WDATA(31 downto 0) => axi_smc_M00_AXI_WDATA(31 downto 0),
       S_AXI_WREADY => axi_smc_M00_AXI_WREADY,
       S_AXI_WSTRB(3 downto 0) => axi_smc_M00_AXI_WSTRB(3 downto 0),
-      S_AXI_WVALID => axi_smc_M00_AXI_WVALID,
-      dbg_mlp_busy => dbg_mlp_busy_0,
-      dbg_mlp_busy_jb => dbg_mlp_busy_jb_0,
-      dbg_mlp_busy_jc => dbg_mlp_busy_jc_0,
-      dbg_mlp_busy_jd => dbg_mlp_busy_jd_0,
-      dbg_mlp_done => dbg_mlp_done_0,
-      dbg_mlp_done_jb => dbg_mlp_done_jb_0,
-      dbg_mlp_done_jc => dbg_mlp_done_jc_0,
-      dbg_mlp_done_jd => dbg_mlp_done_jd_0,
-      dbg_stream_active => dbg_stream_active_0,
-      dbg_stream_active_jb => dbg_stream_active_jb_0,
-      dbg_stream_active_jc => dbg_stream_active_jc_0,
-      dbg_stream_active_jd => dbg_stream_active_jd_0,
-      dbg_tlast_seen => dbg_tlast_seen_0,
-      dbg_tlast_seen_jb => dbg_tlast_seen_jb_0,
-      dbg_tlast_seen_jc => dbg_tlast_seen_jc_0,
-      dbg_tlast_seen_jd => dbg_tlast_seen_jd_0,
-      o_led(7 downto 0) => o_led_0(7 downto 0)
+      S_AXI_WVALID => axi_smc_M00_AXI_WVALID
     );
 processing_system7_0: component mlp_system_processing_system7_0_0
      port map (

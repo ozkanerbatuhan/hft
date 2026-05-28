@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xBA36BAD134E6CA5",
+      "boundary_crc": "0x5B5A68537A466859",
       "design_src": "SBD",
       "device": "xc7z020clg484-1",
       "name": "bd_90d9",
@@ -102,7 +102,7 @@
             "value_src": "auto_prop"
           },
           "FREQ_HZ": {
-            "value": "100000000",
+            "value": "125000000",
             "value_src": "user_prop"
           },
           "HAS_BRESP": {
@@ -225,7 +225,7 @@
         "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
         "parameters": {
           "ADDR_WIDTH": {
-            "value": "4",
+            "value": "20",
             "value_src": "ip_prop"
           },
           "ARUSER_WIDTH": {
@@ -249,7 +249,7 @@
             "value_src": "default"
           },
           "FREQ_HZ": {
-            "value": "100000000",
+            "value": "125000000",
             "value_src": "user_prop"
           },
           "HAS_BRESP": {
@@ -381,7 +381,7 @@
             "value_src": "default"
           },
           "FREQ_HZ": {
-            "value": "100000000",
+            "value": "125000000",
             "value_src": "user_prop"
           },
           "HAS_BRESP": {
@@ -501,7 +501,7 @@
             "value_src": "default_prop"
           },
           "FREQ_HZ": {
-            "value": "100000000",
+            "value": "125000000",
             "value_src": "user_prop"
           },
           "FREQ_TOLERANCE_HZ": {
@@ -4354,7 +4354,7 @@
         "has_run_ip_tcl": "true",
         "parameters": {
           "AXI_ADDR_WIDTH": {
-            "value": "4"
+            "value": "20"
           },
           "AXI_ID_WIDTH": {
             "value": "1"
@@ -5605,7 +5605,7 @@
             "has_run_ip_tcl": "true",
             "parameters": {
               "ADDR_WIDTH": {
-                "value": "4"
+                "value": "20"
               },
               "ENABLE_PIPELINING": {
                 "value": "0"

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri May  1 19:41:50 2026" VIVADOVERSION="2025.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 28 12:46:22 2026" VIVADOVERSION="2025.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="avnet.com:zedboard:part0:1.4" DEVICE="7z020" NAME="mlp_system" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -107,91 +107,6 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_srstb" SIGIS="undef" SIGNAME="processing_system7_0_PS_SRSTB">
       <CONNECTIONS>
         <CONNECTION INSTANCE="processing_system7_0" PORT="PS_SRSTB"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_mlp_busy_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_busy"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_mlp_busy_jb_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy_jb">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_busy_jb"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_mlp_busy_jc_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy_jc">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_busy_jc"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_mlp_busy_jd_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy_jd">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_busy_jd"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_mlp_done_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_done"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_mlp_done_jb_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done_jb">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_done_jb"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_mlp_done_jc_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done_jc">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_done_jc"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_mlp_done_jd_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done_jd">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_mlp_done_jd"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_stream_active_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_stream_active"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_stream_active_jb_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active_jb">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_stream_active_jb"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_stream_active_jc_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active_jc">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_stream_active_jc"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_stream_active_jd_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active_jd">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_stream_active_jd"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_tlast_seen_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_tlast_seen"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_tlast_seen_jb_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen_jb">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_tlast_seen_jb"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_tlast_seen_jc_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen_jc">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_tlast_seen_jc"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="dbg_tlast_seen_jd_0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen_jd">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="dbg_tlast_seen_jd"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="7" NAME="o_led_0" RIGHT="0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_o_led">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="o_led"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -1133,7 +1048,7 @@
             <CONNECTION INSTANCE="rst_ps7_0_100M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="m_axi_mm2s_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="m_axi_mm2s_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -1225,7 +1140,7 @@
         </PORT>
         <PORT DIR="O" NAME="mm2s_introut" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT"/>
         <PORT DIR="O" NAME="mm2s_prmry_reset_out_n" POLARITY="ACTIVE_LOW" SIGIS="rst"/>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s_axi_lite_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="s_axi_lite_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -1319,7 +1234,7 @@
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="mlp_system_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="0"/>
           <PARAMETER NAME="HAS_CACHE" VALUE="0"/>
@@ -1370,7 +1285,7 @@
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="mlp_system_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="0"/>
           <PARAMETER NAME="HAS_BURST" VALUE="0"/>
           <PARAMETER NAME="HAS_CACHE" VALUE="1"/>
@@ -1413,7 +1328,7 @@
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="axi_dma_0_M_AXIS_MM2S" NAME="M_AXIS_MM2S" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="CLK_DOMAIN" VALUE="mlp_system_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="1"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
@@ -1991,7 +1906,7 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="3" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_araddr">
+        <PORT DIR="O" LEFT="19" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_araddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="S_AXI_ARADDR"/>
           </CONNECTIONS>
@@ -2011,7 +1926,7 @@
             <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="S_AXI_ARVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_awaddr">
+        <PORT DIR="O" LEFT="19" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="mlp_axi_wrapper_0" PORT="S_AXI_AWADDR"/>
           </CONNECTIONS>
@@ -2356,7 +2271,7 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_WVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -2375,7 +2290,7 @@
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="mlp_system_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="1"/>
           <PARAMETER NAME="HAS_CACHE" VALUE="1"/>
@@ -2442,13 +2357,13 @@
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="axi_smc_M00_AXI" DATAWIDTH="32" NAME="M00_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
-          <PARAMETER NAME="ADDR_WIDTH" VALUE="4"/>
+          <PARAMETER NAME="ADDR_WIDTH" VALUE="20"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="mlp_system_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="0"/>
           <PARAMETER NAME="HAS_CACHE" VALUE="0"/>
@@ -2502,7 +2417,7 @@
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="mlp_system_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="0"/>
           <PARAMETER NAME="HAS_CACHE" VALUE="0"/>
@@ -2551,10 +2466,10 @@
     <MODULE COREREVISION="1" FULLNAME="/mlp_axi_wrapper_0" HWVERSION="1.0" INSTANCE="mlp_axi_wrapper_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mlp_axi_wrapper" VLNV="xilinx.com:module_ref:mlp_axi_wrapper:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
-        <ADDRESSBLOCK ACCESS="" INTERFACE="S_AXI" NAME="reg0" RANGE="4096" USAGE="register"/>
+        <ADDRESSBLOCK ACCESS="" INTERFACE="S_AXI" NAME="reg0" RANGE="0x100000" USAGE="register"/>
       </ADDRESSBLOCKS>
       <PARAMETERS>
-        <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="20"/>
         <PARAMETER NAME="C_S_AXI_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="Component_Name" VALUE="mlp_system_mlp_axi_wrapper_0_8"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -2562,7 +2477,7 @@
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x40000FFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="S_AXIS_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="S_AXIS_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -2592,12 +2507,12 @@
             <CONNECTION INSTANCE="axi_dma_0" PORT="m_axis_mm2s_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="S_AXI_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="S_AXI_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S_AXI_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_araddr">
+        <PORT DIR="I" LEFT="19" NAME="S_AXI_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_araddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_araddr"/>
           </CONNECTIONS>
@@ -2622,7 +2537,7 @@
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S_AXI_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_awaddr">
+        <PORT DIR="I" LEFT="19" NAME="S_AXI_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_awaddr"/>
           </CONNECTIONS>
@@ -2697,96 +2612,11 @@
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="dbg_mlp_busy" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_busy_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_mlp_busy_jb" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy_jb">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_busy_jb_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_mlp_busy_jc" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy_jc">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_busy_jc_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_mlp_busy_jd" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_busy_jd">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_busy_jd_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_mlp_done" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_done_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_mlp_done_jb" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done_jb">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_done_jb_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_mlp_done_jc" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done_jc">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_done_jc_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_mlp_done_jd" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_mlp_done_jd">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_mlp_done_jd_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_stream_active" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_stream_active_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_stream_active_jb" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active_jb">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_stream_active_jb_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_stream_active_jc" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active_jc">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_stream_active_jc_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_stream_active_jd" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_stream_active_jd">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_stream_active_jd_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_tlast_seen" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_tlast_seen_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_tlast_seen_jb" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen_jb">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_tlast_seen_jb_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_tlast_seen_jc" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen_jc">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_tlast_seen_jc_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dbg_tlast_seen_jd" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_dbg_tlast_seen_jd">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="dbg_tlast_seen_jd_0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="7" NAME="o_led" RIGHT="0" SIGIS="undef" SIGNAME="mlp_axi_wrapper_0_o_led">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="o_led_0"/>
-          </CONNECTIONS>
-        </PORT>
       </PORTS>
       <BUSINTERFACES>
         <BUSINTERFACE BUSNAME="axi_dma_0_M_AXIS_MM2S" NAME="S_AXIS" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="CLK_DOMAIN" VALUE="mlp_system_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
           <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
@@ -2806,13 +2636,13 @@
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="axi_smc_M00_AXI" DATAWIDTH="32" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
-          <PARAMETER NAME="ADDR_WIDTH" VALUE="4"/>
+          <PARAMETER NAME="ADDR_WIDTH" VALUE="20"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="mlp_system_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="0"/>
           <PARAMETER NAME="HAS_CACHE" VALUE="0"/>
@@ -2933,7 +2763,7 @@
         <PARAMETER NAME="PCW_ACT_DCI_PERIPHERAL_FREQMHZ" VALUE="10.158730"/>
         <PARAMETER NAME="PCW_ACT_ENET0_PERIPHERAL_FREQMHZ" VALUE="125.000000"/>
         <PARAMETER NAME="PCW_ACT_ENET1_PERIPHERAL_FREQMHZ" VALUE="10.000000"/>
-        <PARAMETER NAME="PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ" VALUE="100.000000"/>
+        <PARAMETER NAME="PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ" VALUE="125.000000"/>
         <PARAMETER NAME="PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ" VALUE="10.000000"/>
         <PARAMETER NAME="PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ" VALUE="10.000000"/>
         <PARAMETER NAME="PCW_ACT_FPGA3_PERIPHERAL_FREQMHZ" VALUE="10.000000"/>
@@ -2979,7 +2809,7 @@
         <PARAMETER NAME="PCW_CAN_PERIPHERAL_DIVISOR1" VALUE="1"/>
         <PARAMETER NAME="PCW_CAN_PERIPHERAL_FREQMHZ" VALUE="100"/>
         <PARAMETER NAME="PCW_CAN_PERIPHERAL_VALID" VALUE="0"/>
-        <PARAMETER NAME="PCW_CLK0_FREQ" VALUE="100000000"/>
+        <PARAMETER NAME="PCW_CLK0_FREQ" VALUE="125000000"/>
         <PARAMETER NAME="PCW_CLK1_FREQ" VALUE="10000000"/>
         <PARAMETER NAME="PCW_CLK2_FREQ" VALUE="10000000"/>
         <PARAMETER NAME="PCW_CLK3_FREQ" VALUE="10000000"/>
@@ -3116,8 +2946,8 @@
         <PARAMETER NAME="PCW_EN_USB1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_WDT" VALUE="0"/>
         <PARAMETER NAME="PCW_FCLK0_PERIPHERAL_CLKSRC" VALUE="IO PLL"/>
-        <PARAMETER NAME="PCW_FCLK0_PERIPHERAL_DIVISOR0" VALUE="5"/>
-        <PARAMETER NAME="PCW_FCLK0_PERIPHERAL_DIVISOR1" VALUE="2"/>
+        <PARAMETER NAME="PCW_FCLK0_PERIPHERAL_DIVISOR0" VALUE="8"/>
+        <PARAMETER NAME="PCW_FCLK0_PERIPHERAL_DIVISOR1" VALUE="1"/>
         <PARAMETER NAME="PCW_FCLK1_PERIPHERAL_CLKSRC" VALUE="IO PLL"/>
         <PARAMETER NAME="PCW_FCLK1_PERIPHERAL_DIVISOR0" VALUE="1"/>
         <PARAMETER NAME="PCW_FCLK1_PERIPHERAL_DIVISOR1" VALUE="1"/>
@@ -3131,7 +2961,7 @@
         <PARAMETER NAME="PCW_FCLK_CLK1_BUF" VALUE="FALSE"/>
         <PARAMETER NAME="PCW_FCLK_CLK2_BUF" VALUE="FALSE"/>
         <PARAMETER NAME="PCW_FCLK_CLK3_BUF" VALUE="FALSE"/>
-        <PARAMETER NAME="PCW_FPGA0_PERIPHERAL_FREQMHZ" VALUE="100.000000"/>
+        <PARAMETER NAME="PCW_FPGA0_PERIPHERAL_FREQMHZ" VALUE="130.000000"/>
         <PARAMETER NAME="PCW_FPGA1_PERIPHERAL_FREQMHZ" VALUE="150.000000"/>
         <PARAMETER NAME="PCW_FPGA2_PERIPHERAL_FREQMHZ" VALUE="50"/>
         <PARAMETER NAME="PCW_FPGA3_PERIPHERAL_FREQMHZ" VALUE="50"/>
@@ -3408,7 +3238,7 @@
         <PARAMETER NAME="PCW_MIO_TREE_PERIPHERALS" VALUE="GPIO#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#GPIO#GPIO#ENET Reset#GPIO#GPIO#GPIO#GPIO#GPIO#GPIO#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#UART 1#UART 1#GPIO#GPIO#Enet 0#Enet 0"/>
         <PARAMETER NAME="PCW_MIO_TREE_SIGNALS" VALUE="gpio[0]#qspi0_ss_b#qspi0_io[0]#qspi0_io[1]#qspi0_io[2]#qspi0_io[3]/HOLD_B#qspi0_sclk#gpio[7]#gpio[8]#reset#gpio[10]#gpio[11]#gpio[12]#gpio[13]#gpio[14]#gpio[15]#tx_clk#txd[0]#txd[1]#txd[2]#txd[3]#tx_ctl#rx_clk#rxd[0]#rxd[1]#rxd[2]#rxd[3]#rx_ctl#data[4]#dir#stp#nxt#data[0]#data[1]#data[2]#data[3]#clk#data[5]#data[6]#data[7]#clk#cmd#data[0]#data[1]#data[2]#data[3]#wp#cd#tx#rx#gpio[50]#gpio[51]#mdc#mdio"/>
         <PARAMETER NAME="PCW_M_AXI_GP0_ENABLE_STATIC_REMAP" VALUE="0"/>
-        <PARAMETER NAME="PCW_M_AXI_GP0_FREQMHZ" VALUE="100"/>
+        <PARAMETER NAME="PCW_M_AXI_GP0_FREQMHZ" VALUE="125"/>
         <PARAMETER NAME="PCW_M_AXI_GP0_ID_WIDTH" VALUE="12"/>
         <PARAMETER NAME="PCW_M_AXI_GP0_SUPPORT_NARROW_BURST" VALUE="0"/>
         <PARAMETER NAME="PCW_M_AXI_GP0_THREAD_ID_WIDTH" VALUE="12"/>
@@ -3601,7 +3431,7 @@
         <PARAMETER NAME="PCW_S_AXI_GP1_FREQMHZ" VALUE="10"/>
         <PARAMETER NAME="PCW_S_AXI_GP1_ID_WIDTH" VALUE="6"/>
         <PARAMETER NAME="PCW_S_AXI_HP0_DATA_WIDTH" VALUE="64"/>
-        <PARAMETER NAME="PCW_S_AXI_HP0_FREQMHZ" VALUE="100"/>
+        <PARAMETER NAME="PCW_S_AXI_HP0_FREQMHZ" VALUE="125"/>
         <PARAMETER NAME="PCW_S_AXI_HP0_ID_WIDTH" VALUE="6"/>
         <PARAMETER NAME="PCW_S_AXI_HP1_DATA_WIDTH" VALUE="64"/>
         <PARAMETER NAME="PCW_S_AXI_HP1_FREQMHZ" VALUE="10"/>
@@ -3893,7 +3723,7 @@
             <CONNECTION INSTANCE="mlp_system_imp" PORT="DDR_we_n"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK0" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="125000000" DIR="O" NAME="FCLK_CLK0" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="axi_smc" PORT="aclk"/>
@@ -3918,7 +3748,7 @@
             <CONNECTION INSTANCE="mlp_system_imp" PORT="FIXED_IO_mio"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="M_AXI_GP0_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="M_AXI_GP0_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -4128,7 +3958,7 @@
             <CONNECTION INSTANCE="mlp_system_imp" PORT="FIXED_IO_ps_srstb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="S_AXI_HP0_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="S_AXI_HP0_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -4290,7 +4120,7 @@
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="mlp_system_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="1"/>
           <PARAMETER NAME="HAS_CACHE" VALUE="1"/>
@@ -4363,7 +4193,7 @@
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="mlp_system_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="1"/>
           <PARAMETER NAME="HAS_CACHE" VALUE="1"/>
@@ -4459,7 +4289,7 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst"/>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="slowest_sync_clk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="slowest_sync_clk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
