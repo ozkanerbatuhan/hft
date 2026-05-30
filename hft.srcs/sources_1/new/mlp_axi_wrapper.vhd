@@ -118,10 +118,7 @@ architecture Behavioral of mlp_axi_wrapper is
     signal mlp_busy        : std_logic;
     signal mlp_done_latched: std_logic := '0';
 
-    signal mlp_wr_en       : std_logic := '0';
-    signal mlp_wr_addr     : unsigned(5 downto 0) := (others => '0');
-    signal mlp_wr_data     : signed(15 downto 0) := (others => '0');
-    
+
     signal mlp_out_addr    : unsigned(5 downto 0) := (others => '0');
     signal mlp_out_data    : signed(15 downto 0);
 
