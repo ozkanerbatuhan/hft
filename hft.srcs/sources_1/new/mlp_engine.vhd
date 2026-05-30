@@ -41,7 +41,15 @@ entity mlp_engine is
         b_wr_en         : in  std_logic;
         b_wr_bram       : in  integer range 0 to 2;
         b_wr_addr       : in  std_logic_vector(6 downto 0);
-        b_wr_data       : in  std_logic_vector(15 downto 0)
+        b_wr_data       : in  std_logic_vector(15 downto 0);
+        
+        -- DEBUG_BEGIN (Makale icin osiloskop debug cikislari - sonra kaldirilacak)
+        dbg_data_in_pulse  : out std_logic;  -- Veri PL'e girdi (1-clk pulse)
+        dbg_layer1_done    : out std_logic;  -- Layer 1 bitti (1-clk pulse)
+        dbg_layer2_done    : out std_logic;  -- Layer 2 bitti (1-clk pulse)
+        dbg_layer3_done    : out std_logic;  -- Layer 3 bitti (1-clk pulse)
+        dbg_layer4_done    : out std_logic   -- Layer 4 bitti = tum MLP bitti (1-clk pulse)
+        -- DEBUG_END
     );
 end entity mlp_engine;
 
@@ -81,7 +89,7 @@ architecture rtl of mlp_engine is
     signal base_addr : integer range 0 to 127 := 0;
     signal layer_idx : integer range 1 to 4 := 1;
     signal iter_k    : integer range 0 to 127 := 0;
-    signal max_iters : integer range 0 to 127 := 0;
+    -- max_iters removed
     
     type pipe_valid_t is array(0 to 12) of std_logic;
     type pipe_layer_t is array(0 to 12) of integer range 1 to 4;
@@ -130,7 +138,23 @@ architecture rtl of mlp_engine is
     signal fsm_wb_data : wb_data_t;
     signal fsm_wb_base_idx : integer range 0 to 127;
 
+    -- DEBUG_BEGIN
+    signal dbg_data_in_reg    : std_logic := '0';
+    signal dbg_layer1_done_reg: std_logic := '0';
+    signal dbg_layer2_done_reg: std_logic := '0';
+    signal dbg_layer3_done_reg: std_logic := '0';
+    signal dbg_layer4_done_reg: std_logic := '0';
+    -- DEBUG_END
+
 begin
+
+    -- DEBUG_BEGIN
+    dbg_data_in_pulse <= dbg_data_in_reg;
+    dbg_layer1_done   <= dbg_layer1_done_reg;
+    dbg_layer2_done   <= dbg_layer2_done_reg;
+    dbg_layer3_done   <= dbg_layer3_done_reg;
+    dbg_layer4_done   <= dbg_layer4_done_reg;
+    -- DEBUG_END
 
     -- Output to AXI-Lite
     output_rd_data <= buf_A(to_integer(output_rd_addr));
@@ -197,8 +221,22 @@ begin
                 done <= '0';
                 busy <= '0';
                 valid_pipe(0) <= '0';
+                -- DEBUG_BEGIN
+                dbg_data_in_reg     <= '0';
+                dbg_layer1_done_reg <= '0';
+                dbg_layer2_done_reg <= '0';
+                dbg_layer3_done_reg <= '0';
+                dbg_layer4_done_reg <= '0';
+                -- DEBUG_END
             else
                 valid_pipe(0) <= '0'; -- default
+                -- DEBUG_BEGIN (pulse defaults)
+                dbg_data_in_reg     <= '0';
+                dbg_layer1_done_reg <= '0';
+                dbg_layer2_done_reg <= '0';
+                dbg_layer3_done_reg <= '0';
+                dbg_layer4_done_reg <= '0';
+                -- DEBUG_END
                 
                 case layer_idx is
                     when 1 => iters := (cfg_layer1_out + 2) / 3;
@@ -207,7 +245,7 @@ begin
                     when 4 => iters := (cfg_layer4_out + 2) / 3;
                     when others => iters := 0;
                 end case;
-                max_iters <= iters;
+                -- max_iters removed
 
                 case state is
                     when ST_IDLE =>
@@ -218,6 +256,9 @@ begin
                             iter_k <= 0;
                             base_addr <= 0;
                             state <= ST_ISSUE;
+                            -- DEBUG_BEGIN
+                            dbg_data_in_reg <= '1'; -- Veri geldi, hesaplama basliyor
+                            -- DEBUG_END
                         end if;
                         
                     when ST_ISSUE =>
@@ -226,7 +267,7 @@ begin
                         layer_pipe(0) <= layer_idx;
                         iter_pipe(0)  <= iter_k;
                         
-                        if iter_k = max_iters - 1 then
+                        if iter_k = iters - 1 then
                             state <= ST_DRAIN_LAYER;
                         else
                             iter_k <= iter_k + 1;
@@ -239,8 +280,19 @@ begin
                                 done <= '1';
                                 busy <= '0';
                                 state <= ST_IDLE;
+                                -- DEBUG_BEGIN
+                                dbg_layer4_done_reg <= '1';
+                                -- DEBUG_END
                             else
-                                base_addr <= base_addr + max_iters;
+                                -- DEBUG_BEGIN (Layer tamamlandi pulse'i)
+                                case layer_idx is
+                                    when 1 => dbg_layer1_done_reg <= '1';
+                                    when 2 => dbg_layer2_done_reg <= '1';
+                                    when 3 => dbg_layer3_done_reg <= '1';
+                                    when others => null;
+                                end case;
+                                -- DEBUG_END
+                                base_addr <= base_addr + iters;
                                 layer_idx <= layer_idx + 1;
                                 iter_k <= 0;
                                 state <= ST_ISSUE;

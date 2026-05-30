@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xCC6CFA53B4580162",
+      "boundary_crc": "0x5AEA6FF7F1F0DE1D",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../hft.gen/sources_1/bd/mlp_system",
       "name": "mlp_system",
@@ -203,6 +203,31 @@
             "direction": "IO"
           }
         }
+      }
+    },
+    "ports": {
+      "o_led_0": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "dbg_data_in_pulse_0": {
+        "direction": "O"
+      },
+      "dbg_layer1_done_0": {
+        "direction": "O"
+      },
+      "dbg_layer2_done_0": {
+        "direction": "O"
+      },
+      "dbg_layer3_done_0": {
+        "direction": "O"
+      },
+      "dbg_layer4_done_0": {
+        "direction": "O"
+      },
+      "dbg_mlp_busy_0": {
+        "direction": "O"
       }
     },
     "components": {
@@ -1974,6 +1999,29 @@
                 "value_src": "constant"
               }
             }
+          },
+          "o_led": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "dbg_data_in_pulse": {
+            "direction": "O"
+          },
+          "dbg_layer1_done": {
+            "direction": "O"
+          },
+          "dbg_layer2_done": {
+            "direction": "O"
+          },
+          "dbg_layer3_done": {
+            "direction": "O"
+          },
+          "dbg_layer4_done": {
+            "direction": "O"
+          },
+          "dbg_mlp_busy": {
+            "direction": "O"
           }
         }
       }
@@ -2029,6 +2077,48 @@
       }
     },
     "nets": {
+      "mlp_axi_wrapper_0_dbg_data_in_pulse": {
+        "ports": [
+          "mlp_axi_wrapper_0/dbg_data_in_pulse",
+          "dbg_data_in_pulse_0"
+        ]
+      },
+      "mlp_axi_wrapper_0_dbg_layer1_done": {
+        "ports": [
+          "mlp_axi_wrapper_0/dbg_layer1_done",
+          "dbg_layer1_done_0"
+        ]
+      },
+      "mlp_axi_wrapper_0_dbg_layer2_done": {
+        "ports": [
+          "mlp_axi_wrapper_0/dbg_layer2_done",
+          "dbg_layer2_done_0"
+        ]
+      },
+      "mlp_axi_wrapper_0_dbg_layer3_done": {
+        "ports": [
+          "mlp_axi_wrapper_0/dbg_layer3_done",
+          "dbg_layer3_done_0"
+        ]
+      },
+      "mlp_axi_wrapper_0_dbg_layer4_done": {
+        "ports": [
+          "mlp_axi_wrapper_0/dbg_layer4_done",
+          "dbg_layer4_done_0"
+        ]
+      },
+      "mlp_axi_wrapper_0_dbg_mlp_busy": {
+        "ports": [
+          "mlp_axi_wrapper_0/dbg_mlp_busy",
+          "dbg_mlp_busy_0"
+        ]
+      },
+      "mlp_axi_wrapper_0_o_led": {
+        "ports": [
+          "mlp_axi_wrapper_0/o_led",
+          "o_led_0"
+        ]
+      },
       "processing_system7_0_FCLK_CLK0": {
         "ports": [
           "processing_system7_0/FCLK_CLK0",
@@ -2077,7 +2167,7 @@
               "SEG_mlp_axi_wrapper_0_reg0": {
                 "address_block": "/mlp_axi_wrapper_0/S_AXI/reg0",
                 "offset": "0x40000000",
-                "range": "4K"
+                "range": "512K"
               }
             }
           }
