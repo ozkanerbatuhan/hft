@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="880" viewBox="0 0 1100 880" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="grayE" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a8186"/></marker>
+    <marker id="grayS" markerWidth="7" markerHeight="7" refX="0.5" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6 Z" fill="#7a8186"/></marker>
+    <marker id="blkE" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#111"/></marker>
+    <marker id="blkS" markerWidth="7" markerHeight="7" refX="0.5" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6 Z" fill="#111"/></marker>
+    <marker id="redE" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e8231a"/></marker>
+    <style>
+      .title{font-size:23px;font-weight:700;fill:#102027;}
+      .top{font-size:15px;font-weight:700;fill:#4a4a4a;}
+      .above{font-size:13px;fill:#555;}
+      .bus{font-size:13px;font-weight:700;fill:#111;}
+      .lane1{font-size:15px;font-weight:700;fill:#063b40;}
+      .lane{font-size:13px;font-weight:600;fill:#063b40;}
+      .blk{font-size:15px;font-weight:700;}
+      .blksm{font-size:12px;font-weight:600;}
+      .white{fill:#ffffff;}
+      .redlbl{font-size:13px;font-weight:700;fill:#e8231a;}
+      .fpga{font-size:17px;font-style:italic;font-weight:700;fill:#1b5e20;}
+    </style>
+  </defs>
+
+  <text x="550" y="34" text-anchor="middle" class="title">FPGA-Based Pipelined MLP Inference Accelerator</text>
+
+  <!-- above-box labels -->
+  <text x="165" y="62" text-anchor="middle" class="above">Control</text>
+  <text x="415" y="62" text-anchor="middle" class="above">Feature data</text>
+  <text x="715" y="62" text-anchor="middle" class="above">Parameters / Result</text>
+
+  <!-- top external boxes -->
+  <rect x="70" y="70" width="190" height="60" rx="3" fill="#ccd1d5" stroke="#111" stroke-width="1.6"/>
+  <text x="165" y="106" text-anchor="middle" class="top">Host CPU (PS)</text>
+  <rect x="320" y="70" width="190" height="60" rx="3" fill="#ccd1d5" stroke="#111" stroke-width="1.6"/>
+  <text x="415" y="106" text-anchor="middle" class="top">DMA Engine</text>
+  <rect x="620" y="70" width="190" height="60" rx="3" fill="#ccd1d5" stroke="#111" stroke-width="1.6"/>
+  <text x="715" y="106" text-anchor="middle" class="top">DDR Memory</text>
+
+  <!-- bus arrows PS to PL (double headed) -->
+  <line x1="165" y1="130" x2="165" y2="178" stroke="#111" stroke-width="5" marker-start="url(#blkS)" marker-end="url(#blkE)"/>
+  <text x="173" y="160" class="bus">AXI4-Lite</text>
+  <line x1="415" y1="130" x2="415" y2="178" stroke="#111" stroke-width="5" marker-start="url(#blkS)" marker-end="url(#blkE)"/>
+  <text x="423" y="160" class="bus">AXI4-Stream</text>
+  <line x1="715" y1="130" x2="715" y2="178" stroke="#111" stroke-width="5" marker-start="url(#blkS)" marker-end="url(#blkE)"/>
+  <text x="723" y="160" class="bus">AXI-MM</text>
+
+  <!-- FPGA box -->
+  <rect x="30" y="178" width="1040" height="562" rx="4" fill="#d7f2cc" stroke="#111" stroke-width="2.2"/>
+  <text x="1055" y="202" text-anchor="end" class="fpga">FPGA (Programmable Logic)</text>
+
+  <!-- neuron lanes -->
+  <rect x="55" y="222" width="185" height="145" rx="3" fill="#2ce0ec" stroke="#111" stroke-width="1.6"/>
+  <text x="147" y="254" text-anchor="middle" class="lane1">Neuron Lane 0</text>
+  <text x="147" y="284" text-anchor="middle" class="lane">64 MAC units</text>
+  <text x="147" y="310" text-anchor="middle" class="lane">+ Adder Tree</text>
+  <text x="147" y="336" text-anchor="middle" class="lane">+ Bias / ReLU</text>
+
+  <rect x="255" y="222" width="185" height="145" rx="3" fill="#2ce0ec" stroke="#111" stroke-width="1.6"/>
+  <text x="347" y="254" text-anchor="middle" class="lane1">Neuron Lane 1</text>
+  <text x="347" y="284" text-anchor="middle" class="lane">64 MAC units</text>
+  <text x="347" y="310" text-anchor="middle" class="lane">+ Adder Tree</text>
+  <text x="347" y="336" text-anchor="middle" class="lane">+ Bias / ReLU</text>
+
+  <rect x="455" y="222" width="185" height="145" rx="3" fill="#fff200" stroke="#111" stroke-width="1.6"/>
+  <text x="547" y="254" text-anchor="middle" class="lane1">Neuron Lane 2</text>
+  <text x="547" y="284" text-anchor="middle" class="lane">64 MAC units</text>
+  <text x="547" y="310" text-anchor="middle" class="lane">+ Adder Tree</text>
+  <text x="547" y="336" text-anchor="middle" class="lane">+ Bias / ReLU</text>
+
+  <!-- clock / pll -->
+  <rect x="675" y="222" width="150" height="110" rx="3" fill="#ffcc99" stroke="#111" stroke-width="1.6"/>
+  <text x="750" y="270" text-anchor="middle" class="blk" fill="#5d3a00">Clock &amp; Reset</text>
+  <text x="750" y="292" text-anchor="middle" class="blk" fill="#5d3a00">Distribution</text>
+  <line x1="825" y1="277" x2="845" y2="277" stroke="#111" stroke-width="3"/>
+  <rect x="845" y="222" width="195" height="110" rx="3" fill="#ff9ecb" stroke="#111" stroke-width="1.6"/>
+  <text x="942" y="270" text-anchor="middle" class="blk" fill="#6d0033">PLL &amp; Oscillator</text>
+  <text x="942" y="292" text-anchor="middle" class="blksm" fill="#6d0033">(raises clock / Fmax)</text>
+
+  <!-- red clock bus -->
+  <line x1="700" y1="332" x2="700" y2="400" stroke="#e8231a" stroke-width="3"/>
+  <line x1="90" y1="400" x2="900" y2="400" stroke="#e8231a" stroke-width="3"/>
+  <line x1="120" y1="400" x2="120" y2="369" stroke="#e8231a" stroke-width="3" marker-end="url(#redE)"/>
+  <line x1="330" y1="400" x2="330" y2="369" stroke="#e8231a" stroke-width="3" marker-end="url(#redE)"/>
+  <line x1="520" y1="400" x2="520" y2="369" stroke="#e8231a" stroke-width="3" marker-end="url(#redE)"/>
+  <line x1="880" y1="400" x2="880" y2="369" stroke="#e8231a" stroke-width="3" marker-end="url(#redE)"/>
+  <text x="150" y="393" class="redlbl">Clock distribution (high Fmax)</text>
+
+  <!-- black control bus -->
+  <line x1="90" y1="448" x2="900" y2="448" stroke="#111" stroke-width="3"/>
+  <line x1="180" y1="448" x2="180" y2="369" stroke="#111" stroke-width="2.4"/>
+  <line x1="385" y1="448" x2="385" y2="369" stroke="#111" stroke-width="2.4"/>
+  <line x1="590" y1="448" x2="590" y2="369" stroke="#111" stroke-width="2.4"/>
+  <line x1="850" y1="448" x2="850" y2="369" stroke="#111" stroke-width="2.4"/>
+  <line x1="300" y1="448" x2="300" y2="490" stroke="#111" stroke-width="2.4"/>
+  <text x="430" y="468" class="bus">Control &amp; Status Bus</text>
+
+  <!-- gray data arrows lanes to dataflow -->
+  <line x1="147" y1="367" x2="147" y2="490" stroke="#8c9398" stroke-width="9" marker-start="url(#grayS)" marker-end="url(#grayE)"/>
+  <line x1="347" y1="367" x2="347" y2="490" stroke="#8c9398" stroke-width="9" marker-start="url(#grayS)" marker-end="url(#grayE)"/>
+  <line x1="547" y1="367" x2="547" y2="490" stroke="#8c9398" stroke-width="9" marker-start="url(#grayS)" marker-end="url(#grayE)"/>
+
+  <!-- dataflow big block -->
+  <rect x="55" y="490" width="600" height="120" rx="3" fill="#2e8b57" stroke="#111" stroke-width="1.6"/>
+  <text x="355" y="540" text-anchor="middle" class="blk white">Ping-Pong Activation Buffer</text>
+  <text x="355" y="566" text-anchor="middle" class="blk white">&amp; Layer Dataflow Router</text>
+
+  <!-- controller -->
+  <rect x="720" y="367" width="320" height="243" rx="3" fill="#b14fd6" stroke="#111" stroke-width="1.6"/>
+  <text x="880" y="470" text-anchor="middle" class="blk white">Layer Sequencer &amp;</text>
+  <text x="880" y="496" text-anchor="middle" class="blk white">AXI-Lite Control</text>
+  <text x="880" y="522" text-anchor="middle" class="blksm white">(Controller / FSM)</text>
+
+  <!-- dataflow to controller -->
+  <line x1="655" y1="548" x2="720" y2="548" stroke="#8c9398" stroke-width="9" marker-start="url(#grayS)" marker-end="url(#grayE)"/>
+
+  <!-- on-chip BRAM -->
+  <line x1="265" y1="610" x2="265" y2="650" stroke="#8c9398" stroke-width="9" marker-start="url(#grayS)" marker-end="url(#grayE)"/>
+  <rect x="55" y="650" width="420" height="60" rx="3" fill="#f0d9a8" stroke="#111" stroke-width="1.6"/>
+  <text x="265" y="686" text-anchor="middle" class="blk" fill="#5d3a00">On-chip Weight &amp; Bias BRAM (192 + 3)</text>
+
+  <!-- external bottom I/O -->
+  <line x1="795" y1="610" x2="795" y2="770" stroke="#8c9398" stroke-width="9" marker-end="url(#grayE)"/>
+  <line x1="965" y1="610" x2="965" y2="770" stroke="#8c9398" stroke-width="9" marker-end="url(#grayE)"/>
+  <rect x="720" y="770" width="150" height="72" rx="3" fill="#ccd1d5" stroke="#111" stroke-width="1.6"/>
+  <text x="795" y="812" text-anchor="middle" class="top">Status LEDs</text>
+  <rect x="890" y="770" width="150" height="72" rx="3" fill="#ccd1d5" stroke="#111" stroke-width="1.6"/>
+  <text x="965" y="803" text-anchor="middle" class="blksm" fill="#4a4a4a">Scope / PMOD</text>
+  <text x="965" y="822" text-anchor="middle" class="blksm" fill="#4a4a4a">Debug I/O</text>
+</svg>

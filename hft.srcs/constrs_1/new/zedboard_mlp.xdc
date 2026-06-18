@@ -61,12 +61,13 @@ set_property IOSTANDARD LVCMOS33 [get_ports {o_led_0[7]}]
 ##   dbg_layer4_done_0       JA7    Layer 4 / tum MLP bitti (1-clk pulse)
 ##   dbg_mlp_busy_0          JA8    MLP mesgul (level)
 ##
-## Osiloskop Kullanim Rehberi:
-##   CH1 → JA1, CH2 → JA7  : Toplam PL Inference Gecikmesi
-##   CH1 → JA1, CH2 → JA2  : Layer 1 suresi
-##   CH1 → JA2, CH2 → JA3  : Layer 2 suresi
-##   CH1 → JA3, CH2 → JA4  : Layer 3 suresi
-##   CH1 → JA4, CH2 → JA7  : Layer 4 suresi
+## Osiloskop Kullanim Rehberi (Beklenen sureler @ 125 MHz / 8 ns period):
+##   CH1 → JA1, CH2 → JA7  : Toplam PL Inference Gecikmesi  (92 cycle = 736 ns / 0.736 us)
+##   CH1 → JA8 (Pulse Genisligi) : Alternatif Toplam Sure   (92 cycle = 736 ns / 0.736 us)
+##   CH1 → JA1, CH2 → JA2  : Layer 1 suresi                 (35 cycle = 280 ns)
+##   CH1 → JA2, CH2 → JA3  : Layer 2 suresi                 (24 cycle = 192 ns)
+##   CH1 → JA3, CH2 → JA4  : Layer 3 suresi                 (19 cycle = 152 ns)
+##   CH1 → JA4, CH2 → JA7  : Layer 4 suresi                 (14 cycle = 112 ns)
 
 ## JA1 — Data In Pulse
 set_property PACKAGE_PIN Y11  [get_ports {dbg_data_in_pulse_0}]

@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="800" viewBox="0 0 1700 800" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="aGray" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#37474f"/></marker>
+    <marker id="aClk" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#fb8c00"/></marker>
+    <marker id="aBlue" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#1565c0"/></marker>
+    <style>
+      .title{font-size:30px;font-weight:700;fill:#102027;}
+      .sub{font-size:15px;fill:#455a64;}
+      .summary{font-size:15px;font-weight:600;fill:#0d47a1;}
+      .stagebox{font-size:16px;font-weight:600;fill:#1b5e20;}
+      .small{font-size:12.5px;fill:#37474f;}
+      .tiny{font-size:11px;fill:#546e7a;}
+      .stagenum{font-size:13px;font-weight:600;fill:#7e57c2;}
+      .fflbl{font-size:12px;font-weight:700;fill:#e65100;}
+      .clk{font-size:14px;font-weight:700;fill:#e65100;}
+      .note{font-size:13.5px;fill:#37474f;}
+    </style>
+  </defs>
+
+  <text x="850" y="42" text-anchor="middle" class="title">Pipelined MAC Datapath &#8212; One Neuron-Group Through the Engine</text>
+  <text x="850" y="68" text-anchor="middle" class="sub">13-stage pipeline shared across all 4 MLP layers &#8226; flip-flop banks inserted between every operation</text>
+
+  <!-- summary band -->
+  <rect x="120" y="96" width="1460" height="40" rx="8" fill="#e8f4fe" stroke="#64b5f6"/>
+  <text x="850" y="122" text-anchor="middle" class="summary">Latency = 13 clock cycles    &#9474;    Throughput = 1 neuron-group / cycle (after fill)    &#9474;    Critical path = a single multiply or add</text>
+
+  <!-- stage-group labels -->
+  <text x="210"  y="208" text-anchor="middle" class="stagenum">stages 1&#8211;2</text>
+  <text x="452"  y="208" text-anchor="middle" class="stagenum">stages 3&#8211;4</text>
+  <text x="825"  y="208" text-anchor="middle" class="stagenum">stages 5&#8211;10</text>
+  <text x="1175" y="208" text-anchor="middle" class="stagenum">stage 11</text>
+  <text x="1390" y="208" text-anchor="middle" class="stagenum">stage 12</text>
+
+  <!-- input arrows -->
+  <line x1="40" y1="300" x2="120" y2="300" stroke="#37474f" stroke-width="2" marker-end="url(#aGray)"/>
+  <text x="42" y="292" class="small">activations</text>
+  <text x="42" y="318" class="tiny">(ping-pong buffer)</text>
+  <line x1="40" y1="410" x2="120" y2="410" stroke="#37474f" stroke-width="2" marker-end="url(#aGray)"/>
+  <text x="42" y="402" class="small">weights / bias</text>
+  <text x="42" y="428" class="tiny">(on-chip BRAM)</text>
+
+  <!-- Stage A: Operand Fetch -->
+  <rect x="120" y="240" width="180" height="230" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5"/>
+  <text x="210" y="288" text-anchor="middle" class="stagebox">Operand Fetch</text>
+  <text x="210" y="320" text-anchor="middle" class="small">Read weight / bias</text>
+  <text x="210" y="340" text-anchor="middle" class="small">from BRAM</text>
+  <text x="210" y="372" text-anchor="middle" class="small">Register inputs</text>
+  <text x="210" y="392" text-anchor="middle" class="small">and weights</text>
+  <text x="210" y="430" text-anchor="middle" class="tiny">isolates BRAM clock-to-out</text>
+
+  <!-- FF1 -->
+  <line x1="300" y1="355" x2="312" y2="355" stroke="#37474f" stroke-width="2" marker-end="url(#aGray)"/>
+  <rect x="312" y="250" width="22" height="210" rx="3" fill="#fff3e0" stroke="#fb8c00" stroke-width="1.8"/>
+  <text x="323" y="360" text-anchor="middle" class="fflbl" transform="rotate(-90 323 360)">FF</text>
+  <line x1="334" y1="355" x2="352" y2="355" stroke="#37474f" stroke-width="2" marker-end="url(#aGray)"/>
+
+  <!-- Stage B: SIMD Multiply -->
+  <rect x="352" y="240" width="200" height="230" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5"/>
+  <text x="452" y="288" text-anchor="middle" class="stagebox">SIMD Multiply</text>
+  <text x="452" y="320" text-anchor="middle" class="small">192 DSP multipliers</text>
+  <text x="452" y="340" text-anchor="middle" class="small">3 neurons &#215; 64 inputs</text>
+  <text x="452" y="372" text-anchor="middle" class="small">product = in[i] &#215; w[i]</text>
+  <text x="452" y="408" text-anchor="middle" class="tiny">two DSP-internal registers</text>
+  <text x="452" y="426" text-anchor="middle" class="tiny">(MREG + PREG)</text>
+
+  <!-- FF2 -->
+  <line x1="552" y1="355" x2="564" y2="355" stroke="#37474f" stroke-width="2" marker-end="url(#aGray)"/>
+  <rect x="564" y="250" width="22" height="210" rx="3" fill="#fff3e0" stroke="#fb8c00" stroke-width="1.8"/>
+  <text x="575" y="360" text-anchor="middle" class="fflbl" transform="rotate(-90 575 360)">FF</text>
+  <line x1="586" y1="355" x2="590" y2="355" stroke="#37474f" stroke-width="2" marker-end="url(#aGray)"/>
+
+  <!-- Stage C: Adder Tree -->
+  <rect x="590" y="240" width="470" height="230" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5"/>
+  <text x="825" y="270" text-anchor="middle" class="stagebox">Balanced Pipelined Adder Tree</text>
+  <text x="825" y="290" text-anchor="middle" class="tiny">6 register stages: 64 products reduced to 1 accumulator (40-bit), one add level per cycle</text>
+  <!-- internal stage dividers (flip-flop boundaries) -->
+  <g stroke="#fb8c00" stroke-width="1.4" stroke-dasharray="4 3">
+    <line x1="668" y1="305" x2="668" y2="460"/>
+    <line x1="747" y1="305" x2="747" y2="460"/>
+    <line x1="825" y1="305" x2="825" y2="460"/>
+    <line x1="903" y1="305" x2="903" y2="460"/>
+    <line x1="982" y1="305" x2="982" y2="460"/>
+  </g>
+  <g text-anchor="middle" font-size="13" font-weight="600" fill="#1b5e20">
+    <text x="629" y="340">64&#8594;32</text><text x="707" y="340">32&#8594;16</text><text x="786" y="340">16&#8594;8</text>
+    <text x="864" y="340">8&#8594;4</text><text x="942" y="340">4&#8594;2</text><text x="1021" y="340">2&#8594;1</text>
+  </g>
+  <g text-anchor="middle" class="fflbl">
+    <text x="668" y="452">FF</text><text x="747" y="452">FF</text><text x="825" y="452">FF</text><text x="903" y="452">FF</text><text x="982" y="452">FF</text>
+  </g>
+  <text x="825" y="392" text-anchor="middle" class="small">depth = log&#8322;(64) = 6 adders, not 63</text>
+  <text x="825" y="412" text-anchor="middle" class="tiny">valid / layer-index tokens flow alongside the data</text>
+
+  <!-- FF3 -->
+  <line x1="1060" y1="355" x2="1072" y2="355" stroke="#37474f" stroke-width="2" marker-end="url(#aGray)"/>
+  <rect x="1072" y="250" width="22" height="210" rx="3" fill="#fff3e0" stroke="#fb8c00" stroke-width="1.8"/>
+  <text x="1083" y="360" text-anchor="middle" class="fflbl" transform="rotate(-90 1083 360)">FF</text>
+  <line x1="1094" y1="355" x2="1100" y2="355" stroke="#37474f" stroke-width="2" marker-end="url(#aGray)"/>
+
+  <!-- Stage D: Bias Add -->
+  <rect x="1100" y="240" width="150" height="230" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5"/>
+  <text x="1175" y="300" text-anchor="middle" class="stagebox">Bias Add</text>
+  <text x="1175" y="340" text-anchor="middle" class="small">+ layer bias</text>
+  <text x="1175" y="372" text-anchor="middle" class="small">(aligned to</text>
+  <text x="1175" y="392" text-anchor="middle" class="small">accumulator)</text>
+
+  <!-- FF4 -->
+  <line x1="1250" y1="355" x2="1262" y2="355" stroke="#37474f" stroke-width="2" marker-end="url(#aGray)"/>
+  <rect x="1262" y="250" width="22" height="210" rx="3" fill="#fff3e0" stroke="#fb8c00" stroke-width="1.8"/>
+  <text x="1273" y="360" text-anchor="middle" class="fflbl" transform="rotate(-90 1273 360)">FF</text>
+  <line x1="1284" y1="355" x2="1290" y2="355" stroke="#37474f" stroke-width="2" marker-end="url(#aGray)"/>
+
+  <!-- Stage E: Activation -->
+  <rect x="1290" y="240" width="200" height="230" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5"/>
+  <text x="1390" y="288" text-anchor="middle" class="stagebox">Activation</text>
+  <text x="1390" y="320" text-anchor="middle" class="small">rescale Q8.8</text>
+  <text x="1390" y="340" text-anchor="middle" class="small">saturate to 16-bit</text>
+  <text x="1390" y="372" text-anchor="middle" class="small">ReLU on layers 1&#8211;3</text>
+  <text x="1390" y="392" text-anchor="middle" class="small">linear on layer 4</text>
+  <text x="1390" y="430" text-anchor="middle" class="tiny">write back to buffer</text>
+
+  <!-- Result -->
+  <line x1="1490" y1="355" x2="1502" y2="355" stroke="#1565c0" stroke-width="2.2" marker-end="url(#aBlue)"/>
+  <rect x="1502" y="295" width="150" height="120" rx="8" fill="#ffffff" stroke="#1976d2" stroke-width="1.6"/>
+  <text x="1577" y="345" text-anchor="middle" class="stagebox" fill="#0d47a1">Neuron</text>
+  <text x="1577" y="368" text-anchor="middle" class="stagebox" fill="#0d47a1">outputs</text>
+  <text x="1577" y="395" text-anchor="middle" class="tiny">3 results / group</text>
+
+  <!-- Clock distribution -->
+  <text x="70" y="566" class="clk">clk</text>
+  <path d="M96,572 l8,0 l0,-14 l10,0 l0,14 l10,0 l0,-14 l10,0 l0,14 l8,0" fill="none" stroke="#e65100" stroke-width="1.6"/>
+  <line x1="120" y1="565" x2="1500" y2="565" stroke="#fb8c00" stroke-width="2.2"/>
+  <g stroke="#fb8c00" stroke-width="1.8">
+    <line x1="323"  y1="565" x2="323"  y2="463" marker-end="url(#aClk)"/>
+    <line x1="575"  y1="565" x2="575"  y2="463" marker-end="url(#aClk)"/>
+    <line x1="668"  y1="565" x2="668"  y2="463" marker-end="url(#aClk)"/>
+    <line x1="747"  y1="565" x2="747"  y2="463" marker-end="url(#aClk)"/>
+    <line x1="825"  y1="565" x2="825"  y2="463" marker-end="url(#aClk)"/>
+    <line x1="903"  y1="565" x2="903"  y2="463" marker-end="url(#aClk)"/>
+    <line x1="982"  y1="565" x2="982"  y2="463" marker-end="url(#aClk)"/>
+    <line x1="1083" y1="565" x2="1083" y2="463" marker-end="url(#aClk)"/>
+    <line x1="1273" y1="565" x2="1273" y2="463" marker-end="url(#aClk)"/>
+  </g>
+  <text x="1520" y="570" class="tiny" fill="#e65100">every flip-flop bank shares the same clock</text>
+
+  <!-- Bottom takeaway -->
+  <rect x="120" y="600" width="1460" height="74" rx="8" fill="#fffaf2" stroke="#ffcc80"/>
+  <text x="140" y="626" class="note" font-weight="700" fill="#e65100">Why the flip-flops:</text>
+  <text x="140" y="648" class="note">A pipeline register (flip-flop bank) between every operation shortens the longest combinational path to a single add/multiply, so the clock period can be much smaller</text>
+  <text x="140" y="666" class="note">&#8594; higher Fmax. The cost is latency (13 cycles) and a few extra registers, while throughput stays at one result per cycle. Without them the long flat datapath could not meet timing.</text>
+
+  <!-- Legend -->
+  <rect x="120" y="694" width="1460" height="74" rx="8" fill="#fafafa" stroke="#cfd8dc"/>
+  <text x="140" y="720" class="small" font-weight="700">Legend</text>
+  <rect x="240" y="710" width="18" height="14" fill="#e8f5e9" stroke="#43a047"/><text x="264" y="722" class="small">Combinational pipeline stage (DSP / logic)</text>
+  <rect x="640" y="710" width="18" height="14" fill="#fff3e0" stroke="#fb8c00"/><text x="664" y="722" class="small">Flip-flop bank (pipeline register)</text>
+  <line x1="980" y1="717" x2="1018" y2="717" stroke="#fb8c00" stroke-width="2.2"/><text x="1026" y="722" class="small">Clock distribution</text>
+  <rect x="1200" y="710" width="18" height="14" fill="#ffffff" stroke="#1976d2"/><text x="1224" y="722" class="small">Engine output</text>
+  <text x="140" y="752" class="tiny">Result of each neuron group is written back to the ping-pong activation buffer to feed the next layer (see the system architecture diagram). All math in Q8.8 fixed-point, 40-bit accumulators.</text>
+</svg>
