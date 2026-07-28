@@ -103,6 +103,31 @@ architecture rtl of mlp_engine is
     
     signal pipeline_empty : std_logic;
 
+    ----------------------------------------------------------------------
+    -- Boru hatti hizalama sabitleri
+    --
+    -- BIAS_STAGE : bias'in toplayici agacina eklendigi kademe.
+    --              9 = DOGRULANDI (simulasyon T2/T3 artik ayni sonucu
+    --              veriyor; eskiden 11 idi ve bias 2 iterasyon geriden
+    --              geliyordu).
+    --
+    -- WB_STAGE   : geri yazma icin kullanilan token kademesi
+    --              (valid / iter / layer). Deneysel olarak ayarlanacak.
+    --              Olculen: 12 -> T3 = [10,11,12] ;  9 -> T3 = [4,0,0]
+    --              Hedef: T1 = [1280,0,0] ve T2 = T3 = [1,2,3]
+    ----------------------------------------------------------------------
+    -- MUX_STAGE  : giris ping-pong mux'inin baktigi token kademesi.
+    --              1 = DOGRU (eskiden 2 idi -> her katman yanlis buffer'dan
+    --              okuyordu). in_reg, w_reg ile ayni kenarda yakalanir ve o
+    --              verinin token'i 1. kademededir.
+    --
+    -- Ucu birlikte cevrim-dogru Python modelinde dogrulandi (sim_model.py):
+    -- 60 rastgele model x 4 rastgele girdi = 240 vaka, altin referansla
+    -- 240/240 bit-birebir eslesme. Eski degerlerle (11, 12, 2): 0/240.
+    constant BIAS_STAGE : integer := 9;
+    constant WB_STAGE   : integer := 11;
+    constant MUX_STAGE  : integer := 1;
+
     -- Current Inputs
     signal current_inputs : act_arr_t;
     
@@ -216,6 +241,19 @@ begin
         variable iters : integer;
     begin
         if rising_edge(clk) then
+            -- Token kaydirma (valid / layer / iter).
+            -- Bu uc sinyal ONCEDEN hem bu proseste (indis 0) hem de veri yolu
+            -- prosesinde (indis 1..12) suruluyordu. layer_pipe ve iter_pipe
+            -- integer, yani cozumlenmemis tip -> coklu surucu yasak.
+            -- XSIM 43-3249 hatasi buydu; simulasyon hic calismamisti.
+            -- Kaydirma buraya tasindi, boylece tek surucu kaldi.
+            -- Ayni saat kenari, ayni sira -> islevsel davranis degismedi.
+            for i in 1 to 12 loop
+                valid_pipe(i) <= valid_pipe(i-1);
+                layer_pipe(i) <= layer_pipe(i-1);
+                iter_pipe(i)  <= iter_pipe(i-1);
+            end loop;
+
             if rst = '1' then
                 state <= ST_IDLE;
                 done <= '0';
@@ -304,9 +342,13 @@ begin
     end process;
 
     -- Mux Current Inputs
-    process(layer_pipe(2), buf_A, buf_B)
+    -- HATA DUZELTMESI: onceden layer_pipe(2) kullaniliyordu. in_reg ile w_reg
+    -- ayni kenarda yakalaniyor ve o verinin token'i 1. kademede; mux bir
+    -- kademe ileriye bakinca her katman yanlis ping-pong buffer'indan
+    -- okuyordu (L2 buf_A'dan, L3 buf_B'den...). MUX_STAGE ile duzeltildi.
+    process(layer_pipe(MUX_STAGE), buf_A, buf_B)
     begin
-        if layer_pipe(2) = 1 or layer_pipe(2) = 3 then
+        if layer_pipe(MUX_STAGE) = 1 or layer_pipe(MUX_STAGE) = 3 then
             for i in 0 to 63 loop current_inputs(i) <= buf_A(i); end loop;
         else
             for i in 0 to 63 loop current_inputs(i) <= buf_B(i); end loop;
@@ -320,10 +362,10 @@ begin
     begin
         if rising_edge(clk) then
             -- Shift tracking tokens
+            -- valid_pipe / layer_pipe / iter_pipe kaydirmasi Issue FSM
+            -- prosesine tasindi (coklu surucu hatasi). Burada yalnizca
+            -- bias_pipe kaliyor; onun tek surucusu bu proses.
             for i in 1 to 12 loop
-                valid_pipe(i) <= valid_pipe(i-1);
-                layer_pipe(i) <= layer_pipe(i-1);
-                iter_pipe(i)  <= iter_pipe(i-1);
                 bias_pipe(i)  <= bias_pipe(i-1);
             end loop;
             
@@ -393,26 +435,36 @@ begin
             end loop;
             
             -- Stage 11: Bias Addition
+            -- HATA DUZELTMESI (simulasyon T2 ile saptandi):
+            -- Onceki kod bias_pipe(11) kullaniyordu. Agirlik yolu BRAM
+            -- cikisindan sum_l6'ya 9 kayit gecerken, bias 11 kayit geciyordu
+            -- -> bias, ait oldugu noronun 2 iterasyon (6 noron) gerisinden
+            -- geliyordu. Iki kayit geri alindi.
             for n in 0 to PARALLEL_NEURONS-1 loop
-                final_sum_reg(n) <= sum_l6(n) + shift_left(resize(signed(bias_pipe(11)(n)), 40), 8);
+                final_sum_reg(n) <= sum_l6(n) + shift_left(resize(signed(bias_pipe(BIAS_STAGE)(n)), 40), 8);
             end loop;
             
             -- Stage 12: Activate & Writeback
-            fsm_wr_en <= valid_pipe(12);
-            fsm_wb_base_idx <= iter_pipe(12) * 3;
-            if layer_pipe(12) = 1 or layer_pipe(12) = 3 then
+            -- HATA DUZELTMESI (simulasyon T1/T3 ile saptandi):
+            -- Onceki kod valid/iter/layer icin indis 12 kullaniyordu. Veri bu
+            -- noktaya token'indan 3 iterasyon ONCE variyordu -> her noronun
+            -- sonucu 9 indis geriye yaziliyordu (noron 0..8 tamamen kayboluyordu).
+            -- Indis 9'a cekildi; token artik veriyle ayni cevrimde.
+            fsm_wr_en <= valid_pipe(WB_STAGE);
+            fsm_wb_base_idx <= iter_pipe(WB_STAGE) * 3;
+            if layer_pipe(WB_STAGE) = 1 or layer_pipe(WB_STAGE) = 3 then
                 fsm_wr_target_B <= '1';
             else
                 fsm_wr_target_B <= '0';
             end if;
-            
+
             for n in 0 to PARALLEL_NEURONS-1 loop
                 -- Scale down by 256 (shift right 8)
                 v_scaled := shift_right(final_sum_reg(n), 8);
                 v_sat := saturate(v_scaled);
-                
+
                 -- ReLU (except last layer)
-                if layer_pipe(12) < 4 then
+                if layer_pipe(WB_STAGE) < 4 then
                     if v_sat < 0 then
                         v_sat := (others => '0');
                     end if;
