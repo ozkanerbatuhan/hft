@@ -1,23 +1,23 @@
 --------------------------------------------------------------------------------
 -- mlp_verify_tb.vhd
 --
--- Kendi kendini kontrol eden dogrulama testbench'i.
+-- Self-checking verification testbench.
 --
--- Amac: donanimin altin modelden NEREDE saptigini yalitmak. Uc test,
--- birbirinden bagimsiz uc mekanizmayi zorluyor:
+-- Purpose: isolate WHERE the hardware diverges from the golden model.
+-- Three tests stress three independent mechanisms:
 --
---   T1  Gecis zinciri     -> saf veri yolu (carpma, toplayici agaci, >>8)
---   T2  Bias zinciri      -> bias boru hattinin hizalanmasi (bias_pipe)
---   T3  Coklu noron       -> geri yazma indeksi (fsm_wb_base_idx)
+-- T1  pass-through chain -> the datapath alone (multiply, adder tree, >>8)
+-- T2  bias chain         -> bias pipeline alignment (bias_pipe)
+-- T3  multiple neurons   -> write-back indexing (fsm_wb_base_idx)
 --
--- Her test PASS/FAIL basar. Ilk FAIL veren test, hatanin hangi mekanizmada
--- oldugunu dogrudan soyler.
+-- Each test reports PASS or FAIL. The first failing test names the
+-- mechanism that is broken.
 --
--- NOT: Simulasyonda weight_bram RAM'i (others => '0') ile baslar, bu yuzden
--- yalnizca sifir OLMAYAN girdileri yazmak yeterli.
+-- Note: in simulation the weight_bram RAM initialises to all zeros, so
+-- only the non-zero entries need to be written.
 --
--- Calistirma: Vivado > Simulation > Run Behavioral Simulation
---             (bu dosyayi simulation-only top olarak ayarlayin)
+-- To run: Vivado > Simulation > Run Behavioral Simulation
+-- (set this file as the simulation-only top)
 --------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -31,11 +31,11 @@ architecture sim of mlp_verify_tb is
 
     constant CLK_PERIOD : time := 8 ns;          -- 125 MHz
 
-    -- Katmanlarin BRAM satir taban adresleri: ceil(n_out/3) birikimli
-    --   L1: 64 noron -> 22 satir   (taban  0)
-    --   L2: 32 noron -> 11 satir   (taban 22)
-    --   L3: 16 noron ->  6 satir   (taban 33)
-    --   L4:  3 noron ->  1 satir   (taban 39)
+    -- Per-layer BRAM row base addresses: cumulative ceil(n_out/3)
+    -- L1: 64 neurons -> 22 rows   (base  0)
+    -- L2: 32 neurons -> 11 rows   (base 22)
+    -- L3: 16 neurons ->  6 rows   (base 33)
+    -- L4:  3 neurons ->  1 row    (base 39)
     constant BASE_L1 : integer := 0;
     constant BASE_L2 : integer := 22;
     constant BASE_L3 : integer := 33;
@@ -80,7 +80,7 @@ architecture sim of mlp_verify_tb is
 
     type vec64_t is array(0 to 63) of integer;
 
-    -- test sonuclari
+    -- test results
     signal n_pass : integer := 0;
     signal n_fail : integer := 0;
 
@@ -119,7 +119,7 @@ begin
     stim : process
 
         ----------------------------------------------------------------
-        -- AXI-Lite temel islemler
+        -- AXI-Lite primitives
         ----------------------------------------------------------------
         procedure axi_write(addr : integer; val : integer) is
         begin
@@ -144,9 +144,9 @@ begin
         end procedure;
 
         ----------------------------------------------------------------
-        -- Agirlik / bias yazma (mlp_weight_loader.h ile ayni adres semasi)
-        --   agirlik : 0x20000 + (n*64 + i)*512 + (base+k)*4
-        --   bias    : 0x20000 + (192 + n)*512  + (base+k)*4
+        -- Weight and bias writes, same address scheme as mlp_weight_loader.h
+        -- weight : 0x20000 + (n*64 + i)*512 + (base+k)*4
+        -- bias   : 0x20000 + (192 + n)*512  + (base+k)*4
         ----------------------------------------------------------------
         procedure wr_w(neuron, inp, base, val : integer) is
             variable k, n, bram, addr : integer;
@@ -167,7 +167,7 @@ begin
         end procedure;
 
         ----------------------------------------------------------------
-        -- 64 elemanli vektoru 32 AXI-Stream kelimesi olarak gonder
+        -- Send a 64-element vector as 32 AXI-Stream words
         ----------------------------------------------------------------
         procedure send_vec(v : vec64_t) is
         begin
@@ -184,7 +184,7 @@ begin
         end procedure;
 
         ----------------------------------------------------------------
-        -- Cikarimi calistir, 3 cikisi oku
+        -- Run one inference and read the three outputs
         ----------------------------------------------------------------
         procedure run_infer(v : vec64_t; o0, o1, o2 : out integer) is
             variable st : integer;
@@ -193,10 +193,10 @@ begin
             send_vec(v);
             loop
                 axi_read(16#00004#, st);
-                exit when (st mod 2) = 1;          -- done biti
+                exit when (st mod 2) = 1;          -- done bit
                 guard := guard + 1;
                 assert guard < 2000
-                    report "ZAMAN ASIMI: done sinyali gelmedi" severity failure;
+                    report "TIMEOUT: done was never asserted" severity failure;
             end loop;
             axi_read(16#00100#, o0);
             axi_read(16#00104#, o1);
@@ -206,16 +206,16 @@ begin
         procedure check(name : string; g0, g1, g2, e0, e1, e2 : integer) is
         begin
             if g0 = e0 and g1 = e1 and g2 = e2 then
-                report name & " : PASS   cikis = [" &
+                report name & " : PASS   output = [" &
                     integer'image(g0) & ", " & integer'image(g1) & ", " &
                     integer'image(g2) & "]" severity note;
                 n_pass <= n_pass + 1;
             else
                 report name & " : *** FAIL ***" severity warning;
-                report "        beklenen = [" & integer'image(e0) & ", " &
+                report "        expected = [" & integer'image(e0) & ", " &
                        integer'image(e1) & ", " & integer'image(e2) & "]"
                        severity warning;
-                report "        alinan   = [" & integer'image(g0) & ", " &
+                report "        got      = [" & integer'image(g0) & ", " &
                        integer'image(g1) & ", " & integer'image(g2) & "]"
                        severity warning;
                 n_fail <= n_fail + 1;
@@ -223,18 +223,18 @@ begin
         end procedure;
 
         ----------------------------------------------------------------
-        -- buf_A'nin TAMAMINI oku (0x100 + i*4 -> indis i, i = 0..63)
-        -- Katman 4 sonrasi buf_A icerigi:
-        --   [0..2]   katman 4 cikisi
-        --   [3..32]  katman 2 cikisi (katman 4 uzerine yazmadi)
-        --   [33..63] orijinal girdi (hic dokunulmadi)
-        -- Yani ara katman sonuclari da gorunur.
+        -- Read the whole of buf_A (0x100 + i*4 -> index i, i = 0..63)
+        -- Contents of buf_A after layer 4:
+        -- [0..2]   layer 4 output
+        -- [3..32]  layer 2 output, not overwritten by layer 4
+        -- [33..63] the original input, untouched
+        -- So the intermediate results are visible too.
         ----------------------------------------------------------------
         procedure dump_bufA(tag : string) is
             variable val : integer;
             variable l   : line;
         begin
-            report "  --- buf_A dokumu: " & tag & " ---" severity note;
+            report "  --- buf_A dump: " & tag & " ---" severity note;
             for r in 0 to 7 loop
                 write(l, string'("    ["));
                 write(l, r*8);
@@ -260,7 +260,7 @@ begin
         aresetn <= '1';
         wait for CLK_PERIOD * 10;
 
-        -- konfigurasyon (varsayilanlarla ayni, yine de acikca yaziyoruz)
+        -- configuration, same as the defaults but written explicitly
         axi_write(16#00010#, 64);
         axi_write(16#00014#, 32);
         axi_write(16#00018#, 16);
@@ -268,37 +268,37 @@ begin
         wait for CLK_PERIOD * 5;
 
         report "=================================================" severity note;
-        report " T1 - Gecis zinciri (saf veri yolu)" severity note;
+        report " T1 - pass-through chain (datapath only)" severity note;
         report "=================================================" severity note;
-        -- Her katmanda yalnizca [0][0] = 1.0, bias yok.
-        -- girdi[0] dort katmandan degismeden gecmeli.
-        axi_write(16#00008#, 1);                  -- UPDATE_FLAG = 1 (stream kilitli)
-        wr_w(0, 0, BASE_L1, 2 * ONE_Q88);         -- 2.0 -> cikis girdiden farkli olsun
+        -- Only [0][0] = 1.0 in each layer, no bias.
+        -- input[0] should pass through all four layers unchanged.
+        axi_write(16#00008#, 1);                  -- UPDATE_FLAG = 1 (stream locked)
+        wr_w(0, 0, BASE_L1, 2 * ONE_Q88);         -- 2.0 so the output differs from the input
         wr_w(0, 0, BASE_L2, ONE_Q88);
         wr_w(0, 0, BASE_L3, ONE_Q88);
         wr_w(0, 0, BASE_L4, ONE_Q88);
         axi_write(16#00008#, 0);                  -- UPDATE_FLAG = 0
         wait for CLK_PERIOD * 10;
 
-        -- ZEHIR: buf_A hem girdiyi hem sonucu tutuyor ve sonuc oradan okunuyor.
-        -- Girdi[0..2]'ye ayirt edici degerler koyuyoruz; geri yazma hic olmazsa
-        -- bu degerleri geri okuruz ve "sahte PASS" almayiz.
-        -- Ayrica L1 agirligi 2.0 -> beklenen cikis girdiden farkli.
+        -- POISON: buf_A holds both the input and the result, and the result is
+        -- read from there. Distinctive values are placed in input[0..2] so that
+        -- if the write-back never happens we read those back and cannot mistake
+        -- it for a pass. The L1 weight of 2.0 makes the expected output differ.
         v := (others => 0);
         v(0) := 5 * ONE_Q88;                      -- 5.0
-        v(1) := -1000;                            -- zehir
-        v(2) := -2000;                            -- zehir
+        v(1) := -1000;                            -- poison
+        v(2) := -2000;                            -- poison
         run_infer(v, a0, a1, a2);
         check("T1 gecis zinciri", a0, a1, a2, 10 * ONE_Q88, 0, 0);
 
         report "=================================================" severity note;
-        report " T2 - Bias zinciri (bias_pipe hizalamasi)" severity note;
+        report " T2 - bias chain (bias_pipe alignment)" severity note;
         report "=================================================" severity note;
         -- W1 = 0, B1[j] = j+1 (ham Q8.8 LSB).
-        -- L2/L3/L4 birim matris -> B1[0..2] degismeden cikisa ulasmali.
-        -- Beklenen: [1, 2, 3].  Bias boru hatti kaymissa bozulur.
+        -- L2/L3/L4 are identity, so B1[0..2] should reach the output unchanged.
+        -- Expected [1, 2, 3]. A misaligned bias pipeline corrupts this.
         axi_write(16#00008#, 1);
-        wr_w(0, 0, BASE_L1, 0);                   -- T1'in agirligini (2.0) temizle
+        wr_w(0, 0, BASE_L1, 0);                   -- clear T1's weight of 2.0
         for j in 0 to 63 loop
             wr_b(j, BASE_L1, j + 1);
         end loop;
@@ -311,24 +311,24 @@ begin
         for i in 0 to 2 loop
             wr_w(i, i, BASE_L4, ONE_Q88);
         end loop;
-        wr_w(0, 0, BASE_L2, ONE_Q88);             -- (i=0 zaten yazildi, zararsiz)
+        wr_w(0, 0, BASE_L2, ONE_Q88);             -- (i=0 already written, harmless)
         axi_write(16#00008#, 0);
         wait for CLK_PERIOD * 10;
 
         v := (others => 0);
-        v(0) := 4444;                             -- zehir (W1=0, sonuca etkisi yok)
+        v(0) := 4444;                             -- poison; W1=0 so it cannot affect the result
         v(1) := -1000;
         v(2) := -2000;
         run_infer(v, a0, a1, a2);
         check("T2 bias zinciri", a0, a1, a2, 1, 2, 3);
 
         report "=================================================" severity note;
-        report " T3 - Coklu noron (geri yazma indeksi)" severity note;
+        report " T3 - multiple neurons (write-back indexing)" severity note;
         report "=================================================" severity note;
-        -- B1 = 0, W1[j][0] = (j+1) ham LSB, girdi[0] = 1.0
+        -- B1 = 0, W1[j][0] = (j+1) raw LSB, input[0] = 1.0
         --   -> a1[j] = ((j+1) * 256) >> 8 = j+1
-        -- L2/L3/L4 birim -> cikis [1, 2, 3].
-        -- Geri yazma indeksi kaymissa a1 permute olur ve cikis degisir.
+        -- L2/L3/L4 identity, so the output is [1, 2, 3].
+        -- A shifted write-back index permutes a1 and changes the output.
         axi_write(16#00008#, 1);
         for j in 0 to 63 loop
             wr_b(j, BASE_L1, 0);
@@ -339,14 +339,14 @@ begin
 
         v := (others => 0);
         v(0) := ONE_Q88;
-        v(1) := -1000;                            -- zehir
-        v(2) := -2000;                            -- zehir
+        v(1) := -1000;                            -- poison
+        v(2) := -2000;                            -- poison
         run_infer(v, a0, a1, a2);
-        check("T3 coklu noron", a0, a1, a2, 1, 2, 3);
+        check("T3 multiple neurons", a0, a1, a2, 1, 2, 3);
 
         wait for CLK_PERIOD * 20;
         report "=================================================" severity note;
-        report " SONUC: " & integer'image(n_pass) & " PASS / " &
+        report " RESULT: " & integer'image(n_pass) & " PASS / " &
                integer'image(n_fail) & " FAIL" severity note;
         report "=================================================" severity note;
 

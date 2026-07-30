@@ -1,56 +1,145 @@
-# HFT MLP Latency Optimization on ZedBoard
+# FPGA MLP Inference Core (Zynq-7000)
 
-## Overview
-This repository contains the hardware and software design for a High-Frequency Trading (HFT) Multi-Layer Perceptron (MLP) implemented on a ZedBoard (Zynq-7000 SoC). The project focuses on extreme latency optimization, aiming to achieve **sub-150 microsecond** end-to-end inference latency. Performance is realized by moving from a software-based / AXI-Lite serial processing bottleneck approach to a deeply pipelined, fully parallel MAC architecture implemented directly in the FPGA fabric using an AXI-Stream/AXI-DMA pipeline.
+Hardware for *An Ethernet-Enabled Customizable Neural Inference Framework on
+Low-Cost FPGA SoC for High-Frequency Trading*.
 
-## System Architecture
+This repository holds the RTL, the block design, the self-checking testbench,
+the cycle-accurate reference model and the post-implementation reports. The
+firmware, host tooling and verification scripts are in a separate repository
+(see [Companion repository](#companion-repository)).
 
-The architecture partitions the workload between the Zynq Processing System (PS) and the Programmable Logic (PL):
+## What the core does
 
-1. **Software/PS**: Handles high-level control, network data packet ingestion (e.g., Ethernet MAC testing), and initiating DMA transfers.
-2. **Hardware/PL (FPGA)**: A fully parallel, DSP-slice optimized Dense Layer MAC operation. By transitioning from a sequential FSM-based controller to parallel DSP slices, inference computation time is reduced from ~56 µs to approximately **1 µs**.
-3. **Interconnect**: An AXI-DMA core transfers the required input vector directly into the FPGA via the high-speed AXI-Stream interfaces.
+A fully hardware multi-layer perceptron runs inside the programmable logic of a
+Xilinx XC7Z020 (ZedBoard). Feature vectors arrive over AXI-DMA / AXI-Stream and
+a decision comes back over AXI-Lite.
 
-## Repository Contents
+| Property | Value |
+|---|---|
+| Device | XC7Z020-1CLG484, ZedBoard |
+| Clock | 125 MHz, WNS 0.038 ns |
+| Arithmetic | Q8.8 fixed point, 40-bit accumulator |
+| Multipliers | 192 DSP48E1 slices, 87.3% of the device |
+| LUTs | 27.2% |
+| Pipeline | 13 stages, 3 neurons issued per cycle |
+| Latency | 96 cycles, 768 ns, invariant |
+| Network shape | Run-time configurable up to 4 layers, 64 neurons, 64 inputs |
 
-* `hft.srcs/` - Contains the primary VHDL source files, testbenches (`mlp_tb.vhd`), AXI wrappers (`mlp_axi_wrapper.vhd`), and constraints.
-* `add_dma_block_design.tcl` - TCL script to generate the Vivado Block Design for the AXI-DMA data transfer pipeline.
-* `run_synth.tcl` - Execution script for Vivado synthesis and implementation.
-* `convert.py` - Python utility script used for data preparation, model parameter conversion, and latency analysis.
+The network shape is a run-time parameter rather than an elaboration-time one:
+layer widths live in configuration registers, so a different topology is
+deployed into the same unchanged bitstream over AXI-Lite with no synthesis step.
 
-## Hardware Setup
+Latency follows an analytic model of `ceil(n/3) + 14` cycles per layer. A cycle
+counter, readable at AXI-Lite offset `0x10`, reports the measured value after
+every inference; over 100,000 consecutive inferences it returns the same number
+every time, with zero standard deviation.
 
-* **Board**: Digilent ZedBoard (Zynq-7000 ARM/FPGA SoC)
-* **IP Cores**: AXI-DMA, AXI Interconnect, Custom VHDL MLP core.
-* **Tools**: Xilinx Vivado (Synthesis, Implementation, Bitstream Generation) & Vitis (Software Application).
+## Layout
 
-## Getting Started
-
-### 1. Build the Hardware Design
-
-Run the provided TCL scripts in Vivado to rebuild the project block design and generate the bitstream:
-
-```bash
-vivado -mode batch -source run_synth.tcl
 ```
-*(Alternatively, you can open the project in Vivado GUI and source `add_dma_block_design.tcl` to recreate the IP Integrator block design)*
+hft.srcs/sources_1/new/
+    mlp_engine.vhd          the inference core: FSM, 13-stage pipeline,
+                            192 multipliers, adder tree, ping-pong buffers
+    mlp_axi_wrapper.vhd     AXI-Lite control and AXI-Stream ingress
+    weight_bram.vhd         per-input weight memory
+    framework_pkg.vhd       shared types and constants
+    mlp_verify_tb.vhd       self-checking testbench, tests T1 to T3
+    mlp_tb.vhd              earlier ad-hoc testbench
+hft.srcs/sources_1/bd/      block design (Zynq PS, AXI DMA, interconnect)
+sim_model.py                cycle-accurate Python model of mlp_engine
+rebuild_all.tcl             synthesis, implementation, bitstream, reports, .xsa
+reports/                    post-implementation utilisation, timing, power
+docs/                       supporting notes
+REPRODUCIBILITY.md          how each number in the paper was produced
+mlp_system_wrapper.xsa      hardware handoff for the firmware repository
+```
 
-### 2. Software Application
+Everything Vivado regenerates is excluded from version control; see
+`.gitignore`.
 
-The generated hardware handoff (`.xsa`) can be imported into Vitis to create the software application. Run the software baremetal to test AXI-DMA data transfers to the MLP core and measure cycle-accurate turnaround times.
+## Rebuilding
 
-### 3. Testing and Verification
+Vivado 2025.2. From the Vivado TCL console:
 
-* **Simulation**: Use Vivado simulator to run `mlp_tb.vhd` to verify the mathematical accuracy and clock-cycle latency of the parallel dense layers.
-* **Python Scripts**: `convert.py` can be utilized to format typical trading data into the fixed-point or required representation format expected by the VHDL core.
+```tcl
+cd {path/to/hft}
+source rebuild_all.tcl
+```
 
-## Performance Metrics
+This runs synthesis and implementation, writes the bitstream, produces the
+utilisation, timing, power, clock and critical-path reports under `reports/`,
+and exports `mlp_system_wrapper.xsa` with the bitstream embedded. It prints WNS,
+WHS and TNS at the end, followed by the steps needed on the firmware side.
 
-* **Original Sequential FSM Latency**: ~56 µs over AXI-Lite
-* **Target Parallel Implementation Latency**: ~1 µs compute latency
-* **Target E2E Roundtrip Latency**: < 150 µs (including DMA overhead)
+Batch equivalent:
 
-## Future Work
+```
+vivado -mode batch -source {path/to/hft/rebuild_all.tcl}
+```
 
-* Integrating 10G Ethernet MAC directly to the PL for further reduction in software/OS overhead.
-* Expanding the MLP architecture to support larger node configurations while dealing with DSP slice constraints.
+## Verification
+
+Three levels, described in full in `REPRODUCIBILITY.md`.
+
+**Cycle-accurate model.** `sim_model.py` reproduces `mlp_engine.vhd` exactly,
+including VHDL two-phase signal semantics. It was used to find the correct
+values of the pipeline alignment constants without a Vivado run:
+
+```
+python3 sim_model.py
+```
+
+**Directed RTL simulation.** Set `mlp_verify_tb.vhd` as the simulation-only top
+and run a behavioural simulation. Three tests isolate three mechanisms:
+
+| Test | Stresses | Expected |
+|---|---|---|
+| T1 | the datapath alone: multiply, adder tree, `>>8` | pass-through of a scaled input |
+| T2 | bias pipeline alignment (`bias_pipe`) | `[1, 2, 3]` |
+| T3 | write-back indexing (`fsm_wb_base_idx`) | `[1, 2, 3]` |
+
+The stimulus uses distinctive poison values, so a missing write-back returns the
+input rather than the expected result and cannot be mistaken for a pass.
+
+**On-hardware comparison.** Performed from the companion repository against an
+independent golden model. Across four topologies the hardware reproduced the
+model on 400,000 inferences and all 1,200,000 raw output values without a single
+discrepancy.
+
+## Pipeline alignment constants
+
+Three constants in `mlp_engine.vhd` set the alignment of the token pipeline
+against the data pipeline. Directed simulation showed all three were wrong, and
+each defect is documented at the point of the fix in the source:
+
+| Constant | Was | Is | Symptom |
+|---|---|---|---|
+| `BIAS_STAGE` | 11 | 9 | bias arrived two iterations, six neurons, behind its own neuron |
+| `WB_STAGE` | 12 | 11 | each result written nine indices back, neurons 0 to 8 lost |
+| `MUX_STAGE` | 2 | 1 | every layer read from the wrong ping-pong buffer |
+
+These had never been caught because the design had never been simulated: a
+multiple-driver error on `layer_pipe` and `iter_pipe`, both unresolved integer
+types, made XSIM refuse to elaborate. The token shift was moved into the Issue
+FSM process to leave a single driver, on the same clock edge and in the same
+order, so functional behaviour is unchanged.
+
+## Debug and measurement outputs
+
+The core exposes five one-cycle pulses on PMOD JA for oscilloscope measurement:
+`dbg_data_in_pulse` and `dbg_layer1..4_done`. The interval between the first and
+last pulse is the whole inference. The cycle counter at AXI-Lite `0x10` is the
+preferred instrument and is what the reported figures use.
+
+## Companion repository
+
+Firmware, host engine, GUI and verification scripts:
+<https://github.com/ozkanerbatuhan/HFT_vitis>
+
+That repository generates its Vitis platform from `mlp_system_wrapper.xsa` in
+this one, so the firmware can be rebuilt without running Vivado.
+
+## Citing
+
+Citation details will be added once the paper is published. Until then, please
+reference this repository directly.

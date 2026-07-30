@@ -1,35 +1,35 @@
 # ==============================================================
-# HFT-MLP Aşama 1: AXI DMA Block Design TCL Script
+# HFT-MLP step 1: AXI DMA block design TCL script
 # ==============================================================
-# Bu scripti Vivado TCL Console'dan çalıştırabilirsiniz.
-# Alternatif olarak, aynı adımları GUI'den de yapabilirsiniz.
+# Run this from the Vivado TCL console, or perform the same steps
+# by hand in the GUI.
 #
-# ÖNEMLİ: Scripti çalıştırmadan önce mlp_system block design 
-# açık ve düzenlenebilir olmalı.
+# Important: the mlp_system block design must be open and editable
+# before this script is run.
 # ==============================================================
 
-# Proje yolunu ayarla
+# Set the project path
 set project_dir "D:/vivado projects/hft"
 
-# Block design'ı aç
+# Open the block design
 open_bd_design "${project_dir}/hft.srcs/sources_1/bd/mlp_system/mlp_system.bd"
 
 # ==============================================================
-# 1. Zynq PS: S_AXI_HP0 portunu etkinleştir
+# 1. Zynq PS: enable the S_AXI_HP0 port
 # ==============================================================
 set_property -dict [list \
     CONFIG.PCW_USE_S_AXI_HP0 {1} \
 ] [get_bd_cells processing_system7_0]
 
 # ==============================================================
-# 2. AXI DMA IP'sini ekle
+# 2. Add the AXI DMA IP
 # ==============================================================
 create_bd_cell -type ip -vlnv xilinx.com:ip:axi_dma:7.1 axi_dma_0
 
-# DMA konfigürasyonu:
-#   - MM2S (Memory-to-Stream): Etkin — RAM'den MLP'ye veri gönderir
-#   - S2MM (Stream-to-Memory): Devre dışı — sonuç AXI-Lite ile okunur
-#   - Scatter Gather: Devre dışı — basit mod yeterli (80 byte)
+# DMA configuration:
+#   - MM2S (memory to stream): enabled, moves data from RAM to the MLP
+#   - S2MM (stream to memory): disabled, results are read over AXI-Lite
+#   - Scatter gather: disabled, simple mode is enough for 80 bytes
 #   - MM2S Data Width: 32 bit
 set_property -dict [list \
     CONFIG.c_include_s2mm {0} \
@@ -40,38 +40,38 @@ set_property -dict [list \
 ] [get_bd_cells axi_dma_0]
 
 # ==============================================================
-# 3. mlp_axi_wrapper'ı güncelle
+# 3. Update mlp_axi_wrapper
 # ==============================================================
-# Wrapper'ı yeniden eklemek gerekebilir çünkü port listesi değişti.
-# Eğer Vivado otomatik algılamazsa:
-#   1) Eski mlp_axi_wrapper_0'ı sil
-#   2) RTL modülü yeniden ekle (Add Module → mlp_axi_wrapper)
+# The wrapper may need to be re-added because its port list changed.
+# If Vivado does not pick this up automatically:
+#   1) delete the old mlp_axi_wrapper_0
+#   2) re-add the RTL module (Add Module -> mlp_axi_wrapper)
 
 # ==============================================================
-# 4. Bağlantılar
+# 4. Connections
 # ==============================================================
 
-# 4a. DMA kontrol portu → PS GP0 üzerinden (AXI SmartConnect ile)
-# Not: Mevcut axi_smc SmartConnect, zaten GP0'a bağlı.
-# DMA'nın S_AXI_LITE portunu aynı SmartConnect'e bağla.
+# 4a. DMA control port to PS GP0 through the AXI SmartConnect
+# The existing axi_smc SmartConnect is already attached to GP0;
+# connect the DMA's S_AXI_LITE port to the same SmartConnect.
 connect_bd_intf_net [get_bd_intf_pins axi_dma_0/S_AXI_LITE] \
                     [get_bd_intf_pins axi_smc/M01_AXI]
-# SmartConnect'e yeni bir master port eklemek gerekebilir:
+# A new master port on the SmartConnect may be required:
 set_property CONFIG.NUM_MI {3} [get_bd_cells axi_smc]
 
-# 4b. DMA veri okuma portu → PS HP0  
-# HP0 için ayrı bir AXI SmartConnect/Interconnect gerekir
+# 4b. DMA data read port to PS HP0
+# HP0 needs its own AXI SmartConnect or Interconnect
 create_bd_cell -type ip -vlnv xilinx.com:ip:axi_smc:1.0 axi_smc_hp0
 connect_bd_intf_net [get_bd_intf_pins axi_dma_0/M_AXI_MM2S] \
                     [get_bd_intf_pins axi_smc_hp0/S00_AXI]
 connect_bd_intf_net [get_bd_intf_pins axi_smc_hp0/M00_AXI] \
                     [get_bd_intf_pins processing_system7_0/S_AXI_HP0]
 
-# 4c. DMA stream çıkışı → MLP wrapper stream girişi
+# 4c. DMA stream output to the MLP wrapper stream input
 connect_bd_intf_net [get_bd_intf_pins axi_dma_0/M_AXIS_MM2S] \
                     [get_bd_intf_pins mlp_axi_wrapper_0/S_AXIS]
 
-# 4d. Clock ve Reset bağlantıları
+# 4d. Clock and reset connections
 connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] \
                [get_bd_pins axi_dma_0/s_axi_lite_aclk]
 connect_bd_net [get_bd_pins processing_system7_0/FCLK_CLK0] \
@@ -85,16 +85,16 @@ connect_bd_net [get_bd_pins rst_ps7_0_100M/peripheral_aresetn] \
                [get_bd_pins axi_smc_hp0/aresetn]
 
 # ==============================================================
-# 5. Adres haritasını ata
+# 5. Assign the address map
 # ==============================================================
-# DMA base address otomatik atanır, ama kontrol edelim
+# The DMA base address is assigned automatically; verify it
 assign_bd_address
-# Tipik adresler:
-#   mlp_axi_wrapper_0: 0x43C00000 (mevcut)
-#   axi_dma_0:         0x40400000 (yeni)
+# Typical addresses:
+#   mlp_axi_wrapper_0: 0x43C00000 (existing)
+#   axi_dma_0:         0x40400000 (new)
 
 # ==============================================================
-# 6. Doğrulama ve Kaydet
+# 6. Validate and save
 # ==============================================================
 validate_bd_design
 save_bd_design

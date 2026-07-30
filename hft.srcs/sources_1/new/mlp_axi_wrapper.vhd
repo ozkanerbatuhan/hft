@@ -43,13 +43,13 @@ entity mlp_axi_wrapper is
         S_AXIS_TREADY   : out std_logic;
         S_AXIS_TLAST    : in  std_logic;
 
-        -- DEBUG_BEGIN (LED ve Osiloskop cikislari - sonra kaldirilacak)
+        -- DEBUG_BEGIN (LED and oscilloscope outputs)
         o_led              : out std_logic_vector(7 downto 0);
         dbg_data_in_pulse  : out std_logic;  -- PMOD JA1: Veri PL'e girdi
-        dbg_layer1_done    : out std_logic;  -- PMOD JA2: Layer 1 bitti
-        dbg_layer2_done    : out std_logic;  -- PMOD JA3: Layer 2 bitti
-        dbg_layer3_done    : out std_logic;  -- PMOD JA4: Layer 3 bitti
-        dbg_layer4_done    : out std_logic;  -- PMOD JA7: Layer 4 / tum MLP bitti
+        dbg_layer1_done    : out std_logic;  -- PMOD JA2: layer 1 complete
+        dbg_layer2_done    : out std_logic;  -- PMOD JA3: layer 2 complete
+        dbg_layer3_done    : out std_logic;  -- PMOD JA4: layer 3 complete
+        dbg_layer4_done    : out std_logic;  -- PMOD JA7: layer 4, i.e. whole MLP complete
         dbg_mlp_busy       : out std_logic   -- PMOD JA8: MLP mesgul
         -- DEBUG_END
     );
@@ -86,7 +86,8 @@ architecture Behavioral of mlp_axi_wrapper is
             dbg_layer1_done    : out std_logic;
             dbg_layer2_done    : out std_logic;
             dbg_layer3_done    : out std_logic;
-            dbg_layer4_done    : out std_logic
+            dbg_layer4_done    : out std_logic;
+            cycle_count        : out std_logic_vector(15 downto 0)
             -- DEBUG_END
         );
     end component;
@@ -117,6 +118,7 @@ architecture Behavioral of mlp_axi_wrapper is
     signal mlp_done        : std_logic;
     signal mlp_busy        : std_logic;
     signal mlp_done_latched: std_logic := '0';
+    signal mlp_cycle_count : std_logic_vector(15 downto 0);
 
 
     signal mlp_out_addr    : unsigned(5 downto 0) := (others => '0');
@@ -337,6 +339,10 @@ begin
                                     axi_rdata(1) <= mlp_busy;
                                     axi_rdata(2) <= st_tready;
                                 when x"08" => axi_rdata <= reg_update_flag;
+                                when x"10" =>
+                                    -- Cycle count of the last inference (determinism measurement)
+                                    axi_rdata <= (others => '0');
+                                    axi_rdata(15 downto 0) <= mlp_cycle_count;
                                 when x"0C" =>
                                     axi_rdata <= (others => '0');
                                     axi_rdata(5 downto 0) <= std_logic_vector(to_unsigned(st_idx, 6));
@@ -463,13 +469,14 @@ begin
         dbg_layer1_done   => eng_dbg_l1_done,
         dbg_layer2_done   => eng_dbg_l2_done,
         dbg_layer3_done   => eng_dbg_l3_done,
-        dbg_layer4_done   => eng_dbg_l4_done
+        dbg_layer4_done   => eng_dbg_l4_done,
+        cycle_count       => mlp_cycle_count
         -- DEBUG_END
     );
 
     -- DEBUG_BEGIN (LED Kontrol Mantigi)
     -- Model yuklenirken: 8 LED hepsi yanar
-    -- Inference sirasinda: Cikis noronlarinin degerlerini goster
+    -- During inference: display the output neuron values
     process(S_AXI_ACLK)
     begin
         if rising_edge(S_AXI_ACLK) then
@@ -480,26 +487,26 @@ begin
                     -- Model yukleniyor: TUM LED'ler YAN
                     led_reg <= (others => '1');
                 elsif mlp_done = '1' then
-                    -- Inference bitti: Cikislari LED'lere bas
+                    -- Inference complete: drive the outputs onto the LEDs
                     -- LD0 = out[0] isareti (pozitif=1), LD1 = out[1], LD2 = out[2]
-                    -- LD3-LD7 = layer tamamlanma gostergesi (sticky)
+                    -- LD3 to LD7 are sticky layer-completion indicators
                     led_reg(0) <= not mlp_out_data(15); -- out[0] pozitifse YAN (SELL guclu)
-                    -- Simdilik sadece argmax sonucu goster:
-                    -- En basit: 3 cikisi da sign biti ile goster
+                    -- Show the argmax result only:
+                    -- Simplest form: show all three outputs by sign bit
                     led_reg(2 downto 1) <= (others => '0'); -- Sonraki read cycle'da dolar
-                    led_reg(3) <= '1'; -- Layer 1 bitti (sticky)
-                    led_reg(4) <= '1'; -- Layer 2 bitti (sticky)
-                    led_reg(5) <= '1'; -- Layer 3 bitti (sticky)
-                    led_reg(6) <= '1'; -- Layer 4 bitti (sticky)
-                    led_reg(7) <= '1'; -- Inference tamamlandi
+                    led_reg(3) <= '1'; -- layer 1 complete (sticky)
+                    led_reg(4) <= '1'; -- layer 2 complete (sticky)
+                    led_reg(5) <= '1'; -- layer 3 complete (sticky)
+                    led_reg(6) <= '1'; -- layer 4 complete (sticky)
+                    led_reg(7) <= '1'; -- inference complete
                 elsif mlp_busy = '1' then
-                    -- Hesaplama devam ediyor: Sirayla LED'leri yak
+                    -- Computation in progress: sweep the LEDs
                     if eng_dbg_l1_done = '1' then led_reg(3) <= '1'; end if;
                     if eng_dbg_l2_done = '1' then led_reg(4) <= '1'; end if;
                     if eng_dbg_l3_done = '1' then led_reg(5) <= '1'; end if;
                     if eng_dbg_l4_done = '1' then led_reg(6) <= '1'; end if;
                 elsif mlp_busy = '0' and reg_update_flag(0) = '0' then
-                    -- Idle: LED'leri kapat (bir sonraki inference icin temizle)
+                    -- Idle: clear the LEDs ready for the next inference
                     led_reg(7 downto 3) <= (others => '0');
                 end if;
             end if;

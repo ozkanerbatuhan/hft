@@ -1,7 +1,0 @@
-open_project {d:/vivado projects/hft/hft.xpr}
-reset_run synth_1
-reset_run impl_1
-launch_runs impl_1 -to_step write_bitstream -jobs 6
-wait_on_run impl_1
-write_hw_platform -fixed -include_bit -force -file {d:/vivado projects/hft/mlp_system_wrapper.xsa}
-exit

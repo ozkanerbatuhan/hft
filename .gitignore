@@ -1,72 +1,72 @@
 # ============================================================
-# Vivado / Vitis .gitignore — HFT-MLP Project
+# Vivado project .gitignore
+#
+# What belongs in this repository: RTL sources, the block design,
+# the rebuild script, the post-implementation reports and the
+# documentation. Everything Vivado can regenerate is excluded.
 # ============================================================
 
-# ─── Vivado Project Build Artifacts ─────────────────────────
+# --- Vivado logs and journals -------------------------------
 *.jou
 *.log
 *.str
 *.xpe
-
-# Runs (synthesis, implementation, simulation outputs)
-hft.runs/
-hft.cache/
-hft.hw/
-hft.ip_user_files/
-hft.sim/
-hft.gen/
-
-# Vivado temp & backup
-.Xil/
 *.backup.jou
 *.backup.log
-webtalk/
 usage_statistics_webtalk.*
-__pycache__/
+webtalk/
+.Xil/
 
-# ─── Hardware Handoff (regenerable) ─────────────────────────
-*.hdf
-*.xsa
+# --- Vivado generated project directories -------------------
+# All of these are rebuilt by rebuild_all.tcl from the sources.
+hft.cache/
+hft.gen/
+hft.hw/
+hft.ip_user_files/
+hft.runs/
+hft.sim/
 
-# ─── Vitis / SDK Build Artifacts ───────────────────────────
-vitis_workspace/
-.metadata/
-Debug/
-Release/
-RemoteSystemsTempFiles/
-*.elf
-*.elf.size
-*.elf.unused
-*.o
-*.d
+# --- Synthesis / implementation checkpoints ------------------
+# Large binaries (tens of MB) with no value in version control.
+*.dcp
+*.rpx
 
-# ─── Block Design Generated Files ──────────────────────────
-# BD wrapper is auto-generated, keep the .bd itself
+# --- Block design generated output --------------------------
+# The .bd itself is source and is kept; everything derived is not.
 hft.srcs/sources_1/bd/*/hdl/
 hft.srcs/sources_1/bd/*/ip/*/sim/
 hft.srcs/sources_1/bd/*/ip/*/synth/
 hft.srcs/sources_1/bd/*/hw_handoff/
 hft.srcs/sources_1/bd/*/ipshared/
 
-# ─── Simulation Outputs ───────────────────────────────────
+# --- Simulation output --------------------------------------
+xsim.dir/
 *.wdb
 *.wcfg
-xsim.dir/
-*.pb
 *.vcd
+*.pb
 
-# ─── OS / Editor Junk ─────────────────────────────────────
-Thumbs.db
-.DS_Store
+# --- Hardware handoff ---------------------------------------
+# The exported .xsa is regenerable from this project, but keeping
+# the top-level copy lets the firmware repository build its Vitis
+# platform without running Vivado. Nested copies are excluded.
+*.xsa
+!/mlp_system_wrapper.xsa
+
+# --- Superseded scripts -------------------------------------
+# run_synth.tcl and build_bitstream.tcl were replaced by
+# rebuild_all.tcl; the originals are kept locally only.
+_eski_tcl/
+
+# --- Tooling and editor -------------------------------------
+.claude/
+.vscode/
+.idea/
 *.swp
 *~
+Thumbs.db
+.DS_Store
 
-# ─── Python temp (convert script etc.) ─────────────────────
-*.pyc
+# --- Python ------------------------------------------------
 __pycache__/
-
-# ─── Documentation & Reports ──────────────────────────────
-
-
-hft.gen/
-hft.runs/
+*.pyc

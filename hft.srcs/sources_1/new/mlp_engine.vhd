@@ -43,13 +43,19 @@ entity mlp_engine is
         b_wr_addr       : in  std_logic_vector(6 downto 0);
         b_wr_data       : in  std_logic_vector(15 downto 0);
         
-        -- DEBUG_BEGIN (Makale icin osiloskop debug cikislari - sonra kaldirilacak)
-        dbg_data_in_pulse  : out std_logic;  -- Veri PL'e girdi (1-clk pulse)
-        dbg_layer1_done    : out std_logic;  -- Layer 1 bitti (1-clk pulse)
-        dbg_layer2_done    : out std_logic;  -- Layer 2 bitti (1-clk pulse)
-        dbg_layer3_done    : out std_logic;  -- Layer 3 bitti (1-clk pulse)
-        dbg_layer4_done    : out std_logic   -- Layer 4 bitti = tum MLP bitti (1-clk pulse)
+        -- DEBUG_BEGIN (oscilloscope debug outputs for the per-layer measurements)
+        dbg_data_in_pulse  : out std_logic;  -- data entered the PL (one-cycle pulse)
+        dbg_layer1_done    : out std_logic;  -- layer 1 complete (one-cycle pulse)
+        dbg_layer2_done    : out std_logic;  -- layer 2 complete (one-cycle pulse)
+        dbg_layer3_done    : out std_logic;  -- layer 3 complete (one-cycle pulse)
+        dbg_layer4_done    : out std_logic;  -- layer 4 complete, i.e. whole MLP done (one-cycle pulse)
         -- DEBUG_END
+
+        -- CYCLE COUNTER: number of cycles from start to done.
+        -- Latched when done asserts and held until the next start.
+        -- This turns the determinism claim into a distribution over 10^5
+        -- inferences instead of a single oscilloscope capture.
+        cycle_count        : out std_logic_vector(15 downto 0)
     );
 end entity mlp_engine;
 
@@ -104,26 +110,26 @@ architecture rtl of mlp_engine is
     signal pipeline_empty : std_logic;
 
     ----------------------------------------------------------------------
-    -- Boru hatti hizalama sabitleri
+    -- Pipeline alignment constants
     --
-    -- BIAS_STAGE : bias'in toplayici agacina eklendigi kademe.
-    --              9 = DOGRULANDI (simulasyon T2/T3 artik ayni sonucu
-    --              veriyor; eskiden 11 idi ve bias 2 iterasyon geriden
-    --              geliyordu).
+    -- BIAS_STAGE : stage at which the bias enters the adder tree.
+    -- 9 is verified: simulation T2/T3 now agree. It was 11,
+    -- which made the bias arrive two iterations behind the
+    -- neuron it belonged to.
     --
-    -- WB_STAGE   : geri yazma icin kullanilan token kademesi
-    --              (valid / iter / layer). Deneysel olarak ayarlanacak.
-    --              Olculen: 12 -> T3 = [10,11,12] ;  9 -> T3 = [4,0,0]
-    --              Hedef: T1 = [1280,0,0] ve T2 = T3 = [1,2,3]
+    -- WB_STAGE   : token stage used for write-back
+    -- (valid / iter / layer). Was 12, which wrote each
+    -- result nine indices too early and lost neurons 0 to 8
+    -- entirely. 11 aligns the token with its data.
     ----------------------------------------------------------------------
-    -- MUX_STAGE  : giris ping-pong mux'inin baktigi token kademesi.
-    --              1 = DOGRU (eskiden 2 idi -> her katman yanlis buffer'dan
-    --              okuyordu). in_reg, w_reg ile ayni kenarda yakalanir ve o
-    --              verinin token'i 1. kademededir.
+    -- MUX_STAGE  : token stage the input ping-pong mux looks at.
+    -- 1 is correct. It was 2, so every layer read from the
+    -- wrong buffer. in_reg is captured on the same edge as
+    -- w_reg, and that data's token sits at stage 1.
     --
-    -- Ucu birlikte cevrim-dogru Python modelinde dogrulandi (sim_model.py):
-    -- 60 rastgele model x 4 rastgele girdi = 240 vaka, altin referansla
-    -- 240/240 bit-birebir eslesme. Eski degerlerle (11, 12, 2): 0/240.
+    -- All three were validated in the cycle-accurate Python model
+    -- (sim_model.py): 60 random networks x 4 random inputs = 240
+    -- cases, 240/240 bit-exact. With the old values: 0/240.
     constant BIAS_STAGE : integer := 9;
     constant WB_STAGE   : integer := 11;
     constant MUX_STAGE  : integer := 1;
@@ -163,6 +169,10 @@ architecture rtl of mlp_engine is
     signal fsm_wb_data : wb_data_t;
     signal fsm_wb_base_idx : integer range 0 to 127;
 
+    -- Cycle counter registers
+    signal cyc_run    : unsigned(15 downto 0) := (others => '0');
+    signal cyc_hold   : unsigned(15 downto 0) := (others => '0');
+
     -- DEBUG_BEGIN
     signal dbg_data_in_reg    : std_logic := '0';
     signal dbg_layer1_done_reg: std_logic := '0';
@@ -183,6 +193,8 @@ begin
 
     -- Output to AXI-Lite
     output_rd_data <= buf_A(to_integer(output_rd_addr));
+
+    cycle_count <= std_logic_vector(cyc_hold);
 
     -- Buffer Update Process
     process(clk)
@@ -241,23 +253,30 @@ begin
         variable iters : integer;
     begin
         if rising_edge(clk) then
-            -- Token kaydirma (valid / layer / iter).
-            -- Bu uc sinyal ONCEDEN hem bu proseste (indis 0) hem de veri yolu
-            -- prosesinde (indis 1..12) suruluyordu. layer_pipe ve iter_pipe
-            -- integer, yani cozumlenmemis tip -> coklu surucu yasak.
-            -- XSIM 43-3249 hatasi buydu; simulasyon hic calismamisti.
-            -- Kaydirma buraya tasindi, boylece tek surucu kaldi.
-            -- Ayni saat kenari, ayni sira -> islevsel davranis degismedi.
+            -- Token shift (valid / layer / iter).
+            -- These three used to be driven both here (index 0) and in the
+            -- datapath process (indices 1..12). layer_pipe and iter_pipe are
+            -- integer, an unresolved type, so multiple drivers are illegal.
+            -- That was the XSIM 43-3249 error, and it meant the design had
+            -- never been simulated. The shift was moved here so there is a
+            -- single driver; same clock edge and order, so behaviour is equal.
             for i in 1 to 12 loop
                 valid_pipe(i) <= valid_pipe(i-1);
                 layer_pipe(i) <= layer_pipe(i-1);
                 iter_pipe(i)  <= iter_pipe(i-1);
             end loop;
 
+            -- Cycle counter: increments every cycle outside ST_IDLE, clears
+            -- on start, and is latched when the final layer completes.
+            if state /= ST_IDLE then
+                cyc_run <= cyc_run + 1;
+            end if;
+
             if rst = '1' then
                 state <= ST_IDLE;
                 done <= '0';
                 busy <= '0';
+                cyc_run <= (others => '0');
                 valid_pipe(0) <= '0';
                 -- DEBUG_BEGIN
                 dbg_data_in_reg     <= '0';
@@ -290,12 +309,13 @@ begin
                         done <= '0';
                         if start = '1' then
                             busy <= '1';
+                            cyc_run <= (others => '0');
                             layer_idx <= 1;
                             iter_k <= 0;
                             base_addr <= 0;
                             state <= ST_ISSUE;
                             -- DEBUG_BEGIN
-                            dbg_data_in_reg <= '1'; -- Veri geldi, hesaplama basliyor
+                            dbg_data_in_reg <= '1'; -- data has arrived, computation starts
                             -- DEBUG_END
                         end if;
                         
@@ -317,12 +337,13 @@ begin
                             if layer_idx = 4 then
                                 done <= '1';
                                 busy <= '0';
+                                cyc_hold <= cyc_run;
                                 state <= ST_IDLE;
                                 -- DEBUG_BEGIN
                                 dbg_layer4_done_reg <= '1';
                                 -- DEBUG_END
                             else
-                                -- DEBUG_BEGIN (Layer tamamlandi pulse'i)
+                                -- DEBUG_BEGIN (layer-complete pulse)
                                 case layer_idx is
                                     when 1 => dbg_layer1_done_reg <= '1';
                                     when 2 => dbg_layer2_done_reg <= '1';
@@ -342,10 +363,10 @@ begin
     end process;
 
     -- Mux Current Inputs
-    -- HATA DUZELTMESI: onceden layer_pipe(2) kullaniliyordu. in_reg ile w_reg
-    -- ayni kenarda yakalaniyor ve o verinin token'i 1. kademede; mux bir
-    -- kademe ileriye bakinca her katman yanlis ping-pong buffer'indan
-    -- okuyordu (L2 buf_A'dan, L3 buf_B'den...). MUX_STAGE ile duzeltildi.
+    -- DEFECT FIX: this used layer_pipe(2). in_reg and w_reg are
+    -- captured on the same edge and that data's token is at stage 1,
+    -- so looking one stage ahead made every layer read the wrong
+    -- ping-pong buffer (L2 from buf_A, L3 from buf_B). Fixed by MUX_STAGE.
     process(layer_pipe(MUX_STAGE), buf_A, buf_B)
     begin
         if layer_pipe(MUX_STAGE) = 1 or layer_pipe(MUX_STAGE) = 3 then
@@ -362,9 +383,9 @@ begin
     begin
         if rising_edge(clk) then
             -- Shift tracking tokens
-            -- valid_pipe / layer_pipe / iter_pipe kaydirmasi Issue FSM
-            -- prosesine tasindi (coklu surucu hatasi). Burada yalnizca
-            -- bias_pipe kaliyor; onun tek surucusu bu proses.
+            -- The valid_pipe / layer_pipe / iter_pipe shift moved to the Issue
+            -- FSM process to remove the multiple-driver error. Only bias_pipe
+            -- remains here, and this process is its only driver.
             for i in 1 to 12 loop
                 bias_pipe(i)  <= bias_pipe(i-1);
             end loop;
@@ -435,21 +456,21 @@ begin
             end loop;
             
             -- Stage 11: Bias Addition
-            -- HATA DUZELTMESI (simulasyon T2 ile saptandi):
-            -- Onceki kod bias_pipe(11) kullaniyordu. Agirlik yolu BRAM
-            -- cikisindan sum_l6'ya 9 kayit gecerken, bias 11 kayit geciyordu
-            -- -> bias, ait oldugu noronun 2 iterasyon (6 noron) gerisinden
-            -- geliyordu. Iki kayit geri alindi.
+            -- DEFECT FIX, found by simulation T2:
+            -- the previous code used bias_pipe(11). The weight path passes
+            -- nine registers from the BRAM output to sum_l6 while the bias
+            -- passed eleven, so the bias arrived two iterations, six neurons,
+            -- behind the neuron it belonged to. Two registers were removed.
             for n in 0 to PARALLEL_NEURONS-1 loop
                 final_sum_reg(n) <= sum_l6(n) + shift_left(resize(signed(bias_pipe(BIAS_STAGE)(n)), 40), 8);
             end loop;
             
             -- Stage 12: Activate & Writeback
-            -- HATA DUZELTMESI (simulasyon T1/T3 ile saptandi):
-            -- Onceki kod valid/iter/layer icin indis 12 kullaniyordu. Veri bu
-            -- noktaya token'indan 3 iterasyon ONCE variyordu -> her noronun
-            -- sonucu 9 indis geriye yaziliyordu (noron 0..8 tamamen kayboluyordu).
-            -- Indis 9'a cekildi; token artik veriyle ayni cevrimde.
+            -- DEFECT FIX, found by simulations T1 and T3:
+            -- the previous code used index 12 for valid/iter/layer. Data
+            -- reached this point three iterations ahead of its token, so every
+            -- result was written nine indices back and neurons 0 to 8 were lost
+            -- entirely. Pulled back to index 11, aligning token with data.
             fsm_wr_en <= valid_pipe(WB_STAGE);
             fsm_wb_base_idx <= iter_pipe(WB_STAGE) * 3;
             if layer_pipe(WB_STAGE) = 1 or layer_pipe(WB_STAGE) = 3 then
