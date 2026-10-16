@@ -134,9 +134,11 @@ def convert(topo, rf, strategy, outdir):
 
 def reference(topo, n):
     """Inputs (Q8.8 ints) and expected outputs from the bit-exact reference."""
+    # Real (untruncated) shape: vb.load_model() pads/clips every network to
+    # 64-32-16-3, which made 40-64-64-32-3 mismatch against the full hls4ml model.
+    from gen_shape_stim import real_layers, forward_real
     x = vb.parse_stream(os.path.join(VERIFY, "verify_stream.csv"), n, saturating=True)
-    (Wq, Bq), _ = vb.load_model(os.path.join(VERIFY, "models", MODELS[topo]))
-    y = vb.forward_q88(x, Wq, Bq)
+    y = forward_real(x, real_layers(os.path.join(VERIFY, "models", MODELS[topo])))
     return x[:, :N_IN], y
 
 

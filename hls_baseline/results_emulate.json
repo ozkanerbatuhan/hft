@@ -1,0 +1,22 @@
+{
+  "40-64-32-16-3": {
+    "n": 20000,
+    "outputs_match": 1.0,
+    "decision_match": 1.0
+  },
+  "40-64-64-32-3": {
+    "n": 20000,
+    "outputs_match": 1.0,
+    "decision_match": 1.0
+  },
+  "40-32-16-8-3": {
+    "n": 20000,
+    "outputs_match": 1.0,
+    "decision_match": 1.0
+  },
+  "40-10-16-8-3": {
+    "n": 20000,
+    "outputs_match": 1.0,
+    "decision_match": 1.0
+  }
+}

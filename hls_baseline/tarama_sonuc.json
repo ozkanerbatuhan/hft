@@ -1,0 +1,642 @@
+[
+  {
+    "topo": "40-10-16-8-3",
+    "rf": 8,
+    "strategy": "Resource",
+    "build_seconds": 222.5,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "5.751",
+        "BestLatency": "55",
+        "WorstLatency": "59",
+        "IntervalMin": "10",
+        "IntervalMax": "10",
+        "BRAM_18K": "38",
+        "DSP": "85",
+        "FF": "16298",
+        "LUT": "15294",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "5682",
+        "FF": "8392",
+        "BRAM_18K": "6",
+        "DSP48E": "84"
+      }
+    }
+  },
+  {
+    "topo": "40-10-16-8-3",
+    "rf": 16,
+    "strategy": "Resource",
+    "build_seconds": 196.0,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "12.196",
+        "BestLatency": "83",
+        "WorstLatency": "87",
+        "IntervalMin": "20",
+        "IntervalMax": "20",
+        "BRAM_18K": "19",
+        "DSP": "39",
+        "FF": "14571",
+        "LUT": "16764",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "7100",
+        "FF": "8821",
+        "BRAM_18K": "4.5",
+        "DSP48E": "39"
+      }
+    }
+  },
+  {
+    "topo": "40-10-16-8-3",
+    "rf": 32,
+    "strategy": "Resource",
+    "build_seconds": 204.6,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "12.462",
+        "BestLatency": "154",
+        "WorstLatency": "158",
+        "IntervalMin": "40",
+        "IntervalMax": "40",
+        "BRAM_18K": "10",
+        "DSP": "19",
+        "FF": "13812",
+        "LUT": "16557",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "7433",
+        "FF": "8956",
+        "BRAM_18K": "3",
+        "DSP48E": "19"
+      }
+    }
+  },
+  {
+    "topo": "40-10-16-8-3",
+    "rf": 64,
+    "strategy": "Resource",
+    "build_seconds": 172.4,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "12.939",
+        "BestLatency": "266",
+        "WorstLatency": "270",
+        "IntervalMin": "80",
+        "IntervalMax": "80",
+        "BRAM_18K": "5",
+        "DSP": "10",
+        "FF": "14088",
+        "LUT": "17679",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "8107",
+        "FF": "9587",
+        "BRAM_18K": "2.5",
+        "DSP48E": "10"
+      }
+    }
+  },
+  {
+    "topo": "40-10-16-8-3",
+    "rf": 128,
+    "strategy": "Resource",
+    "build_seconds": 176.7,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "14.488",
+        "BestLatency": "410",
+        "WorstLatency": "414",
+        "IntervalMin": "160",
+        "IntervalMax": "160",
+        "BRAM_18K": "5",
+        "DSP": "8",
+        "FF": "16073",
+        "LUT": "17222",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "8888",
+        "FF": "9592",
+        "BRAM_18K": "3",
+        "DSP48E": "8"
+      }
+    }
+  },
+  {
+    "topo": "40-32-16-8-3",
+    "rf": 8,
+    "strategy": "Resource",
+    "build_seconds": 271.1,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "5.751",
+        "BestLatency": "54",
+        "WorstLatency": "58",
+        "IntervalMin": "8",
+        "IntervalMax": "8",
+        "BRAM_18K": "109",
+        "DSP": "243",
+        "FF": "31599",
+        "LUT": "26473",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "10183",
+        "FF": "13409",
+        "BRAM_18K": "8.5",
+        "DSP48E": "201"
+      }
+    }
+  },
+  {
+    "topo": "40-32-16-8-3",
+    "rf": 16,
+    "strategy": "Resource",
+    "build_seconds": 225.5,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "5.751",
+        "BestLatency": "80",
+        "WorstLatency": "84",
+        "IntervalMin": "20",
+        "IntervalMax": "20",
+        "BRAM_18K": "49",
+        "DSP": "107",
+        "FF": "24420",
+        "LUT": "22997",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "9103",
+        "FF": "12893",
+        "BRAM_18K": "9",
+        "DSP48E": "108"
+      }
+    }
+  },
+  {
+    "topo": "40-32-16-8-3",
+    "rf": 32,
+    "strategy": "Resource",
+    "build_seconds": 196.7,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "12.223",
+        "BestLatency": "146",
+        "WorstLatency": "150",
+        "IntervalMin": "40",
+        "IntervalMax": "40",
+        "BRAM_18K": "24",
+        "DSP": "53",
+        "FF": "20945",
+        "LUT": "22436",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "9396",
+        "FF": "11939",
+        "BRAM_18K": "6.5",
+        "DSP48E": "53"
+      }
+    }
+  },
+  {
+    "topo": "40-32-16-8-3",
+    "rf": 64,
+    "strategy": "Resource",
+    "build_seconds": 237.6,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "12.462",
+        "BestLatency": "250",
+        "WorstLatency": "254",
+        "IntervalMin": "80",
+        "IntervalMax": "80",
+        "BRAM_18K": "13",
+        "DSP": "27",
+        "FF": "22296",
+        "LUT": "30816",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "14014",
+        "FF": "15037",
+        "BRAM_18K": "4",
+        "DSP48E": "27"
+      }
+    }
+  },
+  {
+    "topo": "40-32-16-8-3",
+    "rf": 128,
+    "strategy": "Resource",
+    "build_seconds": 193.3,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "12.939",
+        "BestLatency": "458",
+        "WorstLatency": "462",
+        "IntervalMin": "160",
+        "IntervalMax": "160",
+        "BRAM_18K": "8",
+        "DSP": "14",
+        "FF": "21245",
+        "LUT": "26206",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "12123",
+        "FF": "14101",
+        "BRAM_18K": "2.5",
+        "DSP48E": "14"
+      }
+    }
+  },
+  {
+    "topo": "40-64-32-16-3",
+    "rf": 8,
+    "strategy": "Resource",
+    "build_seconds": 766.9,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "5.751",
+        "BestLatency": "56",
+        "WorstLatency": "60",
+        "IntervalMin": "8",
+        "IntervalMax": "8",
+        "BRAM_18K": "288",
+        "DSP": "646",
+        "FF": "68920",
+        "LUT": "54583",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "119758",
+        "FF": "50833",
+        "BRAM_18K": "12",
+        "DSP48E": "220"
+      }
+    }
+  },
+  {
+    "topo": "40-64-32-16-3",
+    "rf": 16,
+    "strategy": "Resource",
+    "build_seconds": 1013.6,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "5.751",
+        "BestLatency": "89",
+        "WorstLatency": "93",
+        "IntervalMin": "20",
+        "IntervalMax": "20",
+        "BRAM_18K": "130",
+        "DSP": "291",
+        "FF": "50809",
+        "LUT": "46797",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "31852",
+        "FF": "26039",
+        "BRAM_18K": "28.5",
+        "DSP48E": "220"
+      }
+    }
+  },
+  {
+    "topo": "40-64-32-16-3",
+    "rf": 32,
+    "strategy": "Resource",
+    "build_seconds": 264.5,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "5.751",
+        "BestLatency": "139",
+        "WorstLatency": "143",
+        "IntervalMin": "40",
+        "IntervalMax": "40",
+        "BRAM_18K": "67",
+        "DSP": "147",
+        "FF": "41750",
+        "LUT": "41094",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "16904",
+        "FF": "21983",
+        "BRAM_18K": "15.5",
+        "DSP48E": "148"
+      }
+    }
+  },
+  {
+    "topo": "40-64-32-16-3",
+    "rf": 64,
+    "strategy": "Resource",
+    "build_seconds": 265.5,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "12.223",
+        "BestLatency": "274",
+        "WorstLatency": "278",
+        "IntervalMin": "80",
+        "IntervalMax": "80",
+        "BRAM_18K": "33",
+        "DSP": "73",
+        "FF": "41653",
+        "LUT": "54879",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "24037",
+        "FF": "26359",
+        "BRAM_18K": "8.5",
+        "DSP48E": "73"
+      }
+    }
+  },
+  {
+    "topo": "40-64-32-16-3",
+    "rf": 128,
+    "strategy": "Resource",
+    "build_seconds": 255.4,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "12.462",
+        "BestLatency": "482",
+        "WorstLatency": "486",
+        "IntervalMin": "160",
+        "IntervalMax": "160",
+        "BRAM_18K": "17",
+        "DSP": "37",
+        "FF": "40901",
+        "LUT": "53222",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "24168",
+        "FF": "26773",
+        "BRAM_18K": "5",
+        "DSP48E": "37"
+      }
+    }
+  },
+  {
+    "topo": "40-64-64-32-3",
+    "rf": 8,
+    "strategy": "Resource",
+    "build_seconds": 1142.7,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "5.751",
+        "BestLatency": "57",
+        "WorstLatency": "61",
+        "IntervalMin": "8",
+        "IntervalMax": "8",
+        "BRAM_18K": "490",
+        "DSP": "1100",
+        "FF": "105049",
+        "LUT": "81792",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "228808",
+        "FF": "87936",
+        "BRAM_18K": "13",
+        "DSP48E": "219"
+      }
+    }
+  },
+  {
+    "topo": "40-64-64-32-3",
+    "rf": 16,
+    "strategy": "Resource",
+    "build_seconds": 1887.4,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "5.751",
+        "BestLatency": "90",
+        "WorstLatency": "94",
+        "IntervalMin": "20",
+        "IntervalMax": "20",
+        "BRAM_18K": "231",
+        "DSP": "518",
+        "FF": "75935",
+        "LUT": "68737",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "91808",
+        "FF": "48775",
+        "BRAM_18K": "48",
+        "DSP48E": "220"
+      }
+    }
+  },
+  {
+    "topo": "40-64-64-32-3",
+    "rf": 32,
+    "strategy": "Resource",
+    "build_seconds": 368.0,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "5.751",
+        "BestLatency": "156",
+        "WorstLatency": "160",
+        "IntervalMin": "40",
+        "IntervalMax": "40",
+        "BRAM_18K": "117",
+        "DSP": "259",
+        "FF": "62858",
+        "LUT": "60749",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "31606",
+        "FF": "33563",
+        "BRAM_18K": "26.5",
+        "DSP48E": "220"
+      }
+    }
+  },
+  {
+    "topo": "40-64-64-32-3",
+    "rf": 64,
+    "strategy": "Resource",
+    "build_seconds": 301.9,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "12.196",
+        "BestLatency": "258",
+        "WorstLatency": "262",
+        "IntervalMin": "80",
+        "IntervalMax": "80",
+        "BRAM_18K": "59",
+        "DSP": "131",
+        "FF": "56948",
+        "LUT": "67746",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "29114",
+        "FF": "33327",
+        "BRAM_18K": "14",
+        "DSP48E": "131"
+      }
+    }
+  },
+  {
+    "topo": "40-64-64-32-3",
+    "rf": 128,
+    "strategy": "Resource",
+    "build_seconds": 301.3,
+    "report": {
+      "CSynthesisReport": {
+        "TargetClockPeriod": "8.00",
+        "EstimatedClockPeriod": "12.462",
+        "BestLatency": "530",
+        "WorstLatency": "534",
+        "IntervalMin": "160",
+        "IntervalMax": "160",
+        "BRAM_18K": "29",
+        "DSP": "65",
+        "FF": "58544",
+        "LUT": "79860",
+        "URAM": "0",
+        "AvailableBRAM_18K": "280",
+        "AvailableDSP": "220",
+        "AvailableFF": "106400",
+        "AvailableLUT": "53200",
+        "AvailableURAM": "0"
+      },
+      "VivadoSynthReport": {
+        "LUT": "34753",
+        "FF": "38507",
+        "BRAM_18K": "8",
+        "DSP48E": "65"
+      }
+    }
+  }
+]
