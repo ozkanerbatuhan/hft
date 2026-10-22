@@ -9,7 +9,7 @@
 # ==============================================================
 
 # Set the project path
-set project_dir "D:/vivado projects/hft"
+set project_dir "D:/30-akademik/hft-nn/vivado"
 
 # Open the block design
 open_bd_design "${project_dir}/hft.srcs/sources_1/bd/mlp_system/mlp_system.bd"

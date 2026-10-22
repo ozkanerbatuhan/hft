@@ -19,7 +19,7 @@ import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PY = r"C:/Users/ozkan/hls4ml-env/Scripts/python.exe"
-PRJ = r"D:/hls_prj"
+PRJ = r"D:/30-akademik/hft-nn/hls"
 TOOLS = r"D:\AMDDesignTools\2025.2"
 BUGUN = r"C:\Users\ozkan\OneDrive\Belgeler\BatuOS\.claude\scripts\bugun.py"
 

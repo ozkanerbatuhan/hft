@@ -19,7 +19,7 @@ import subprocess
 import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-PRJ = r"D:/hls_prj"
+PRJ = r"D:/30-akademik/hft-nn/hls"
 VIVADO = r"D:\AMDDesignTools\2025.2\Vivado\bin\vivado.bat"
 PART = "xc7z020clg484-1"
 CLOCK_NS = 8.0

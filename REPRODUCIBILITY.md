@@ -44,7 +44,7 @@ The artifact spans two repositories.
 Requires Vivado 2025.2. From the Vivado Tcl console:
 
 ```tcl
-cd {D:/vivado projects/hft}
+cd {D:/30-akademik/hft-nn/vivado}
 source rebuild_all.tcl
 ```
 

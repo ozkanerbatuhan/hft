@@ -30,7 +30,7 @@ import torch
 import torch.nn as nn
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-VERIFY = r"D:/vitis_projects/pc_test/verify"
+VERIFY = r"D:/30-akademik/hft-nn/hft-vitis/pc_test/verify"
 sys.path.insert(0, VERIFY)
 import verify_bitexact as vb  # noqa: E402  (reference model)
 
@@ -67,7 +67,7 @@ PART = "xc7z020clg484-1"
 CLOCK_NS = 8.0  # 125 MHz, same as the RTL design
 N_IN = 40
 # Vitis HLS rejects project paths containing spaces ("D:/vivado projects").
-PRJ = r"D:/hls_prj"
+PRJ = r"D:/30-akademik/hft-nn/hls"
 
 
 def raw_layers(path):

@@ -2,11 +2,11 @@
 # rebuild_all.tcl -- synthesis, implementation, bitstream, reports and .xsa
 #
 # Usage (Vivado Tcl console):
-#     cd {D:/vivado projects/hft}
+#     cd {D:/30-akademik/hft-nn/vivado}
 #     source rebuild_all.tcl
 #
 # Or in batch mode:
-#     vivado -mode batch -source {D:/vivado projects/hft/rebuild_all.tcl}
+#     vivado -mode batch -source {D:/30-akademik/hft-nn/vivado/rebuild_all.tcl}
 #
 # This replaces the earlier run_synth.tcl and build_bitstream.tcl, which
 # were broken in three ways:
@@ -18,7 +18,7 @@
 #   * Paths containing spaces were not braced, giving "No files matched".
 #=============================================================================
 
-set PRJ  {D:/vivado projects/hft}
+set PRJ  {D:/30-akademik/hft-nn/vivado}
 set RPT  "$PRJ/reports"
 set XSA  "$PRJ/mlp_system_wrapper.xsa"
 set JOBS 6

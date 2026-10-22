@@ -1,7 +1,7 @@
 import os
 
-in_path = r"d:\vivado projects\hft\hft.srcs\sources_1\new\weight_rom.vhd"
-out_path = r"d:\vivado projects\hft\hft.srcs\sources_1\new\weights_pkg.vhd"
+in_path = r"d:\30-akademik\hft-nn\vivado\hft.srcs\sources_1\new\weight_rom.vhd"
+out_path = r"d:\30-akademik\hft-nn\vivado\hft.srcs\sources_1\new\weights_pkg.vhd"
 
 with open(in_path, "r") as f:
     lines = f.readlines()
